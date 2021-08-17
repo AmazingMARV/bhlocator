@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row col-lg-6 offset-lg-3 col-sm-12">
 
-            <form action="/register" method="post" id="form-submit">
+            <form action="/register-client" method="post" id="form-submit">
                 <div class="container"> 
                     <div class="row">
                         <h2>REGISTRATION</h2>

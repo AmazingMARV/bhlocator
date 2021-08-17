@@ -5,11 +5,11 @@
     <div class="container">
         <div class="row col-lg-6 offset-lg-3 col-sm-12">
 
-            <form action="/register" method="post" id="form-submit">
+            <form action="/register-owner" method="post" id="form-submit">
                 <div class="container"> 
                     <div class="row">
                         <h2>REGISTRATION FOR OWNER</h2>
-                         <hr>
+                        <hr>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text" id="username" class="form-control"  placeholder="Username">
@@ -115,8 +115,6 @@
                                 <label for="floatingInput">Street</label>
                             </div>
                         </div>
-
-
                     </div>
                     <button type="submit" class="btn btn-primary">Register</button>
                 </div>
