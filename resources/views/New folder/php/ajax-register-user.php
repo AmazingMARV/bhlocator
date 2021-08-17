@@ -1,36 +1,50 @@
 <?php
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD']=='POST'){
+
     require 'config.php';
+    
 
     $user = $_POST['username'];
-    //$pwd = $_POST['username'];
+    $pwd = $_POST['password'];
     $lname = $_POST['lname'];
     $fname = $_POST['fname'];
     $mname = $_POST['mname'];
     $sex = $_POST['sex'];
-    $role = $_POST['role'];
+    $contact_no = $_POST['contact_no'];
+    $province = $_POST['province'];
+    $city = $_POST['city'];
+    $barangay = $_POST['barangay'];
+    $street = $_POST['street'];
+    $role = 'USER';
 
 
     $con = Connection::con();
-    $sql = "insert into users (username, lname, fname, mname, sex, role) values (:user, :lname, :fname, :mname, :sex, :role)";
+    $sql = "insert into users (username, password, lname, fname, mname, sex, contact_no, province, city, barangay, street, role) 
+        values (:user, :password, :lname, :fname, :mname, :sex, :contact_no, :province, :city, :barangay, :street, :role)";
     $stmt = $con->prepare($sql);
 
-    $paramters = array(
+    $paramaters = array(
         ':user' => $user,
+        ':password' => $pwd,
         ':lname' => $lname,
         ':fname' => $fname,
         ':mname' => $mname,
         ':sex' => $sex,
+        ':contact_no' => $contact_no,
+        ':province' => $province,
+        ':city' => $city,
+        ':barangay' => $barangay,
+        ':street' => $street,
         ':role' => $role,
     );
 
-    $stmt->execute($paramters);
-    
+    $stmt->execute($paramaters);
+
     //$res = $stmt->fetchAll();
     //$obj = new \stdClass();
 
-     $arr = ["status" => "saved"];
+    $arr = ["status" => "saved"];
      
     // foreach($res as $row){
 
@@ -46,4 +60,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // }
 
     echo json_encode($arr);
+
+    
 }
+    
+    
+
