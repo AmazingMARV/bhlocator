@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +22,12 @@
                 <p>This system aims to provide an ease access in finding boarding 
                 house in Tangub City.</p>
                 
-                <a href="register.html" class="btn btn-primary btn-margin">Looking for Transient Home</a>
-                <a href="register.html" class="btn btn-primary btn-margin">I am an owner</a>
-                <a href="login.html" class="btn btn-primary btn-margin">Login</a>
+                <a href="register.php" class="btn btn-primary btn-margin">Looking for Transient Home</a>
+                <a href="register.php" class="btn btn-primary btn-margin">I am an owner</a>
+                <a href="login.php" class="btn btn-primary btn-margin">Login</a>
             
                 
                 </div>
             </div>
-
-     
-    
 </body>
 </html>
