@@ -80,7 +80,19 @@
                                   </div>
                                   
                             </div>
+  
                         </div>
+
+                        <div class="row">
+                            <div class="col mb-3">
+                                <div class="form-floating mb-3">
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
+                                    <label for="floatingInput">Repeat Password</label>
+                                  </div>
+                                  
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col mb-3">
                                 <div class="form-floating mb-3">
@@ -152,6 +164,15 @@
                                     <option value="3">Three</option>
                                   </select>
                             </div>
+
+                            <div class="col mb-3">
+                                <div class="form-floating mb-3">
+                                    <input type="text" name="street" class="form-control"  placeholder="street">
+                                    <label for="floatingInput">Street</label>
+                                </div>
+                            </div>
+
+
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>
                     </div>
