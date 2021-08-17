@@ -8,6 +8,15 @@ body{
     background-color: #efefef;
 }
 
+.page-wrapper{
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('/img/bg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+}
 
 .login-panel{
     width: 500px;
@@ -27,14 +36,14 @@ body{
 
 .effect1{
     -webkit-box-shadow: 0 10px 6px -6px #777;
-       -moz-box-shadow: 0 10px 6px -6px #777;
-            box-shadow: 0 10px 6px -6px #777;
-  }
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+}
   
 
-  .register-container{
-      margin: 50px;
-  }
+.register-container{
+    margin: 50px;
+}
 
  
   
@@ -42,14 +51,7 @@ body{
       margin-bottom: 5px;
   }
 
-  .bg{
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('img/bg.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    color: white;
-  }
+
 
   .text-container{
       
