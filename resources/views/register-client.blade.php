@@ -32,7 +32,7 @@
                                         <input type="password" id="password" class="form-control" placeholder="Password">
                                         <label for="floatingInput">Password</label>
                                     </div>
-                                    <span id="error-username" class="text-danger"><small>test error</small></span>
+                                    <span id="error-password" class="text-danger"><small>test error</small></span>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
@@ -49,12 +49,14 @@
                                         <input type="text" id="fname" class="form-control"  placeholder="First Name">
                                         <label for="floatingInput">First Name</label>
                                     </div>
+                                    <span id="error-fname" class="error-msg">test error</span>
                                 </div>
                                 <div class="col-lg-6 mb-2">
                                     <div class="form-floating">
                                         <input type="text" id="mname" class="form-control"  placeholder="Middle Name">
                                         <label for="floatingInput">Middle Name</label>
                                     </div>
+                                    
                                 </div>
                             </div>
 
@@ -64,6 +66,7 @@
                                         <input type="text" id="lname" class="form-control"  placeholder="Last Name">
                                         <label for="floatingInput">Last Name</label>
                                     </div>
+                                    <span id="error-lname" class="error-msg">test error</span>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
@@ -82,6 +85,7 @@
                                         <input type="email" id="email" class="form-control" placeholder="name@example.com">
                                         <label for="floatingInput">Email address</label>
                                     </div>
+                                    <span id="error-email" class="error-msg">test error</span>
                                 </div>
                                 <div class="col-lg-4 mb-2">
                                     <div class="form-floating">
@@ -111,6 +115,7 @@
                                         </select>
                                         <label for="province">Province</label>
                                     </div>
+                                    <span id="error-province" class="error-msg">test error</span>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
@@ -121,8 +126,9 @@
                                             <option value="2">TUBOD</option>
                                             <option value="3">GINGOOG</option>
                                         </select>
-                                        <label for="province">City</label>
+                                        <label for="city">City</label>
                                     </div>
+                                    <span id="error-city" class="error-msg">test error</span>
                                 </div>
                             </div>
 
@@ -136,14 +142,16 @@
                                             <option value="3">AQUINO</option>
                                             <option value="3">POBLACION</option>
                                         </select>
-                                        <label for="province">Barangay</label>
+                                        <label for="barangay">Barangay</label>
                                     </div>
+                                    <span id="error-barangay" class="error-msg">test error</span>
                                 </div>
                                 <div class="col-lg-6 mb-2">
                                     <div class="form-floating">
                                         <input type="text" id="street" class="form-control"  placeholder="street">
                                         <label for="floatingInput">Street</label>
                                     </div>
+                                    <span id="error-street" class="error-msg">test error</span>
                                 </div>
                             </div>
 
