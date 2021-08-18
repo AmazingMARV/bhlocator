@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <script src="{{ asset('/js/jquery-3.5.1.js') }}"></script>
+    <script src="{{ asset('/js/axios.min.js') }}"></script>
+
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -39,7 +42,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -69,7 +72,7 @@
             </div>
         </nav> --}}
         @yield('content')
-        
+
     </div>
 </body>
 </html>

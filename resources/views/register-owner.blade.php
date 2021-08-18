@@ -141,8 +141,6 @@
                                 <button type="submit" class="btn btn-primary">Register</button>
                             </div>
                         </div>
-
-
                     </div> <!--container -->
                 </form>
             </div>

@@ -24,4 +24,7 @@ Auth::routes([
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/register-client', [App\Http\Controllers\RegisterCLientController::class, 'index'])->name('reg-client');
+Route::post('/register-client', [App\Http\Controllers\RegisterCLientController::class, 'store']);
+
+
 Route::get('/register-owner', [App\Http\Controllers\RegisterOwnerController::class, 'index'])->name('reg-owner');
