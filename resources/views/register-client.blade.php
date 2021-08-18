@@ -32,7 +32,7 @@
                                         <input type="password" id="password" class="form-control" placeholder="Password">
                                         <label for="floatingInput">Password</label>
                                     </div>
-                                    <span id="error-password" class="text-danger"></span>
+                                    <span id="error-password" class="error-msg"></span>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
@@ -108,8 +108,8 @@
                                 <div class="col-lg-6 mb-2">
                                     <div class="form-floating">
                                         <select class="form-select" id="province">
-                                            <option selected disabled>Select province</option>
-                                            <option value="1">LANAO DEL NORTE</option>
+                                          
+                                            <option value="LANAO DEL NORTE">LANAO DEL NORTE</option>
                                             <option value="2">MISAMIS OCCIDENTAL</option>
                                             <option value="3">MISAMIS ORIENTAL</option>
                                         </select>
@@ -121,7 +121,7 @@
                                 <div class="col-lg-6 mb-2">
                                     <div class="form-floating">
                                         <select class="form-select" id="city">
-                                            <option selected disabled>Select city</option>
+                                           
                                             <option value="1">OZAMIS CITY</option>
                                             <option value="2">TUBOD</option>
                                             <option value="3">GINGOOG</option>
@@ -136,7 +136,7 @@
                                 <div class="col-lg-6 mb-2">
                                     <div class="form-floating">
                                         <select class="form-select" id="barangay">
-                                            <option selected disabled>Select barangay</option>
+                                           
                                             <option value="1">CALABAYAN</option>
                                             <option value="2">MALORO</option>
                                             <option value="3">AQUINO</option>
@@ -206,7 +206,7 @@
                 sex: sex.value,
                 contact_no: contact_no.value,
                 email: email.value,
-                province: province.value,
+                province: province.options[province.selectedIndex].value,
                 city: city.value,
                 barangay: barangay.value,
                 street: street.value,
