@@ -22,6 +22,7 @@
                                         <input type="text" id="username" class="form-control"  placeholder="Username">
                                         <label for="floatingInput">Username</label>
                                     </div>
+                                    <span id="error-username" class="error-msg">test error</span>
                                 </div>
                             </div>
 
@@ -31,6 +32,7 @@
                                         <input type="password" id="password" class="form-control" placeholder="Password">
                                         <label for="floatingInput">Password</label>
                                     </div>
+                                    <span id="error-username" class="text-danger"><small>test error</small></span>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
@@ -203,16 +205,20 @@
                 street: street.value,
             }).then(res=>{
                 console.log(res.data);
+                if(res.data.remark === 'success'){
+                    alert('Account successfully saved.');
+                    window.location = '/login';
+                }
             }).catch(err => {
                 if(err.response.status === 422){
                     error.style.color = 'red';
                     let errors = err.response.data.errors
 
-                    console.log(errors);
+                    console.log(errors.password[0]);
 
-                    for(const n in errors){
-                        console.log(n.password);
-                    }
+                    // for(const n in errors){
+                    //     console.log(n.password.error);
+                    // }
 
                     // err.response.data.errors.forEach((n) => {
                     //     error.innerText = n + '<br>'

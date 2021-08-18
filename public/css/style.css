@@ -24,7 +24,7 @@ body{
     padding: 25px;
     background-color: white;
     border-radius: 10px;
-    
+
 }
 
 .login-container{
@@ -39,14 +39,14 @@ body{
     -moz-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -6px #777;
 }
-  
+
 
 .register-container{
     margin: 50px;
 }
 
- 
-  
+
+
   .hr{
       margin-bottom: 5px;
   }
@@ -54,12 +54,12 @@ body{
 
 
   .text-container{
-      
+
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      
+
   }
 
   .text-container p{
@@ -75,7 +75,7 @@ body{
   .bh-container{
     margin-top: 100px;
   }
-  
+
   .newarrival{
       background:green;
       width: 50px;
@@ -115,16 +115,16 @@ body{
   .board-container{
        width: 100%;
        margin-top: 10%;
-      
+
   }
 
   .myboarding{
       margin-top: 30px;
   }
-  
+
 .debug{
     border: 1px solid red;
-   
+
 }
 
 .account-container{
@@ -142,6 +142,15 @@ body{
     margin-top: 10px;
     text-align: center;
     padding: 40px;
-    
+
 }
 
+
+
+/*error handler style*/
+
+.error-msg{
+    font-size: 14px;
+    color: red;
+    font-style: italic;
+}
