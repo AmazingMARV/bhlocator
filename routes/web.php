@@ -28,3 +28,6 @@ Route::post('/register-client', [App\Http\Controllers\RegisterCLientController::
 
 
 Route::get('/register-owner', [App\Http\Controllers\RegisterOwnerController::class, 'index'])->name('reg-owner');
+Route::post('/register-owner', [App\Http\Controllers\RegisterOwnerController::class, 'store']);
+
+Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'index']);

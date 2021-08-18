@@ -63,6 +63,15 @@
                                         <label for="floatingInput">Last Name</label>
                                     </div>
                                 </div>
+
+                                <div class="col-lg-6 mb-2">
+                                    <div class="form-floating">
+                                        <input type="text" id="suffix" class="form-control"  placeholder="Suffix">
+                                        <label for="floatingInput">Suffix</label>
+                                    </div>
+                                </div>
+
+
                             </div>
 
                             <div class="row">
@@ -169,6 +178,7 @@
         let city = document.getElementById('city');
         let barangay = document.getElementById('barangay');
         let street = document.getElementById('street');
+        let suffix = document.getElementById('suffix');
 
         let error = document.getElementById('error');
 
@@ -183,6 +193,7 @@
                 lname: lname.value,
                 fname: fname.value,
                 mname: mname.value,
+                suffix: suffix.value,
                 sex: sex.value,
                 contact_no: contact_no.value,
                 email: email.value,

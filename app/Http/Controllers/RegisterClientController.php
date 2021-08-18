@@ -37,6 +37,7 @@ class RegisterClientController extends Controller
             'fname' => strtoupper($req->fname),
             'mname' => strtoupper($req->mname),
             'sex' => strtoupper($req->sex),
+            'suffix' => strtoupper($req->suffix),
             'contact_no' => $req->contact_no,
             'email' => $req->email,
             'province' => $req->province,

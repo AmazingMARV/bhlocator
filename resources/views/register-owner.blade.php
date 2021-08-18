@@ -28,15 +28,15 @@
                         <div class="row">
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
-                                    <input type="password" id="confirm_password" class="form-control" placeholder="Confirm Password">
-                                    <label for="floatingInput">Confirm Password</label>
+                                    <input type="password" id="password" class="form-control" placeholder="Confirm Password">
+                                    <label for="floatingInput"> Password</label>
                                   </div>
                             </div>
 
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
-                                    <input type="password" id="password" class="form-control" placeholder="Password">
-                                    <label for="floatingInput">Password</label>
+                                    <input type="password" id="password_confirmation" class="form-control" placeholder="Password">
+                                    <label for="floatingInput">Confirm Password</label>
                                   </div>
                             </div>
                         </div>
@@ -57,13 +57,33 @@
                         </div>
 
                         <div class="row">
-                            <div class="col mb-2">
+                            <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
                                     <input type="text" id="lname" class="form-control"  placeholder="Last Name">
                                     <label for="floatingInput">Last Name</label>
                                 </div>
                             </div>
+
+                            <div class="col-lg-6 mb-2">
+                                    <div class="form-floating">
+                                        <input type="text" id="suffix" class="form-control"  placeholder="Suffix">
+                                        <label for="floatingInput">Suffix</label>
+                                    </div>
+                            </div>
+
+
                         </div>
+
+                        <div class="row">
+                            <div class="col mb-2">
+                                <div class="form-floating">
+                                    <input type="text" id="business_permit" class="form-control"  placeholder="Business Permit #">
+                                    <label for="floatingInput">Business Permit #</label>
+                                </div>
+                            </div>
+                        </div>
+
+
 
                         <div class="row">
                             <div class="col-lg-4 mb-2">
@@ -147,4 +167,68 @@
         </div>
     </div>
 </div>
+
+<script>
+
+        let username = document.getElementById('username');
+        let password = document.getElementById('password');
+        let lname = document.getElementById('lname');
+        let fname = document.getElementById('fname');
+        let mname = document.getElementById('mname');
+        let sex = document.getElementById('sex');
+        let contact_no = document.getElementById('contact_no');
+        let email = document.getElementById('email');
+        let province = document.getElementById('province');
+        let city = document.getElementById('city');
+        let barangay = document.getElementById('barangay');
+        let street = document.getElementById('street');
+        let suffix = document.getElementById('suffix');
+        let business_permit = document.getElementById('business_permit');
+
+        let error = document.getElementById('error');
+
+
+        document.getElementById('form-submit').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            axios.post('/register-owner', {
+                username: username.value,
+                password: password.value,
+                password_confirmation: password_confirmation.value,
+                lname: lname.value,
+                fname: fname.value,
+                mname: mname.value,
+                sex: sex.value,
+                suffix: suffix.value,
+                business_permit: business_permit.value,
+                contact_no: contact_no.value,
+                email: email.value,
+                province: province.value,
+                city: city.value,
+                barangay: barangay.value,
+                street: street.value,
+            }).then(res=>{
+                console.log(res.data);
+            }).catch(err => {
+                if(err.response.status === 422){
+                    error.style.color = 'red';
+                    let errors = err.response.data.errors
+
+                    console.log(errors);
+
+                    for(const n in errors){
+                        console.log(n.password);
+                    }
+
+                    // err.response.data.errors.forEach((n) => {
+                    //     error.innerText = n + '<br>'
+                    // });
+                }
+            });
+        });
+
+
+
+    </script>
+
 @endsection
