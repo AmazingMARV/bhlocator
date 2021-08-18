@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
     <div class="login-container">
         <div class="login-panel effect1">
             <h2>Account Login</h2>
@@ -16,8 +16,9 @@
                     <label for="floatingPassword">Password</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
+                <a href="/register-client">Register New Account Here</a>
             </form>
-            
+
         </div>
     </div>
 @endsection
