@@ -22,7 +22,7 @@
                                         <input type="text" id="username" class="form-control"  placeholder="Username">
                                         <label for="floatingInput">Username</label>
                                     </div>
-                                    <span id="error-username" class="error-msg">test error</span>
+                                    <span id="error-username" class="error-msg"></span>
                                 </div>
                             </div>
 
@@ -32,7 +32,7 @@
                                         <input type="password" id="password" class="form-control" placeholder="Password">
                                         <label for="floatingInput">Password</label>
                                     </div>
-                                    <span id="error-password" class="text-danger"><small>test error</small></span>
+                                    <span id="error-password" class="text-danger"></span>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
@@ -49,14 +49,14 @@
                                         <input type="text" id="fname" class="form-control"  placeholder="First Name">
                                         <label for="floatingInput">First Name</label>
                                     </div>
-                                    <span id="error-fname" class="error-msg">test error</span>
+                                    <span id="error-fname" class="error-msg"></span>
                                 </div>
                                 <div class="col-lg-6 mb-2">
                                     <div class="form-floating">
                                         <input type="text" id="mname" class="form-control"  placeholder="Middle Name">
                                         <label for="floatingInput">Middle Name</label>
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
@@ -66,7 +66,7 @@
                                         <input type="text" id="lname" class="form-control"  placeholder="Last Name">
                                         <label for="floatingInput">Last Name</label>
                                     </div>
-                                    <span id="error-lname" class="error-msg">test error</span>
+                                    <span id="error-lname" class="error-msg"></span>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
@@ -85,7 +85,7 @@
                                         <input type="email" id="email" class="form-control" placeholder="name@example.com">
                                         <label for="floatingInput">Email address</label>
                                     </div>
-                                    <span id="error-email" class="error-msg">test error</span>
+                                    <span id="error-email" class="error-msg"></span>
                                 </div>
                                 <div class="col-lg-4 mb-2">
                                     <div class="form-floating">
@@ -115,7 +115,7 @@
                                         </select>
                                         <label for="province">Province</label>
                                     </div>
-                                    <span id="error-province" class="error-msg">test error</span>
+                                    <span id="error-province" class="error-msg"></span>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
@@ -128,7 +128,7 @@
                                         </select>
                                         <label for="city">City</label>
                                     </div>
-                                    <span id="error-city" class="error-msg">test error</span>
+                                    <span id="error-city" class="error-msg"></span>
                                 </div>
                             </div>
 
@@ -144,14 +144,13 @@
                                         </select>
                                         <label for="barangay">Barangay</label>
                                     </div>
-                                    <span id="error-barangay" class="error-msg">test error</span>
+                                    <span id="error-barangay" class="error-msg"></span>
                                 </div>
                                 <div class="col-lg-6 mb-2">
                                     <div class="form-floating">
                                         <input type="text" id="street" class="form-control"  placeholder="street">
                                         <label for="floatingInput">Street</label>
                                     </div>
-                                    <span id="error-street" class="error-msg">test error</span>
                                 </div>
                             </div>
 
@@ -223,14 +222,17 @@
                     let errors = err.response.data.errors
 
                     console.log(errors.password[0]);
+                    if(errors.password){
+                        document.getElementById('error-password').innerText = errors.password[0];
+                        document.getElementById('error-username').innerText = errors.username[0];
+                        document.getElementById('error-lname').innerText = errors.lname[0];
+                        document.getElementById('error-fname').innerText = errors.fname[0];
+                        document.getElementById('error-email').innerText = errors.email[0];
+                        document.getElementById('error-province').innerText = errors.province[0];
+                        document.getElementById('error-city').innerText = errors.city[0];
+                        document.getElementById('error-barangay').innerText = errors.barangay[0];
 
-                    // for(const n in errors){
-                    //     console.log(n.password.error);
-                    // }
-
-                    // err.response.data.errors.forEach((n) => {
-                    //     error.innerText = n + '<br>'
-                    // });
+                    }
                 }
             });
         });
