@@ -119,11 +119,7 @@
                         <div class="row">
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
-                                    <select class="form-select" id="province">
-                                        <option selected disabled>Select province</option>
-                                        <option value="1">LANAO DEL NORTE</option>
-                                        <option value="2">MISAMIS OCCIDENTAL</option>
-                                        <option value="3">MISAMIS ORIENTAL</option>
+                                    <select class="form-select" id="province"  onchange="loadCity(this)">
                                     </select>
                                     <label for="province">Province</label>
                                 </div>
@@ -132,11 +128,7 @@
 
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
-                                    <select class="form-select" id="city">
-                                        <option selected disabled>Select city</option>
-                                        <option value="1">OZAMIS CITY</option>
-                                        <option value="2">TUBOD</option>
-                                        <option value="3">GINGOOG</option>
+                                    <select class="form-select" id="city" onchange="loadBarangay(this)">
                                     </select>
                                     <label for="city">City</label>
                                 </div>
@@ -148,11 +140,6 @@
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
                                     <select class="form-select" id="barangay">
-                                        <option selected disabled>Select barangay</option>
-                                        <option value="1">CALABAYAN</option>
-                                        <option value="2">MALORO</option>
-                                        <option value="3">AQUINO</option>
-                                        <option value="3">POBLACION</option>
                                     </select>
                                     <label for="province">Barangay</label>
                                 </div>
@@ -249,6 +236,50 @@
             });
         });
 
+
+        loadProovince();
+
+        function loadProovince(){
+            axios.get('/address/provinces').then(res=>{
+                let provinces = res.data;
+                let province = document.getElementById("province");
+                let str = '';
+                for (var item of provinces) {
+                    str += "<option value="+item.provCode+">" + item.provDesc + "</option>"
+                }
+               province.innerHTML = str;
+
+
+                //loadCity(province.value);
+            })
+            
+        }
+
+        function loadCity(provcode){
+            axios.get('/address/cities/'+provcode.value).then(res=>{
+                let cities = res.data;
+                let city = document.getElementById("city");
+                let str = '';
+                for (let item of cities) {
+                    str += "<option value="+item.citymunCode+">" + item.citymunDesc + "</option>"
+                }
+                city.innerHTML = str;
+            })
+            
+        }
+
+        function loadBarangay(citycode){
+            axios.get('/address/barangays/'+citycode.value).then(res=>{
+                let barangays = res.data;
+                let barangay = document.getElementById("barangay");
+                let str = '';
+                for (let item of barangays) {
+                    str += "<option value="+item.brgyCode+">" + item.brgyDesc + "</option>"
+                }
+                barangay.innerHTML = str;
+            })
+            
+        }
 
 
     </script>
