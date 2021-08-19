@@ -22,7 +22,7 @@
                                     <input type="text" id="username" class="form-control"  placeholder="Username">
                                     <label for="floatingInput">Username</label>
                                 </div>
-                                <span id="error-username" class="error-msg">test error</span>
+                                <span id="error-username" class="error-msg"></span>
                             </div>
                         </div>
 
@@ -32,7 +32,7 @@
                                     <input type="password" id="password" class="form-control" placeholder="Confirm Password">
                                     <label for="floatingInput"> Password</label>
                                   </div>
-                                  <span id="error-password" class="error-msg">test error</span>
+                                  <span id="error-password" class="error-msg"></span>
                             </div>
 
                             <div class="col-lg-6 mb-2">
@@ -49,7 +49,7 @@
                                     <input type="text" id="fname" class="form-control"  placeholder="First Name">
                                     <label for="floatingInput">First Name</label>
                                   </div>
-                                  <span id="error-fname" class="error-msg">test error</span>
+                                  <span id="error-fname" class="error-msg"></span>
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
@@ -66,7 +66,7 @@
                                     <input type="text" id="lname" class="form-control"  placeholder="Last Name">
                                     <label for="floatingInput">Last Name</label>
                                 </div>
-                                <span id="error-lname" class="error-msg">test error</span>
+                                <span id="error-lname" class="error-msg"></span>
                             </div>
 
                             <div class="col-lg-6 mb-2">
@@ -85,7 +85,7 @@
                                     <input type="text" id="business_permit" class="form-control"  placeholder="Business Permit #">
                                     <label for="floatingInput">Business Permit #</label>
                                 </div>
-                                <span id="error-business_permit" class="error-msg">test error</span>
+                                <span id="error-business_permit" class="error-msg"></span>
                             </div>
                         </div>
 
@@ -97,7 +97,7 @@
                                     <input type="email" id="email" class="form-control" placeholder="name@example.com">
                                     <label for="floatingInput">Email address</label>
                                   </div>
-                                  <span id="error-email" class="error-msg">test error</span>
+                                  <span id="error-email" class="error-msg"></span>
                             </div>
                             <div class="col-lg-4 mb-2">
                                 <div class="form-floating">
@@ -127,7 +127,7 @@
                                     </select>
                                     <label for="province">Province</label>
                                 </div>
-                                <span id="error-province" class="error-msg">test error</span>
+                                <span id="error-province" class="error-msg"></span>
                             </div>
 
                             <div class="col-lg-6 mb-2">
@@ -140,7 +140,7 @@
                                     </select>
                                     <label for="city">City</label>
                                 </div>
-                                <span id="error-city" class="error-msg">test error</span>
+                                <span id="error-city" class="error-msg"></span>
                             </div>
                         </div>
 
@@ -156,14 +156,13 @@
                                     </select>
                                     <label for="province">Barangay</label>
                                 </div>
-                                <span id="error-barangay" class="error-msg">test error</span>
+                                <span id="error-barangay" class="error-msg"></span>
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
                                     <input type="text" id="street" class="form-control"  placeholder="street">
                                     <label for="floatingInput">Street</label>
                                 </div>
-                                <span id="error-street" class="error-msg">test error</span>
                             </div>
                         </div>
 
@@ -172,6 +171,13 @@
                                 <button type="submit" class="btn btn-primary">Register</button>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 mt-4">
+                                <span id="error"></span>
+                            </div>
+                        </div>
+
                     </div> <!--container -->
                 </form>
             </div>
@@ -186,6 +192,7 @@
         let lname = document.getElementById('lname');
         let fname = document.getElementById('fname');
         let mname = document.getElementById('mname');
+        let suffix = document.getElementById('suffix');
         let sex = document.getElementById('sex');
         let contact_no = document.getElementById('contact_no');
         let email = document.getElementById('email');
@@ -193,7 +200,6 @@
         let city = document.getElementById('city');
         let barangay = document.getElementById('barangay');
         let street = document.getElementById('street');
-        let suffix = document.getElementById('suffix');
         let business_permit = document.getElementById('business_permit');
 
         let error = document.getElementById('error');
@@ -209,8 +215,8 @@
                 lname: lname.value,
                 fname: fname.value,
                 mname: mname.value,
-                sex: sex.value,
                 suffix: suffix.value,
+                sex: sex.value,
                 business_permit: business_permit.value,
                 contact_no: contact_no.value,
                 email: email.value,
@@ -219,21 +225,26 @@
                 barangay: barangay.value,
                 street: street.value,
             }).then(res=>{
-                console.log(res.data);
+                if(res.data.remark === 'success'){
+                    alert('Account successfully saved.');
+                    window.location = '/login';
+                }
             }).catch(err => {
                 if(err.response.status === 422){
                     error.style.color = 'red';
                     let errors = err.response.data.errors
 
-                    console.log(errors);
-
-                    for(const n in errors){
-                        console.log(n.password);
+                    if(errors.password){
+                        document.getElementById('error-password').innerText = errors.password[0];
+                        document.getElementById('error-username').innerText = errors.username[0];
+                        document.getElementById('error-lname').innerText = errors.lname[0];
+                        document.getElementById('error-fname').innerText = errors.fname[0];
+                        document.getElementById('error-email').innerText = errors.email[0];
+                        document.getElementById('error-province').innerText = errors.province[0];
+                        document.getElementById('error-city').innerText = errors.city[0];
+                        document.getElementById('error-barangay').innerText = errors.barangay[0];
                     }
 
-                    // err.response.data.errors.forEach((n) => {
-                    //     error.innerText = n + '<br>'
-                    // });
                 }
             });
         });
