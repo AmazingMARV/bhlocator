@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="product-bottom text-center">
-                  <a href="/bh-desc.html" class="btn btn-secondary">Click To Visit</a>
+                  <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
                 </div>
               </div>  
 
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="product-bottom text-center">
-                  <a href="/bh-desc.html" class="btn btn-secondary">Click To Visit</a>
+                  <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
                 </div>
               </div>  
 
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="product-bottom text-center">
-                  <a href="/bh-desc.html" class="btn btn-secondary">Click To Visit</a>
+                  <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
                     
                 </div>
               </div>  

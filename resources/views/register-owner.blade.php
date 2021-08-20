@@ -163,7 +163,7 @@
                                     <input type="text" id="street" class="form-control"  placeholder="street">
                                     <label for="floatingInput">Street</label>
                                 </div>
-                                <span id="error-street" class="error-msg">test error</span>
+                                <span id="error-street-" class="error-msg">test error</span>
                             </div>
                         </div>
 
