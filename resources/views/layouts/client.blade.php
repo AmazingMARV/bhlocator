@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
@@ -27,18 +28,18 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/client-home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="reservation.html">My Reservation</a>
+                                <a class="nav-link" href="/client-reservation">My Reservation</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Username
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="user-account.html">Account Panel</a></li>
-                                    <li><a class="dropdown-item" href="change-pass.html">Change Password</a></li>
+                                    <li><a class="dropdown-item" href="/client-account-panel">Account Panel</a></li>
+                                    <li><a class="dropdown-item" href="/client-change-passowrd">Change Password</a></li>
                                     <li><a class="dropdown-item" href="#">Log Out</a></li>
                                 </ul>
                             </li>

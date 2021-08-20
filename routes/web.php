@@ -36,10 +36,15 @@ Route::get('/address/barangays/{citycode}', [App\Http\Controllers\AddressControl
 Route::get('/register-owner', [App\Http\Controllers\RegisterOwnerController::class, 'index'])->name('reg-owner');
 Route::post('/register-owner', [App\Http\Controllers\RegisterOwnerController::class, 'store']);
 
+
+//client
 Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'index']);
-
-
 
 Route::get('/session', function(){
     return Session::all();
 });
+
+Route::get('/client-reservation', [App\Http\Controllers\Client\ClientReservationController::class, 'index']);
+Route::get('/client-account-panel', [App\Http\Controllers\Client\ClientAccountPanelController::class, 'index']);
+Route::get('/client-change-passowrd', [App\Http\Controllers\Client\ClientChangePasswordController::class, 'index']);
+Route::get('/client-boarding-house-info', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'index']);
