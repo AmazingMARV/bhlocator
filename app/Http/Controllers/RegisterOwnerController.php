@@ -28,6 +28,9 @@ class RegisterOwnerController extends Controller
             'business_permit' => ['string', 'max:255', 'required'],
             'city' => ['string', 'max:255', 'required'],
             'barangay' => ['string', 'max:255', 'required'],
+        ], $message = [
+            'lname.required' => 'Lastname is required.',
+            'fname.required' => 'Firstname is required.',
         ]);
 
         User::create([

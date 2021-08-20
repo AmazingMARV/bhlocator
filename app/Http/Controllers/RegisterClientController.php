@@ -16,18 +16,21 @@ class RegisterClientController extends Controller
     }
 
     public function store(Request $req){
-
+       
         $req->validate([
-            'username' => ['string', 'max:50', 'required', 'unique:users'],
+            'username' => ['max:50', 'required', 'unique:users'],
             'password' => ['required', 'min:4', 'confirmed'],
-            'lname' => ['string', 'max:100', 'required'],
-            'fname' => ['string', 'max:100', 'required'],
+            'lname' => ['max:100', 'required'],
+            'fname' => ['max:100', 'required'],
             'sex' => ['string', 'max:15', 'required'],
-            'email' => ['string', 'max:70', 'required', 'unique:users'],
-            'contact_no' => ['string', 'max:15', 'required'],
-            'province' => ['string', 'max:255', 'required'],
-            'city' => ['string', 'max:255', 'required'],
-            'barangay' => ['string', 'max:255', 'required'],
+            'email' => ['max:70', 'required', 'unique:users'],
+            'contact_no' => ['max:15', 'required'],
+            'province' => ['max:255', 'required'],
+            'city' => ['max:255', 'required'],
+            'barangay' => ['max:255', 'required'],
+        ], $message = [
+            'lname.required' => 'Lastname is required.',
+            'fname.required' => 'Firstname is required.',
         ]);
 
         User::create([

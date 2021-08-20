@@ -27,6 +27,12 @@ Route::get('/register-client', [App\Http\Controllers\RegisterCLientController::c
 Route::post('/register-client', [App\Http\Controllers\RegisterCLientController::class, 'store']);
 
 
+//ADDRESSES
+Route::get('/address/provinces', [App\Http\Controllers\AddressController::class, 'provinces']);
+Route::get('/address/cities/{provcode}', [App\Http\Controllers\AddressController::class, 'cities']);
+Route::get('/address/barangays/{citycode}', [App\Http\Controllers\AddressController::class, 'barangays']);
+
+
 Route::get('/register-owner', [App\Http\Controllers\RegisterOwnerController::class, 'index'])->name('reg-owner');
 Route::post('/register-owner', [App\Http\Controllers\RegisterOwnerController::class, 'store']);
 
