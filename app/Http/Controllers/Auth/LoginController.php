@@ -42,5 +42,15 @@ class LoginController extends Controller
     public function username(){
         return 'username';
     }
+
+    public function redirectTo(){
+        if(Auth::user()->role == 'CLIENT'){
+            return '/';
+        }
+
+        if(Auth::user()->role == 'OWNER'){
+            return '/';
+        }
+    }
     
 }

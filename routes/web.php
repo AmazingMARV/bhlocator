@@ -37,3 +37,9 @@ Route::get('/register-owner', [App\Http\Controllers\RegisterOwnerController::cla
 Route::post('/register-owner', [App\Http\Controllers\RegisterOwnerController::class, 'store']);
 
 Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'index']);
+
+
+
+Route::get('/session', function(){
+    return Session::all();
+});
