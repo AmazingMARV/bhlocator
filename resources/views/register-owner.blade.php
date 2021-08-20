@@ -119,11 +119,7 @@
                         <div class="row">
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
-                                    <select class="form-select" id="province">
-                                        <option selected disabled>Select province</option>
-                                        <option value="1">LANAO DEL NORTE</option>
-                                        <option value="2">MISAMIS OCCIDENTAL</option>
-                                        <option value="3">MISAMIS ORIENTAL</option>
+                                    <select class="form-select" id="province"  onchange="loadCity(this)">
                                     </select>
                                     <label for="province">Province</label>
                                 </div>
@@ -132,11 +128,7 @@
 
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
-                                    <select class="form-select" id="city">
-                                        <option selected disabled>Select city</option>
-                                        <option value="1">OZAMIS CITY</option>
-                                        <option value="2">TUBOD</option>
-                                        <option value="3">GINGOOG</option>
+                                    <select class="form-select" id="city" onchange="loadBarangay(this)">
                                     </select>
                                     <label for="city">City</label>
                                 </div>
@@ -148,11 +140,6 @@
                             <div class="col-lg-6 mb-2">
                                 <div class="form-floating">
                                     <select class="form-select" id="barangay">
-                                        <option selected disabled>Select barangay</option>
-                                        <option value="1">CALABAYAN</option>
-                                        <option value="2">MALORO</option>
-                                        <option value="3">AQUINO</option>
-                                        <option value="3">POBLACION</option>
                                     </select>
                                     <label for="province">Barangay</label>
                                 </div>
@@ -163,7 +150,6 @@
                                     <input type="text" id="street" class="form-control"  placeholder="street">
                                     <label for="floatingInput">Street</label>
                                 </div>
-                                <span id="error-street" class="error-msg"></span>
                             </div>
                         </div>
 
@@ -172,6 +158,13 @@
                                 <button type="submit" class="btn btn-primary">Register</button>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 mt-4">
+                                <span id="error"></span>
+                            </div>
+                        </div>
+
                     </div> <!--container -->
                 </form>
             </div>
@@ -186,6 +179,7 @@
         let lname = document.getElementById('lname');
         let fname = document.getElementById('fname');
         let mname = document.getElementById('mname');
+        let suffix = document.getElementById('suffix');
         let sex = document.getElementById('sex');
         let contact_no = document.getElementById('contact_no');
         let email = document.getElementById('email');
@@ -193,7 +187,6 @@
         let city = document.getElementById('city');
         let barangay = document.getElementById('barangay');
         let street = document.getElementById('street');
-        let suffix = document.getElementById('suffix');
         let business_permit = document.getElementById('business_permit');
 
         let error = document.getElementById('error');
@@ -209,8 +202,8 @@
                 lname: lname.value,
                 fname: fname.value,
                 mname: mname.value,
-                sex: sex.value,
                 suffix: suffix.value,
+                sex: sex.value,
                 business_permit: business_permit.value,
                 contact_no: contact_no.value,
                 email: email.value,
@@ -219,25 +212,74 @@
                 barangay: barangay.value,
                 street: street.value,
             }).then(res=>{
-                console.log(res.data);
+                if(res.data.remark === 'success'){
+                    alert('Account successfully saved.');
+                    window.location = '/login';
+                }
             }).catch(err => {
                 if(err.response.status === 422){
                     error.style.color = 'red';
                     let errors = err.response.data.errors
 
-                    console.log(errors);
-
-                    for(const n in errors){
-                        console.log(n.password);
+                    if(errors.password){
+                        document.getElementById('error-password').innerText = errors.password[0];
+                        document.getElementById('error-username').innerText = errors.username[0];
+                        document.getElementById('error-lname').innerText = errors.lname[0];
+                        document.getElementById('error-fname').innerText = errors.fname[0];
+                        document.getElementById('error-email').innerText = errors.email[0];
+                        document.getElementById('error-province').innerText = errors.province[0];
+                        document.getElementById('error-city').innerText = errors.city[0];
+                        document.getElementById('error-barangay').innerText = errors.barangay[0];
                     }
 
-                    // err.response.data.errors.forEach((n) => {
-                    //     error.innerText = n + '<br>'
-                    // });
                 }
             });
         });
 
+
+        loadProovince();
+
+        function loadProovince(){
+            axios.get('/address/provinces').then(res=>{
+                let provinces = res.data;
+                let province = document.getElementById("province");
+                let str = '';
+                for (var item of provinces) {
+                    str += "<option value="+item.provCode+">" + item.provDesc + "</option>"
+                }
+               province.innerHTML = str;
+
+
+                //loadCity(province.value);
+            })
+            
+        }
+
+        function loadCity(provcode){
+            axios.get('/address/cities/'+provcode.value).then(res=>{
+                let cities = res.data;
+                let city = document.getElementById("city");
+                let str = '';
+                for (let item of cities) {
+                    str += "<option value="+item.citymunCode+">" + item.citymunDesc + "</option>"
+                }
+                city.innerHTML = str;
+            })
+            
+        }
+
+        function loadBarangay(citycode){
+            axios.get('/address/barangays/'+citycode.value).then(res=>{
+                let barangays = res.data;
+                let barangay = document.getElementById("barangay");
+                let str = '';
+                for (let item of barangays) {
+                    str += "<option value="+item.brgyCode+">" + item.brgyDesc + "</option>"
+                }
+                barangay.innerHTML = str;
+            })
+            
+        }
 
 
     </script>

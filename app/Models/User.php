@@ -21,8 +21,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'lname', 'fname', 'mname', 'sex',
-        'contact_no', 'email', 'city',
+        'lname', 'fname', 'mname', 'suffix', 'sex',
+        'contact_no', 'email', 'business_permit', 'province', 'city',
         'barangay', 'street', 'role',
     ];
 

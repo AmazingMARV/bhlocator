@@ -16,7 +16,7 @@ class RegisterClientController extends Controller
     }
 
     public function store(Request $req){
-
+       
         $req->validate([
             'username' => ['max:50', 'required', 'unique:users'],
             'password' => ['required', 'min:4', 'confirmed'],
