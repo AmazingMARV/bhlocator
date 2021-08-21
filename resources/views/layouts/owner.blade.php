@@ -65,7 +65,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="/dashboard-bhouse" class="nav-link text-white">
                     <span class="mdi mdi-monitor-dashboard"></span>
                     Boarding House
                 </a>
