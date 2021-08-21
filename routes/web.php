@@ -56,3 +56,6 @@ Route::get('/client-reservation', [App\Http\Controllers\Client\ClientReservation
 Route::get('/client-account-panel', [App\Http\Controllers\Client\ClientAccountPanelController::class, 'index']);
 Route::get('/client-change-passowrd', [App\Http\Controllers\Client\ClientChangePasswordController::class, 'index']);
 Route::get('/client-boarding-house-info', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'index']);
+
+//owner
+Route::get('/dashboard', [App\Http\Controllers\Owner\DashboardController::class, 'index']);
