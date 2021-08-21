@@ -59,7 +59,7 @@
          </div>
 
          <div class="row">
-             <div class="col-lg-6">
+             <div class="col-lg-6 mb-3">
                  <div class="form-floating">
                      <input type="text" class="form-control" name="contact_no" value="{{ $user->contact_no }}"  placeholder="Contact Number">
                      <label for="floatingInput">Contact Number</label>
@@ -157,9 +157,6 @@
 
                 loadBarangay(city.value);
             })
-
-
-
         }
 
         function loadBarangay(citycode){
