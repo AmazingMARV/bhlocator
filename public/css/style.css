@@ -127,13 +127,6 @@ body{
 
 }
 
-.account-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .row-margin{
     margin-top: 30px;
 }

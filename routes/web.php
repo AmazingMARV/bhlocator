@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,7 +43,14 @@ Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::cl
 
 Route::get('/session', function(){
     return Session::all();
+
 });
+
+Route::get('/logout', function(){
+    // return Session::all();
+   Auth::logout();
+});
+
 
 Route::get('/client-reservation', [App\Http\Controllers\Client\ClientReservationController::class, 'index']);
 Route::get('/client-account-panel', [App\Http\Controllers\Client\ClientAccountPanelController::class, 'index']);

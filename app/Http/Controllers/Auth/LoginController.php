@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -44,12 +46,13 @@ class LoginController extends Controller
     }
 
     public function redirectTo(){
+        
         if(Auth::user()->role == 'CLIENT'){
-            return '/';
+            return '/client-home';
         }
 
         if(Auth::user()->role == 'OWNER'){
-            return '/';
+            return '/owner-home';
         }
     }
     
