@@ -56,7 +56,9 @@ Route::get('/client-reservation', [App\Http\Controllers\Client\ClientReservation
 Route::get('/client-account-panel', [App\Http\Controllers\Client\ClientAccountPanelController::class, 'index']);
 Route::post('/client-account-panel', [App\Http\Controllers\Client\ClientAccountPanelController::class, 'update']);
 
-Route::get('/client-change-passowrd', [App\Http\Controllers\Client\ClientChangePasswordController::class, 'index']);
+Route::get('/client-change-password', [App\Http\Controllers\Client\ClientChangePasswordController::class, 'index']);
+Route::post('/client-change-password', [App\Http\Controllers\Client\ClientChangePasswordController::class, 'changePasword']);
+
 Route::get('/client-boarding-house-info', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'index']);
 
 //owner

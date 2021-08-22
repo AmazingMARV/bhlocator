@@ -40,7 +40,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/client-account-panel">Account Panel</a></li>
-                                <li><a class="dropdown-item" href="/client-change-passowrd">Change Password</a></li>
+                                <li><a class="dropdown-item" href="/client-change-password">Change Password</a></li>
                                 <li><a class="dropdown-item" onclick="document.getElementById('logout-form').submit();">Log Out</a></li>
                             </ul>
 

@@ -17,6 +17,7 @@
                         <input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}" placeholder="Username">
                         <label for="floatingInput">Username</label>
                     </div>
+                    <span id="error-username" class="error-msg"></span>
                 </div>
 
                 <div class="col-lg-6 mb-3">
@@ -24,6 +25,7 @@
                         <input type="email" class="form-control" name="email" id="email" value="{{ $user->email }}" placeholder="email here...">
                         <label for="floatingInput">Email address</label>
                     </div>
+                    <span id="error-email" class="error-msg"></span>
                 </div>
             </div>
             <div class="row">
@@ -32,6 +34,7 @@
                         <input type="text" class="form-control" name="fname" id="fname" value="{{ $user->fname }}"  placeholder="First Name" />
                         <label for="floatingInput">First Name</label>
                     </div>
+                    <span id="error-fname" class="error-msg"></span>
                 </div>
 
                 <div class="col-lg-6 mb-3">
@@ -48,6 +51,7 @@
                         <input type="text" class="form-control" name="lname" id="lname" value="{{ $user->lname }}"  placeholder="Last Name">
                         <label for="floatingInput">Last Name</label>
                     </div>
+                    <span id="error-lname" class="error-msg"></span>
                 </div>
 
                 <div class="col-lg-6 mb-3">
@@ -110,6 +114,7 @@
                         </select>
                         <label for="barangay">Barangay</label>
                     </div>
+                    <span id="error-barangay" class="error-msg"></span>
                 </div>
 
                 <div class="col-lg-6 mb-2">
