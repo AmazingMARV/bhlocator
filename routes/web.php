@@ -43,7 +43,6 @@ Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::cl
 
 Route::get('/session', function(){
     return Session::all();
-
 });
 
 Route::get('/logout', function(){
@@ -53,7 +52,10 @@ Route::get('/logout', function(){
 
 
 Route::get('/client-reservation', [App\Http\Controllers\Client\ClientReservationController::class, 'index']);
+
 Route::get('/client-account-panel', [App\Http\Controllers\Client\ClientAccountPanelController::class, 'index']);
+Route::post('/client-account-panel', [App\Http\Controllers\Client\ClientAccountPanelController::class, 'update']);
+
 Route::get('/client-change-passowrd', [App\Http\Controllers\Client\ClientChangePasswordController::class, 'index']);
 Route::get('/client-boarding-house-info', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'index']);
 

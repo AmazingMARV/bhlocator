@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -26,5 +28,27 @@ class ClientAccountPanelController extends Controller
 
         return view('client.client-account-panel')
             ->with('user', $user);
+    }
+
+
+    public function update(Request $req){
+        $userid = Auth::user()->user_id;
+        $user = User::find($userid);
+
+        $user->username = $req->username;
+        $user->lname = strtoupper($req->lname);
+        $user->fname = strtoupper($req->fname);
+        $user->mname = strtoupper($req->mname);
+        $user->sex = strtoupper($req->sex);
+        $user->contact_no = strtoupper($req->contact_no);
+        $user->province = strtoupper($req->province);
+        $user->city = strtoupper($req->city);
+        $user->barangay = strtoupper($req->barangay);
+        $user->street = strtoupper($req->street);
+        $user->save();
+
+        return response()->json([
+            'status' => 'updated'
+        ], 201);
     }
 }

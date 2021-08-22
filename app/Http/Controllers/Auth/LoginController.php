@@ -46,14 +46,14 @@ class LoginController extends Controller
     }
 
     public function redirectTo(){
-        
+
         if(Auth::user()->role == 'CLIENT'){
             return '/client-home';
         }
 
         if(Auth::user()->role == 'OWNER'){
-            return '/owner-home';
+            return '/dashboard';
         }
     }
-    
+
 }
