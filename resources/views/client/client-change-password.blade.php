@@ -8,16 +8,21 @@
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="old_password" placeholder="Old Password">
                 <label for="floatingPassword">Old Password</label>
+                <span id="error-password" class="error-msg"></span>
             </div>
 
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="new_password" placeholder=" New Password">
                 <label for="floatingPassword">New Password</label>
+                <span id="error-password" class="error-msg"></span>
+
             </div>
 
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="retype_password" placeholder="Password">
                 <label for="floatingPassword">Re-type New Password</label>
+                <span id="error-password" class="error-msg"></span>
+
             </div>
 
             <button type="button" id="btn-update" class="btn btn-primary">Save</button>
