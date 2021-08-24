@@ -54,6 +54,10 @@ class LoginController extends Controller
         if(Auth::user()->role == 'OWNER'){
             return '/dashboard';
         }
+
+        if(Auth::user()->role == 'ADMINISTRATOR'){
+            return '/admin-dashboard';
+        }
     }
 
 }
