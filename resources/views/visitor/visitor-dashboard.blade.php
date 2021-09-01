@@ -1,22 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.visitor')
 
 @section('content')
-    <div class="page-wrapper">
-        <div class="text-container">
-            <div class="text-center">
-                <h1>Welcome to My Boarding House Locator System</h1>
-                <p>This system aims to provide an ease access in finding boarding 
-                    house in Tangub City.</p>
-            
-                <a href="/visitor-dashboard" class="btn btn-primary btn-margin">Looking for Transient Home</a>
-                <a href="/register-owner" class="btn btn-primary btn-margin">I am an owner</a>
-                <a href="/login" class="btn btn-primary btn-margin">Login</a>
-            </div>
-        </div>
-    </div>
+<div class="d-flex justify-content-center">
+<h1>Hi, Visitor! Welcome to My Boarding Locator System</h1>
+</div>
 
     <div class="top-boarding-houses">
-        <h2>TOP BOARDING HOUSES</h2>
+        <h2>BOARDING HOUSES AND TRANSCIENT SPACES</h2>
         <hr>
 
         <div class="row">
@@ -26,7 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Amparado Boarding House</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="/visitor-browse-bh" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +27,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Amparado Boarding House</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="/visitor-browse-bh" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +38,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Amparado Boarding House</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="/visitor-browse-bh" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
@@ -59,7 +49,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Amparado Boarding House</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Click Here</a>
+                        <a href="/visitor-browse-bh" class="btn btn-primary">Click Here</a>
                     </div>
                 </div>
             </div>
@@ -67,4 +57,5 @@
 
         </div>
     </div> <!-- close div for top-boarding-houses-->
+
 @endsection
