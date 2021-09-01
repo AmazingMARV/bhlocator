@@ -69,8 +69,15 @@ Route::get('/dashboard-bhouse', [App\Http\Controllers\Owner\DashboardBhouseContr
 Route::get('/bhouse-create', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index1']);
 Route::get('/bhouse-create-bed', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index2']);
 
+
+
+
 //admin
 Route::get('/admin-dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index']);
+
+
+
+
 
 //visitor
 Route::get('/visitor-dashboard', [App\Http\Controllers\Visitor\VisitorDashboardController::class, 'index']);
