@@ -20,6 +20,7 @@ class CreateBhousesTable extends Migration
             $table->string('bhouse_name')->nullable();
             $table->string('bhouse_desc')->nullable();
             $table->string('bhouse_img')->nullable();
+            $table->string('bhouse_rule')->nullable();
             $table->string('loc_description')->nullable();
             $table->double('loc_x')->nullable();
             $table->double('loc_y')->nullable();

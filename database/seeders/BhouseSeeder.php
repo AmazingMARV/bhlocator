@@ -21,7 +21,7 @@ class BhouseSeeder extends Seeder
                 'bhouse_name' => 'ET BHOUSE1',
                 'bhouse_desc' => 'BED SIZE IS 32inch and 45in blah blah blah. Good for 1 person only',
                 'bhouse_img' => '',
-                'bhouse_rules' => 'lorem lorem',
+                'bhouse_rule' => 'lorem lorem',
                 'loc_description' => 'ET LOCATION',
                 'loc_x' => 12.32546,
                 'loc_y' => -8.5472
@@ -32,7 +32,7 @@ class BhouseSeeder extends Seeder
                 'bhouse_name' => 'ET BHOUSE2',
                 'bhouse_desc' => 'BED SIZE IS 32inch and 45in blah blah blah. Good for 2 person only',
                 'bhouse_img' => '',
-                'bhouse_rules' => 'lorem lorem',
+                'bhouse_rule' => 'lorem lorem',
                 'loc_description' => 'ET LOCATION',
                 'loc_x' => 12.32546,
                 'loc_y' => -8.5472
