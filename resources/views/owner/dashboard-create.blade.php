@@ -80,9 +80,12 @@
 
 
     <script>
-
         var bhouse_name = document.getElementById('bhouse_name');
-
-
+        var bhouse_desc = document.getElementById('bhouse_desc');
+        var bhouse_img = document.getElementById('bhouse_img');
+        var bhouse_rule = document.getElementById('bhouse_rule');
+        var loc_description = document.getElementById('loc_description');
+        var loc_x = document.getElementById('loc_x');
+        var loc_y = document.getElementById('loc_y');
     </script>
 @endsection

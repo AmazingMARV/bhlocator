@@ -34,4 +34,17 @@
                     
         </div>
     </div>
+
+    <script>
+        var bedroom_name = document.getElementById('bedroom_name');
+        var price = document.getElementById('price');
+        var is_available = document.getElementById('is_available');
+        var bed_amenities = document.getElementById('bed_amenities');
+        var bed_img = document.getElementById('bed_img');
+        
+
+
+
+
+    </script>
 @endsection
