@@ -28,14 +28,14 @@ class RedirectIfAuthenticated
                 if(Auth::user()->role == 'OWNER'){
                     return redirect('/dashboard');
                 }
+                if(Auth::user()->role == 'ADMIN'){
+                    return redirect('/admin-dashboard');
+                }
             }
-
-
 
             // if(Auth::user()->role == 'CLIENT'){
             //     return redirect('/owner-home');
             // }
-
 
         }
 
