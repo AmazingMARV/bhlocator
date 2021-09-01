@@ -21,8 +21,8 @@
                       <label for="amenities">Amenities</label>
                     </div>
                     <div class="mb-5">
-                        <label for="BHimg" class="form-label" >Upload photo of your boaring house/apartment</label>
-                        <input class="form-control" type="file" id="BHimg" name="BHimg">
+                        <label for="BEDimg" class="form-label" >Upload photo of your boaring house/apartment</label>
+                        <input class="form-control" type="file" id="BEDimg" name="BEDimg">
                       </div>
                     
                     

@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Description</label>
+                    <textarea class="form-control" placeholder="Description" id="bhouse_description" name="bhouse_description"style="height: 100px"></textarea>
+                    <label for="bhouse_description">Description</label>
                 </div>
             </div>
         </div>
@@ -29,8 +29,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">House Rules</label>
+                    <textarea class="form-control" placeholder="House Rules" id="bh_house_rules" name="bh_house_rules" style="height: 100px"></textarea>
+                    <label for="bh_house_rules">House Rules</label>
                 </div>
             </div>
         </div>
@@ -38,8 +38,8 @@
         <div class="row">
             <div class="col">
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Upload photo of your boarding house/apartment</label>
-                    <input class="form-control" type="file" id="formFile">
+                    <label for="BHimg" class="form-label">Upload photo of your boarding house/apartment</label>
+                    <input class="form-control" type="file" id="BHimg" name="BHimg">
                 </div>
             </div>
         </div>
