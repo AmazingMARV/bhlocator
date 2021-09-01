@@ -5,24 +5,24 @@
             <h3 class="mb-3">Room / Bed Information</h3>
             <hr>
             <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="floatingInput" placeholder="Enter Your Name">
-                      <label for="floatingInput">Bed / Room Name</label>
+                      <input type="text" class="form-control" id="bed_name" name="bed_name" placeholder="Bed / Room Name">
+                      <label for="bed_name">Bed / Room Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Enter Your Name">
-                        <label for="floatingInput">Price</label>
+                        <input type="text" class="form-control" id="price"  name="price" placeholder="Price">
+                        <label for="price">Price</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Enter Your Name">
-                        <label for="floatingInput">Availability</label>
+                        <input type="text" class="form-control" id="availability" name="availability" placeholder="Availability">
+                        <label for="availability">Availability</label>
                     </div>
                     <div class="form-floating mb-3">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                      <label for="floatingTextarea2">Amenities</label>
+                      <textarea class="form-control" placeholder="Amenities" id="amenities" name="amenities" style="height: 100px"></textarea>
+                      <label for="amenities">Amenities</label>
                     </div>
                     <div class="mb-5">
-                        <label for="formFile" class="form-label">Upload photo of your boaring house/apartment</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <label for="BEDimg" class="form-label" >Upload photo of your boaring house/apartment</label>
+                        <input class="form-control" type="file" id="BEDimg" name="BEDimg">
                       </div>
                     
                     
