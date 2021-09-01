@@ -77,4 +77,12 @@
         </div>
 
     </div> <!--container-->
+
+
+    <script>
+
+        var bhouse_name = document.getElementById('bhouse_name');
+
+
+    </script>
 @endsection
