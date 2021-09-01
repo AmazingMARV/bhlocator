@@ -70,3 +70,6 @@ Route::get('/bhouse-create-bed', [App\Http\Controllers\Owner\DashboardBhouseCont
 //admin
 Route::get('/admin-dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index']);
 
+//visitor
+Route::get('/visitor-dashboard', [App\Http\Controllers\Visitor\VisitorDashboardController::class, 'index']);
+Route::get('/visitor-browse-bh', [App\Http\Controllers\Visitor\VisitorDashboardController::class, 'index1']);
