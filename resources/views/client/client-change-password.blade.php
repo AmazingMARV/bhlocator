@@ -37,7 +37,7 @@
             let new_password = document.getElementById('new_password');
             let retype_password = document.getElementById('retype_password');
 
-            if(new_password.value != retype_password.value){
+            if(new_password.value !== retype_password.value){
                 alert('Password not matched.');
                 return;
             }

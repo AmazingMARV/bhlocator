@@ -62,7 +62,9 @@ Route::post('/client-change-password', [App\Http\Controllers\Client\ClientChange
 Route::get('/client-boarding-house-info', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'index']);
 
 //owner
-Route::get('/dashboard', [App\Http\Controllers\Owner\DashboardController::class, 'index']);
+Route::resource('/dashboard', App\Http\Controllers\Owner\DashboardController::class);
+
+
 Route::get('/dashboard-bhouse', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index']);
 Route::get('/bhouse-create', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index1']);
 Route::get('/bhouse-create-bed', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index2']);

@@ -52,26 +52,26 @@
 <body>
 
 <div id="app">
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-sidebar" style="width: 280px; height: 100vh;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark w-sidebar" style="width: 280px; height: 100vh; position: absolute; top: 0;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <span class="fs-4">BHOUSE DASHBOARD</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="/" class="nav-link active" aria-current="page">
+                <a href="/dashboard" class="nav-link {{ (request()->is('dashboard*')) ? 'active' : 'text-white' }}" aria-current="page">
                     <span class="mdi mdi-home"></span>
-                    Home
+                    DASHBOARD
                 </a>
             </li>
             <li>
-                <a href="/dashboard-bhouse" class="nav-link text-white">
+                <a href="/dashboard-bhouse" class="nav-link {{ (request()->is('boarding-house')) ? 'active' : 'text-white' }}">
                     <span class="mdi mdi-monitor-dashboard"></span>
                     Boarding House
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
+                <a href="#" class="nav-link {{ (request()->is('')) ? 'active' : 'text-white' }}">
                     <span class="mdi mdi-office-building-marker-outline"></span>
                     Location
                 </a>
