@@ -49,7 +49,24 @@ class UserSeeder extends Seeder
                 'city' => '104215',
                 'barangay' => '104215025',
                 'street' => 'P-BOUGAINVILLA',
-                'role' => 'OWNER'
+                'role' => 'CLIENT'
+            ],
+            [
+                'username' => 'admin',
+                'email' => 'admin@yahoo.com',
+                'password' => Hash::make('1234'),
+                'lname' => 'ADMIN',
+                'fname' => 'ADMIN1',
+                'mname' => '',
+                'suffix' => '',
+                'sex' => 'MALE',
+                'contact_no' => '123412',
+                'business_permit' => '1234-232',
+                'province' => '12343',
+                'city' => '12342',
+                'barangay' => '12165489',
+                'street' => 'P-BOUGAINVILLA',
+                'role' => 'ADMINISTRATOR'
             ]
         ];
 
