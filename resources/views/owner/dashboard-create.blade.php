@@ -20,8 +20,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="Description" id="bhouse_description" name="bhouse_description"style="height: 100px"></textarea>
-                    <label for="bhouse_description">Description</label>
+                    <textarea class="form-control" placeholder="Description" id="bhouse_desc" name="bhouse_desc"style="height: 100px"></textarea>
+                    <label for="bhouse_desc">Description</label>
                 </div>
             </div>
         </div>
@@ -29,8 +29,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="House Rules" id="bh_house_rules" name="bh_house_rules" style="height: 100px"></textarea>
-                    <label for="bh_house_rules">House Rules</label>
+                    <textarea class="form-control" placeholder="House Rules" id="bhouse_rule" name="bhouse_rule" style="height: 100px"></textarea>
+                    <label for="bhouse_rule">House Rules</label>
                 </div>
             </div>
         </div>
@@ -38,8 +38,8 @@
         <div class="row">
             <div class="col">
                 <div class="mb-3">
-                    <label for="BHimg" class="form-label">Upload photo of your boarding house/apartment</label>
-                    <input class="form-control" type="file" id="BHimg" name="BHimg">
+                    <label for="bhouse_img" class="form-label">Upload photo of your boarding house/apartment</label>
+                    <input class="form-control" type="file" id="bhouse_img" name="bhouse_img">
                 </div>
             </div>
         </div>
@@ -48,8 +48,8 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Location">
-                    <label for="floatingInput">Location Description</label>
+                    <input type="text" class="form-control" id="loc_description" name="loc_description"placeholder="Location">
+                    <label for="loc_description">Location Description</label>
                 </div>
             </div>
         </div>
@@ -57,14 +57,14 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Location">
-                    <label for="floatingInput">Location X</label>
+                    <input type="text" class="form-control" id="loc_x" name="loc_x" placeholder="Location">
+                    <label for="loc_x">Location X</label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Location">
-                    <label for="floatingInput">Location Y</label>
+                    <input type="text" class="form-control" id="loc_y" name="loc_y" placeholder="Location">
+                    <label for="loc_y">Location Y</label>
                 </div>
             </div>
         </div>
