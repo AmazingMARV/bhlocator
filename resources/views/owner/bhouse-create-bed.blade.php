@@ -17,8 +17,8 @@
                         <label for="availability">Availability</label>
                     </div>
                     <div class="form-floating mb-3">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="comment" name="comment" style="height: 100px"></textarea>
-                      <label for="comment">Amenities</label>
+                      <textarea class="form-control" placeholder="Amenities" id="amenities" name="amenities" style="height: 100px"></textarea>
+                      <label for="amenities">Amenities</label>
                     </div>
                     <div class="mb-5">
                         <label for="BHimg" class="form-label" >Upload photo of your boaring house/apartment</label>
