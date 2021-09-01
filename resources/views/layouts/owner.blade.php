@@ -64,12 +64,7 @@
                     DASHBOARD
                 </a>
             </li>
-            <li>
-                <a href="/dashboard-bhouse" class="nav-link {{ (request()->is('boarding-house')) ? 'active' : 'text-white' }}">
-                    <span class="mdi mdi-monitor-dashboard"></span>
-                    Boarding House
-                </a>
-            </li>
+            
             <li>
                 <a href="#" class="nav-link {{ (request()->is('')) ? 'active' : 'text-white' }}">
                     <span class="mdi mdi-office-building-marker-outline"></span>
