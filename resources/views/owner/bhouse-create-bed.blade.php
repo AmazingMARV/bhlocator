@@ -28,7 +28,7 @@
                     
                       <div class="d-flex justify-content-start">
               
-                          <button type="button" class="btn btn-primary" style="padding:5px 30px;">Save</button>
+                          <button class="btn btn-primary" style="padding:5px 30px;" id="bedInfo">Save</button>
                           
                       </div>
                     
@@ -41,6 +41,11 @@
         var is_available = document.getElementById('is_available');
         var bed_amenities = document.getElementById('bed_amenities');
         var bed_img = document.getElementById('bed_img');
-    
+
+        document.getElementById('bedInfo').addEventListener('click',function(){
+            console.log("anything");
+        })
+        
+
     </script>
 @endsection
