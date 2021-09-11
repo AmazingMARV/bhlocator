@@ -1,5 +1,7 @@
 @extends('layouts.owner')
+
 @section('content')
+<link rel="stylesheet" href="{{ asset('/css/leaflet.css ') }}">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -56,6 +58,13 @@
             </div>
         </div>
 
+
+        <div class="row">
+            <div class="col">
+                <div id="mapid"></div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
@@ -80,9 +89,27 @@
     </div> <!--container-->
 
    
-
+    <script src="{{ asset('/js/leaflet.js') }}"></script>
     <script>
 
+        //initiate map
+        var mymap = L.map('mapid').setView([8.058167338353346,123.72084975242615], 17);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZXRpZW5uZXdheW5lIiwiYSI6ImNrcno0N29seTE2bG0yd2szOXl5OXZ0ZWsifQ.xlNi77GcJmddd9UZTz1Hpw', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 16,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: ''
+        }).addTo(mymap);
+
+        //add marker map
+        // var marker = L.marker([8.067297619942783, 123.75230669975281]).addTo(mymap);
+        // marker.bindPopup("<b>PARCOTILLO APARTMENT</b><br>").openPopup();
+
+
+        //data here
         var bhouse_name = document.getElementById('bhouse_name');
         var bhouse_desc = document.getElementById('bhouse_desc');
         var bhouse_img = document.getElementById('bhouse_img');

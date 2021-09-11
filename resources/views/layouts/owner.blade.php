@@ -38,14 +38,13 @@
             }
         }
 
-        .w-sidebar{
-            position: absolute;
-        }
-
+      
         .w-content{
             margin-left: 280px;
             padding-left: 15px;
+            border: 1px solid red;
         }
+        
     </style>
 
 </head>
