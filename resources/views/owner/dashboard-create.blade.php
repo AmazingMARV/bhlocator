@@ -105,9 +105,7 @@
             formData.append('bhouse_img', bhouse_img);
 
         
-            axios.post('/dashboard', {
-                formData
-            }).then(res=>{
+            axios.post('/dashboard', formData}).then(res=>{
                 if(res.data.status === 'success'){
                     alert('Successfully saved.');
                     window.location = "/dashboard"
