@@ -31,15 +31,16 @@ class DashboardController extends Controller
 
     public function store(Request $req){
         
+         Bhouse::create[(
+            'bhouse_name' => $req->bhouse_name,
+            'bhouse_desc' =>$req->bhouse_desc,
+            'bhouse_img' =>$req->bhouse_img,
+            'bhouse_rule' =>$req->bhouse_rule,
+            'loc_description' => $req->loc_description,
+            'loc_x' => $req->loc_x,
+            'loc_y' => $req->loc_y,
+           
+        )];
         
-        $bhouses->bhouse_name = $req->bhouse_name;
-        $bhouses->bhouse_desc = ($req->bhouse_desc);
-        $bhouses->bhouse_img = ($req->bhouse_img);
-        $bhouses->bhouse_rule = ($req->bhouse_rule);
-        $bhouses->loc_description = strtoupper($req->loc_description);
-        $bhouses->loc_x = strtoupper($req->loc_x);
-        $bhouses->loc_y = strtoupper($req->loc_y);
-        
-        $bhouses->save();
     }
 }
