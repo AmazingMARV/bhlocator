@@ -88,22 +88,22 @@
         var loc_x = document.getElementById('loc_x');
         var loc_y = document.getElementById('loc_y');
 
-        document.getElementById('bhInfo').addEventListener('click',function(){
+        document.getElementById('bhInfo').addEventListener('click', function(){
         
-        axios.post('/dashboard', {
-            bhouse_name: bhouse_name.value,
-            bhouse_desc: bhouse_desc.value,
-            bhouse_img: bhouse_img.value,
-            bhouse_rule: bhouse_rule.value,
-            loc_description: loc_description.value,
-            loc_x: loc_x.value,
-            loc_y: loc_y.value
-        }).then(res=>{
-            if(res.data.remark === 'success'){
+            axios.post('/dashboard', {
+                bhouse_name: bhouse_name.value,
+                bhouse_desc: bhouse_desc.value,
+                bhouse_img: bhouse_img.value,
+                bhouse_rule: bhouse_rule.value,
+                loc_description: loc_description.value,
+                loc_x: loc_x.value,
+                loc_y: loc_y.value
+            }).then(res=>{
+                if(res.data.status === 'success'){
                     alert('Successfully saved.');
-                    
+                    window.location = "/dashboard"
                 }
-        })
-        })
+            });
+        });
     </script>
 @endsection

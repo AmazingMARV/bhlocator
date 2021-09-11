@@ -130,8 +130,9 @@ body{
 .w-sidebar{
     width: 280px;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
+    overflow-y: scroll;
 }
 
 .row-margin{
@@ -177,8 +178,19 @@ body{
 
 .bhouse-wrapper{
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 .bhouse-wrapper .card{
     margin: 20px;
+}
+
+/* dashboard button */
+.btn-create-dashboard{
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+   
 }
