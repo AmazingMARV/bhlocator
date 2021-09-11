@@ -38,10 +38,15 @@ class DashboardController extends Controller
 
         $req->validate([
             'bhouse_name' => ['required'],
+            'bhouse_desc' => ['required'],
+            'bhouse_rule' => ['required'],
             'bhouse_img' => ['mimes:jpg,png', 'max: 300'],
             'loc_x' => ['numeric'],
             'loc_y' => ['numeric']
         ], $message=[
+            'bhouse_name.required' => 'This field is required',
+            'bhouse_desc.required' => 'This field is required',
+            'bhouse_rule.required' => 'This field is required',
             'bhouse_img.mimes' => 'Image is not a valid format',
             'bhouse_img.max' => 'Image not greater than 300kb.',
             'loc_x.numeric' => 'Location X must be a number',
