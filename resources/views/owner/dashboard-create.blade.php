@@ -103,9 +103,13 @@
             formData.append('bhouse_name', bhouse_name);
             formData.append('bhouse_desc', bhouse_desc);
             formData.append('bhouse_img', bhouse_img);
+            formData.append('bhouse_rule', bhouse_rule);
+            formData.append('loc_description', loc_description);
+            formData.append('loc_x', loc_x);
+            formData.append('loc_y', loc_y);
 
         
-            axios.post('/dashboard', formData}).then(res=>{
+            axios.post('/dashboard', formData).then(res=>{
                 if(res.data.status === 'success'){
                     alert('Successfully saved.');
                     window.location = "/dashboard"
