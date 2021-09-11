@@ -41,6 +41,7 @@
 
                     <label for="bhouse_img" class="form-label">Upload photo of your boarding house/apartment</label>
                     <input class="form-control" type="file" id="bhouse_img" name="bhouse_img">
+                    <span class="text-danger" id="error-upload"></span>
                 </div>
             </div>
         </div>
@@ -78,8 +79,10 @@
 
     </div> <!--container-->
 
+   
 
     <script>
+
         var bhouse_name = document.getElementById('bhouse_name');
         var bhouse_desc = document.getElementById('bhouse_desc');
         var bhouse_img = document.getElementById('bhouse_img');
@@ -87,33 +90,37 @@
         var loc_description = document.getElementById('loc_description');
         var loc_x = document.getElementById('loc_x');
         var loc_y = document.getElementById('loc_y');
+        var button = document.getElementById('bhInfo');
 
-        document.getElementById('bhInfo').addEventListener('click', function(){
+        
+        button.addEventListener('click', function(){
 
             var formData = new FormData();
 
-            // bhouse_name: bhouse_name.value,
-            // bhouse_desc: bhouse_desc.value,
-            // bhouse_img: bhouse_img.value,
-            // bhouse_rule: bhouse_rule.value,
-            // loc_description: loc_description.value,
-            // loc_x: loc_x.value,
-            // loc_y: loc_y.value
-
-            formData.append('bhouse_name', bhouse_name);
-            formData.append('bhouse_desc', bhouse_desc);
-            formData.append('bhouse_img', bhouse_img);
-            formData.append('bhouse_rule', bhouse_rule);
-            formData.append('loc_description', loc_description);
-            formData.append('loc_x', loc_x);
-            formData.append('loc_y', loc_y);
+            formData.append('bhouse_name', bhouse_name.value);
+            formData.append('bhouse_desc', bhouse_desc.value);
+            formData.append('bhouse_img', bhouse_img.files[0]);
+            formData.append('bhouse_rule', bhouse_rule.value);
+            formData.append('loc_description', loc_description.value);
+            formData.append('loc_x', loc_x.value);
+            formData.append('loc_y', loc_y.value);
 
         
             axios.post('/dashboard', formData).then(res=>{
+                console.log(res);
                 if(res.data.status === 'success'){
                     alert('Successfully saved.');
                     window.location = "/dashboard"
                 }
+            }).catch(err=>{
+                //error and input handler
+                
+                if(err.response.data.errors.bhouse_img){
+                    document.getElementById('error-upload').innerText = err.response.data.errors.bhouse_img[0];
+                }
+
+                
+               
             });
         });
     </script>
