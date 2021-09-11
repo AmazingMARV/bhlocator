@@ -9,7 +9,7 @@
     <div class="bhouse-wrapper">
         @foreach($bhouses as $bhouse)
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{$bhouse->bhouse_img}}" alt="Card image cap">
+                <img class="card-img-top" src="/storage/bhouses/{{$bhouse->bhouse_img}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ $bhouse->bhouse_name }}</h5>
                     <p class="card-text">{{ $bhouse->bhouse_desc }}</p>
