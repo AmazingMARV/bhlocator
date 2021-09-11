@@ -38,10 +38,15 @@ class DashboardController extends Controller
 
         $req->validate([
             'bhouse_name' => ['required'],
+            'bhouse_desc' => ['required'],
+            'bhouse_rule' => ['required'],
             'bhouse_img' => ['mimes:jpg,png', 'max: 300'],
             'loc_x' => ['numeric'],
             'loc_y' => ['numeric']
         ], $message=[
+            'bhouse_name.required' => 'This field is required',
+            'bhouse_desc.required' => 'This field is required',
+            'bhouse_rule.required' => 'This field is required',
             'bhouse_img.mimes' => 'Image is not a valid format',
             'bhouse_img.max' => 'Image not greater than 300kb.',
             'loc_x.numeric' => 'Location X must be a number',
@@ -50,12 +55,14 @@ class DashboardController extends Controller
 
         $bhouseImg = $req->file('bhouse_img');
         $pathFile = $bhouseImg->store('public/bhouses'); //get path of the file
+        $n = explode('/', $pathFile); //split into array using /
+
         $user = Auth::user();
         Bhouse::create([
             'user_id' => $user->user_id,
             'bhouse_name' => $req->bhouse_name,
             'bhouse_desc' => $req->bhouse_desc,
-            'bhouse_img' => $pathFile,
+            'bhouse_img' => $n[2], //get the 3rd array which is the filename
             'bhouse_rule' =>$req->bhouse_rule,
             'loc_description' => $req->loc_description,
             'loc_x' => $req->loc_x,

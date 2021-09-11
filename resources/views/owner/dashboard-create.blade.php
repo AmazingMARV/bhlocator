@@ -15,6 +15,8 @@
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="bhouse_name" name="bhouse_name" placeholder="Enter">
                     <label for="bhouse_name">Name of the Bhouse/Apartment</label>
+                    <span class="text-danger" id="error-bhouse_name"></span>
+
                 </div>
             </div>
         </div>
@@ -24,6 +26,8 @@
                 <div class="form-floating mb-3">
                     <textarea class="form-control" placeholder="Description" id="bhouse_desc" name="bhouse_desc"style="height: 100px"></textarea>
                     <label for="bhouse_desc">Description</label>
+                    <span class="text-danger" id="error-bhouse_desc"></span>
+
                 </div>
             </div>
         </div>
@@ -33,6 +37,8 @@
                 <div class="form-floating mb-3">
                     <textarea class="form-control" placeholder="House Rules" id="bhouse_rule" name="bhouse_rule" style="height: 100px"></textarea>
                     <label for="bhouse_rule">House Rules</label>
+                    <span class="text-danger" id="error-bhouse_rule"></span>
+
                 </div>
             </div>
         </div>
@@ -70,12 +76,15 @@
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="loc_x" name="loc_x" placeholder="Location">
                     <label for="loc_x">Location X</label>
+                    <span class="text-danger" id="error-loc_x"></span>
+
                 </div>
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="loc_y" name="loc_y" placeholder="Location">
                     <label for="loc_y">Location Y</label>
+                    <span class="text-danger" id="error-loc_y"></span>
                 </div>
             </div>
         </div>
@@ -108,8 +117,17 @@
         // var marker = L.marker([8.067297619942783, 123.75230669975281]).addTo(mymap);
         // marker.bindPopup("<b>PARCOTILLO APARTMENT</b><br>").openPopup();
 
-
         //data here
+
+        function clearDataForms(){
+            document.getElementById('error-bhouse_name').innerText = "";
+            document.getElementById('error-bhouse_desc').innerText = "";
+            document.getElementById('error-bhouse_rule').innerText = "";
+            document.getElementById('error-upload').innerText = "";
+            document.getElementById('error-loc_x').innerText = "";
+            document.getElementById('error-loc_y').innerText = "";
+        }
+
         var bhouse_name = document.getElementById('bhouse_name');
         var bhouse_desc = document.getElementById('bhouse_desc');
         var bhouse_img = document.getElementById('bhouse_img');
@@ -120,8 +138,11 @@
         var button = document.getElementById('bhInfo');
 
         
+        
         button.addEventListener('click', function(){
 
+            clearDataForms();
+            
             var formData = new FormData();
 
             formData.append('bhouse_name', bhouse_name.value);
@@ -144,6 +165,26 @@
                 
                 if(err.response.data.errors.bhouse_img){
                     document.getElementById('error-upload').innerText = err.response.data.errors.bhouse_img[0];
+                }
+
+                if(err.response.data.errors.bhouse_name){
+                    document.getElementById('error-bhouse_name').innerText = err.response.data.errors.bhouse_name[0];
+                }
+                
+                if(err.response.data.errors.bhouse_desc){
+                    document.getElementById('error-bhouse_desc').innerText = err.response.data.errors.bhouse_desc[0];
+                }
+
+                if(err.response.data.errors.bhouse_rule){
+                    document.getElementById('error-bhouse_rule').innerText = err.response.data.errors.bhouse_rule[0];
+                }
+
+                if(err.response.data.errors.loc_x){
+                    document.getElementById('error-loc_x').innerText = err.response.data.errors.loc_x[0];
+                }
+
+                if(err.response.data.errors.loc_x){
+                    document.getElementById('error-loc_y').innerText = err.response.data.errors.loc_y[0];
                 }
             });
         });
