@@ -69,8 +69,9 @@ Route::get('/dashboard-bhouse', [App\Http\Controllers\Owner\DashboardBhouseContr
 Route::get('/bhouse-create', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index1']);
 Route::get('/bhouse-create-bed', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index2']);
 Route::get('/owner-profile', [App\Http\Controllers\Owner\OwnerProfileController::class, 'index']);
-
 Route::post('/owner-profile', [App\Http\Controllers\Owner\OwnerProfileController::class, 'update']);
+Route::get('/owner-change-password', [App\Http\Controllers\Owner\OwnerChangePassword::class, 'index']);
+Route::post('/owner-change-password', [App\Http\Controllers\Owner\OwnerChangePassword::class, 'changePasword']);
 
 
 

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('mname')->nullable();
             $table->string('suffix')->nullable();
             $table->string('sex', 10)->nullable();
-            $table->string('business_permit')->nullable();
+            $table->string('business_permit_img')->nullable();
             $table->string('contact_no', 15)->nullable();
             $table->string('email')->unique();
             $table->string('province')->nullable();
@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('role', 15)->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->string('is_approve')->nullable();
         });
     }
 

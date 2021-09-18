@@ -47,7 +47,6 @@
         <div class="row">
             <div class="col">
                 <div class="mb-3">
-
                     <label for="bhouse_img" class="form-label">Upload photo of your boarding house/apartment</label>
                     <input class="form-control" type="file" id="bhouse_img" name="bhouse_img">
                     <span class="text-danger" id="error-upload"></span>
@@ -58,7 +57,6 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-
                     <input type="text" class="form-control" id="loc_description" name="loc_description"placeholder="Location">
                     <label for="loc_description">Location Description</label>
                 </div>

@@ -79,14 +79,11 @@
 
                         </div>
 
-                        <div class="row">
-                            <div class="col mb-2">
-                                <div class="form-floating">
-                                    <input type="text" id="business_permit" class="form-control"  placeholder="Business Permit #">
-                                    <label for="floatingInput">Business Permit #</label>
-                                </div>
-                                <span id="error-business_permit" class="error-msg"></span>
-                            </div>
+                        <div class="mb-3">
+                            <label for="business_permit_img" class="form-label">Upload photo of your Business Permit</label>
+                            <input class="form-control" type="file" id="business_permit_img" name="business_permit_img">
+                            <span class="error-msg" id="error-business_permit_img"></span>
+
                         </div>
 
 
@@ -187,31 +184,35 @@
         let city = document.getElementById('city');
         let barangay = document.getElementById('barangay');
         let street = document.getElementById('street');
-        let business_permit = document.getElementById('business_permit');
+        let business_permit_img = document.getElementById('business_permit_img');
 
         let error = document.getElementById('error');
 
 
-        document.getElementById('form-submit').addEventListener('submit', function(e) {
-            e.preventDefault();
+            document.getElementById('form-submit').addEventListener('submit', function(e) {
+                e.preventDefault();
 
-            axios.post('/register-owner', {
-                username: username.value,
-                password: password.value,
-                password_confirmation: password_confirmation.value,
-                lname: lname.value,
-                fname: fname.value,
-                mname: mname.value,
-                suffix: suffix.value,
-                sex: sex.value,
-                business_permit: business_permit.value,
-                contact_no: contact_no.value,
-                email: email.value,
-                province: province.value,
-                city: city.value,
-                barangay: barangay.value,
-                street: street.value,
-            }).then(res=>{
+        var formData = new FormData();
+
+            formData.append('username', username.value);
+            formData.append('password', password.value);
+            formData.append('lname', lname.value);
+            formData.append('fname', fname.value);
+            formData.append('mname', mname.value);
+            formData.append('suffix', suffix.value);
+            formData.append('sex', sex.value);
+            formData.append('contact_no', contact_no.value);
+            formData.append('email', email.value);
+            formData.append('province', province.value);
+            formData.append('city', city.value);
+            formData.append('barangay', barangay.value);
+            formData.append('street', street.value);
+            formData.append('business_permit_img', business_permit_img.files[0]);
+            
+
+        
+
+            axios.post('/register-owner', formData).then(res=>{
                 if(res.data.remark === 'success'){
                     alert('Account successfully saved.');
                     window.location = '/login';
@@ -230,6 +231,9 @@
                         document.getElementById('error-province').innerText = errors.province[0];
                         document.getElementById('error-city').innerText = errors.city[0];
                         document.getElementById('error-barangay').innerText = errors.barangay[0];
+                        document.getElementById('error-business_permit_img').innerText = errors.business_permit_img[0];
+
+    
                     }
 
                 }

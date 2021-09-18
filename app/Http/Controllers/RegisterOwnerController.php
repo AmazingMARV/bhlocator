@@ -17,7 +17,7 @@ class RegisterOwnerController extends Controller
     public function store(Request $req){
 
         $req->validate([
-            'username' => ['string', 'max:50', 'required', 'unique:users'],
+            'username' => ['string', 'max:100', 'required', 'unique:users'],
             'password' => ['required', 'min:4', 'confirmed'],
             'lname' => ['string', 'max:100', 'required'],
             'fname' => ['string', 'max:100', 'required'],
@@ -25,12 +25,15 @@ class RegisterOwnerController extends Controller
             'email' => ['string', 'max:70', 'required', 'unique:users'],
             'contact_no' => ['string', 'max:15', 'required'],
             'province' => ['string', 'max:255', 'required'],
-            'business_permit' => ['string', 'max:255', 'required'],
+            'business_permit_img' => ['string', 'max:255', 'required'],
             'city' => ['string', 'max:255', 'required'],
             'barangay' => ['string', 'max:255', 'required'],
+            'business_permit_img' => ['mimes:jpg,png', 'max: 300']
         ], $message = [
-            'lname.required' => 'Lastname is required.',
-            'fname.required' => 'Firstname is required.',
+            'lname.required' => 'This field is required.',
+            'fname.required' => 'This field is required.',
+            'business_permit_img.mimes' => 'Image is not a valid format',
+            'business_permit_img.max' => 'Image not greater than 300kb.',
         ]);
 
         User::create([
