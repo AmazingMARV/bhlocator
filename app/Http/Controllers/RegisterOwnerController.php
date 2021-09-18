@@ -25,7 +25,6 @@ class RegisterOwnerController extends Controller
             'email' => ['string', 'max:70', 'required', 'unique:users'],
             'contact_no' => ['string', 'max:15', 'required'],
             'province' => ['string', 'max:255', 'required'],
-            'business_permit_img' => ['string', 'max:255', 'required'],
             'city' => ['string', 'max:255', 'required'],
             'barangay' => ['string', 'max:255', 'required'],
             'business_permit_img' => ['mimes:jpg,png', 'max: 300']
