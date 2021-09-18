@@ -68,7 +68,9 @@ Route::resource('/dashboard', App\Http\Controllers\Owner\DashboardController::cl
 Route::get('/dashboard-bhouse', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index']);
 Route::get('/bhouse-create', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index1']);
 Route::get('/bhouse-create-bed', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index2']);
+Route::get('/owner-profile', [App\Http\Controllers\Owner\OwnerProfileController::class, 'index']);
 
+Route::post('/owner-profile', [App\Http\Controllers\Owner\OwnerProfileController::class, 'update']);
 
 
 

@@ -75,16 +75,16 @@
         <div class="row">
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="loc_x" name="loc_x" placeholder="Location">
-                    <label for="loc_x">Location X</label>
+                    <input type="text" class="form-control" id="loc_x" name="loc_x" placeholder="Location" readonly>
+                    <label for="loc_x">Longitude</label>
                     <span class="text-danger" id="error-loc_x"></span>
 
                 </div>
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="loc_y" name="loc_y" placeholder="Location">
-                    <label for="loc_y">Location Y</label>
+                    <input type="text" class="form-control" id="loc_y" name="loc_y" placeholder="Location" readonly>
+                    <label for="loc_y">Latitude</label>
                     <span class="text-danger" id="error-loc_y"></span>
                 </div>
             </div>
