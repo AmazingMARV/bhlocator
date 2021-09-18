@@ -28,7 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         'lname', 'fname', 'mname', 'suffix', 'sex',
-        'contact_no', 'email', 'business_permit', 'province', 'city',
+        'contact_no', 'email', 'business_permit_img', 'province', 'city',
         'barangay', 'street', 'role',
     ];
 

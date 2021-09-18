@@ -15,6 +15,7 @@ class RegisterOwnerController extends Controller
     }
 
     public function store(Request $req){
+    
 
         $req->validate([
             'username' => ['string', 'max:100', 'required', 'unique:users'],
@@ -25,7 +26,6 @@ class RegisterOwnerController extends Controller
             'email' => ['string', 'max:70', 'required', 'unique:users'],
             'contact_no' => ['string', 'max:15', 'required'],
             'province' => ['string', 'max:255', 'required'],
-            'business_permit_img' => ['required', 'mimes:jpg'],
             'city' => ['string', 'max:255', 'required'],
             'barangay' => ['string', 'max:255', 'required'],
             'business_permit_img' => ['mimes:jpg,png', 'max: 300']
@@ -34,7 +34,10 @@ class RegisterOwnerController extends Controller
             'fname.required' => 'This field is required.',
             'business_permit_img.mimes' => 'Image is not a valid format',
             'business_permit_img.max' => 'Image not greater than 300kb.',
+            'barangay.string' => "Invalid format of barangay name.",
         ]);
+
+        return $req;
 
         User::create([
             'username' => $req->username,
@@ -46,7 +49,7 @@ class RegisterOwnerController extends Controller
             'sex' => strtoupper($req->sex),
             'contact_no' => $req->contact_no,
             'email' => $req->email,
-            'business_permit' => $req->business_permit,
+            'business_permit_img' => "",
             'province' => $req->province,
             'city' => $req->city,
             'barangay' => $req->barangay,
