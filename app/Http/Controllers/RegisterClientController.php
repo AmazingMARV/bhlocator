@@ -24,13 +24,20 @@ class RegisterClientController extends Controller
             'fname' => ['max:100', 'required'],
             'sex' => ['string', 'max:15', 'required'],
             'email' => ['max:70', 'required', 'unique:users'],
-            'contact_no' => ['max:15', 'required'],
+            'contact_no' => ['max:15'],
             'province' => ['max:255', 'required'],
             'city' => ['max:255', 'required'],
             'barangay' => ['max:255', 'required'],
         ], $message = [
-            'lname.required' => 'Lastname is required.',
-            'fname.required' => 'Firstname is required.',
+            'username.required' => 'This field is required.',
+            'username.string' => 'Invalid format of username.',
+            'lname.required' => 'This field is required.',
+            'lname.string' => 'Invalid format of Last Name.',
+            'fname.required' => 'This field is required.',
+            'fname.string' => 'Invalid format of First Name.',
+            'email.required' => 'This field is required.',
+            'email.string' => 'Invalid format of Email.',
+            'barangay.string' => "Invalid format of barangay name.",
         ]);
 
         User::create([

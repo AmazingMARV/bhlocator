@@ -173,6 +173,7 @@
 
         let username = document.getElementById('username');
         let password = document.getElementById('password');
+        let password_confirmation = document.getElementById('password_confirmation');
         let lname = document.getElementById('lname');
         let fname = document.getElementById('fname');
         let mname = document.getElementById('mname');
@@ -189,13 +190,30 @@
         let error = document.getElementById('error');
 
 
+        function clearDataForms(){
+            document.getElementById('error-username').innerText = "";
+            document.getElementById('error-password').innerText = "";
+            document.getElementById('error-fname').innerText = "";
+            document.getElementById('error-lname').innerText = "";
+            document.getElementById('error-email').innerText = "";
+            document.getElementById('error-business_permit_img').innerText = "";
+            document.getElementById('error-province').innerText = "";
+            document.getElementById('error-city').innerText = "";
+            document.getElementById('error-barangay').innerText = "";
+            
+        }
+
+
             document.getElementById('form-submit').addEventListener('submit', function(e) {
                 e.preventDefault();
+
+                clearDataForms();
 
         var formData = new FormData();
 
             formData.append('username', username.value);
             formData.append('password', password.value);
+            formData.append('password_confirmation', password_confirmation.value);
             formData.append('lname', lname.value);
             formData.append('fname', fname.value);
             formData.append('mname', mname.value);

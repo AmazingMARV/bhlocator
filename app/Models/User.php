@@ -29,7 +29,7 @@ class User extends Authenticatable
         'password',
         'lname', 'fname', 'mname', 'suffix', 'sex',
         'contact_no', 'email', 'business_permit_img', 'province', 'city',
-        'barangay', 'street', 'role',
+        'barangay', 'street', 'role', 'is_approve'
     ];
 
     /**

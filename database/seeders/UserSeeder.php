@@ -27,12 +27,14 @@ class UserSeeder extends Seeder
                 'suffix' => '',
                 'sex' => 'MALE',
                 'contact_no' => '9167789585',
-                'business_permit' => '1234-234',
+                'business_permit_img' => '',
                 'province' => '1042',
                 'city' => '104215',
                 'barangay' => '104215025',
                 'street' => 'P-BOUGAINVILLA',
-                'role' => 'OWNER'
+                'role' => 'OWNER',
+                'is_approve' => '1'
+
             ],
             [
                 'username' => 'alab',
@@ -44,12 +46,14 @@ class UserSeeder extends Seeder
                 'suffix' => '',
                 'sex' => 'MALE',
                 'contact_no' => '9167789584',
-                'business_permit' => '1234-234',
+                'business_permit_img' => '1234-234',
                 'province' => '1042',
                 'city' => '104215',
                 'barangay' => '104215025',
                 'street' => 'P-BOUGAINVILLA',
-                'role' => 'CLIENT'
+                'role' => 'CLIENT',
+                'is_approve' => ''
+
             ],
             [
                 'username' => 'admin',
@@ -66,7 +70,9 @@ class UserSeeder extends Seeder
                 'city' => '12342',
                 'barangay' => '12165489',
                 'street' => 'P-BOUGAINVILLA',
-                'role' => 'ADMINISTRATOR'
+                'role' => 'ADMINISTRATOR',
+                'is_approve' => ''
+                
             ]
         ];
 

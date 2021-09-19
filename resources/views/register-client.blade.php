@@ -178,10 +178,23 @@
     
         let error = document.getElementById('error');
 
+        function clearDataForms(){
+            document.getElementById('error-username').innerText = "";
+            document.getElementById('error-password').innerText = "";
+            document.getElementById('error-fname').innerText = "";
+            document.getElementById('error-lname').innerText = "";
+            document.getElementById('error-email').innerText = "";
+            document.getElementById('error-province').innerText = "";
+            document.getElementById('error-city').innerText = "";
+            document.getElementById('error-barangay').innerText = "";
+            
+        }
 
         document.getElementById('form-submit').addEventListener('submit', function(e) {
             e.preventDefault();
 
+            clearDataForms();
+            
             axios.post('/register-client', {
                 username: username.value,
                 password: password.value,
@@ -208,14 +221,36 @@
                     let errors = err.response.data.errors
 
                    
+                    
+
+                    if(errors.username){
+                        document.getElementById('error-username').innerText = errors.username[0];
+                    }
+
                     if(errors.password){
                         document.getElementById('error-password').innerText = errors.password[0];
-                        document.getElementById('error-username').innerText = errors.username[0];
+                    }
+
+                    if(errors.lname){
                         document.getElementById('error-lname').innerText = errors.lname[0];
+                    }
+                    
+                    if(errors.fname){
                         document.getElementById('error-fname').innerText = errors.fname[0];
+                    }
+                    if(errors.email){
                         document.getElementById('error-email').innerText = errors.email[0];
+                    }
+
+                    if(errors.province){
                         document.getElementById('error-province').innerText = errors.province[0];
+                    }
+
+                    if(errors.city){
                         document.getElementById('error-city').innerText = errors.city[0];
+                    }
+                    
+                    if(errors.barangay){
                         document.getElementById('error-barangay').innerText = errors.barangay[0];
                     }
                 }

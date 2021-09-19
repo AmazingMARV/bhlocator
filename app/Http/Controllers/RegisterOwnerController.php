@@ -30,14 +30,25 @@ class RegisterOwnerController extends Controller
             'barangay' => ['string', 'max:255', 'required'],
             'business_permit_img' => ['mimes:jpg,png', 'max: 300']
         ], $message = [
+            'username.required' => 'This field is required.',
+            'username.string' => 'Invalid format of username.',
             'lname.required' => 'This field is required.',
+            'lname.string' => 'Invalid format of Last Name.',
             'fname.required' => 'This field is required.',
+            'fname.string' => 'Invalid format of First Name.',
+            'email.required' => 'This field is required.',
+            'email.string' => 'Invalid format of Email.',
             'business_permit_img.mimes' => 'Image is not a valid format',
             'business_permit_img.max' => 'Image not greater than 300kb.',
             'barangay.string' => "Invalid format of barangay name.",
         ]);
 
-        return $req;
+        $bPermitImg = $req->file('business_permit_img');
+        $pathFile = $bPermitImg->store('public/bpermit'); //get path of the file
+        $n = explode('/', $pathFile); //split into array using /
+
+
+        
 
         User::create([
             'username' => $req->username,
@@ -49,12 +60,14 @@ class RegisterOwnerController extends Controller
             'sex' => strtoupper($req->sex),
             'contact_no' => $req->contact_no,
             'email' => $req->email,
-            'business_permit_img' => "",
+            'business_permit_img' => $n[2], //get the 3rd array which is the filename
             'province' => $req->province,
             'city' => $req->city,
             'barangay' => $req->barangay,
             'street' => $req->street,
             'role' => 'OWNER',
+            'is_approve' => '0'
+
         ]);
 
         return response()->json([
