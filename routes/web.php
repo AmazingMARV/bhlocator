@@ -78,7 +78,7 @@ Route::post('/owner-change-password', [App\Http\Controllers\Owner\OwnerChangePas
 
 
 //admin
-Route::get('/admin-dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index']);
+Route::resource('/admin-dashboard', App\Http\Controllers\Admin\AdminDashboardController::class);
 
 Route::get('/sample-user', [App\Http\Controllers\Admin\AdminDashboardController::class, 'getUsers']);
 

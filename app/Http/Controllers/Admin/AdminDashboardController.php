@@ -24,4 +24,11 @@ class AdminDashboardController extends Controller
         return ["data"=>json_decode($data)];
          
     }
+
+    public function edit($id){
+        $user = User::find($id);
+        return view ('admin.admin-edit')
+        ->with('user',$user);
+      
+    }
 }

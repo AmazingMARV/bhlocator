@@ -30,71 +30,68 @@
                
             </tr>
         </tfoot>
-    </table>
+</table>
 
 
 <script src=" {{ asset('/js/datatables.min.js') }}"></script>
 
 <script>
    $(document).ready(function() {
-    
-  
-    $('#users').DataTable({
-        "ajax": "sample-user",
-        "processing": true,
-        "serverSide": true,
-        // "columns": [
-        //     { "data": "user_id" },
-        //     { "data": "fname" },
-        //     { "data": "mname" },
-        //     { "data": "lname" },
-        //     { "data": "email" },
-        //     { "data": "role" },
-          
-        // ],
-        "columnDefs": [
-          {  "targets": 0,
-            "data": "user_id" 
-          },
-          { 
-            "targets": 1,
-            "data": "fname" 
-          },
-          { 
-            "targets": 2,
-            "data": "mname" 
-          },
-          { 
-            "targets": 3,
-            "data": "lname" 
-          },
-          { 
-            "targets": 4,
-            "data": "email" 
-          },
-          { 
-            "targets": 5,
-            "data": "role" 
-          },
-          {
-            "targets": -1,
-            "data": null,
-            "defaultContent": "<button id='btnEdit'>Edit</button>"
-          }
+        $('#users').DataTable({
+            "ajax": "sample-user",
+            "processing": true,
+            "serverSide": true,
+            // "columns": [
+            //     { "data": "user_id" },
+            //     { "data": "fname" },
+            //     { "data": "mname" },
+            //     { "data": "lname" },
+            //     { "data": "email" },
+            //     { "data": "role" },
+            
+            // ],
+            "columnDefs": [
+            {  "targets": 0,
+                "data": "user_id" 
+            },
+            { 
+                "targets": 1,
+                "data": "fname" 
+            },
+            { 
+                "targets": 2,
+                "data": "mname" 
+            },
+            { 
+                "targets": 3,
+                "data": "lname" 
+            },
+            { 
+                "targets": 4,
+                "data": "email" 
+            },
+            { 
+                "targets": 5,
+                "data": "role" 
+            },
+            {
+                "targets": -1,
+                "data": null,
+                "defaultContent": '<a class="btn btn-primary" id="btnEdit">Edit</a>'
+            }
+            
         ],
-    });
-
+    }); 
+    
     $('#users tbody').on( 'click', 'btnEdit', function () {
         var data = table.row( $(this).parents('tr') ).data();
-        alert( data[0] +"'s role is: "+ data[ 5 ] );
+        var id = data[0];
+        alert(id);
+        
     });
 
-
-
-
-
-
-} );
+    
+  } ); //close document ready
 </script>
 
 @endsection
