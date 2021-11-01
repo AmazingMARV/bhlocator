@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Boading House Locator') }}</title>
 
     <script src="{{ asset('/js/jquery-3.5.1.js') }}"></script>
     <script src="{{ asset('/js/axios.min.js') }}"></script>

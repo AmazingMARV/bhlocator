@@ -14,14 +14,6 @@
             <div class="row">
                 <div class="col-lg-6 mb-3">
                     <div class="form-floating">
-                        <input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}" placeholder="Username">
-                        <label for="floatingInput">Username</label>
-                    </div>
-                    <span id="error-username" class="error-msg"></span>
-                </div>
-
-                <div class="col-lg-6 mb-3">
-                    <div class="form-floating">
                         <input type="email" class="form-control" name="email" id="email" value="{{ $user->email }}" placeholder="email here...">
                         <label for="floatingInput">Email address</label>
                     </div>
