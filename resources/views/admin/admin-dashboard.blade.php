@@ -5,90 +5,78 @@
 
 
 
-<table id="users" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>User ID</th>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
-              
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>User ID</th>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
-               
-            </tr>
-        </tfoot>
-</table>
+<div class="container">
+    <div class="row">
+        <table id="users" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                  
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>User ID</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                   
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+    
 
 
 <script src=" {{ asset('/js/datatables.min.js') }}"></script>
 
 <script>
    $(document).ready(function() {
-        $('#users').DataTable({
-            "ajax": "sample-user",
-            "processing": true,
-            "serverSide": true,
-            // "columns": [
-            //     { "data": "user_id" },
-            //     { "data": "fname" },
-            //     { "data": "mname" },
-            //     { "data": "lname" },
-            //     { "data": "email" },
-            //     { "data": "role" },
-            
-            // ],
-            "columnDefs": [
-            {  "targets": 0,
-                "data": "user_id" 
+
+        var table = $('#users').DataTable({
+            processing: true,
+            ajax: {
+                url: '/sample-user',
+                dataSrc: ''
             },
-            { 
-                "targets": 1,
-                "data": "fname" 
-            },
-            { 
-                "targets": 2,
-                "data": "mname" 
-            },
-            { 
-                "targets": 3,
-                "data": "lname" 
-            },
-            { 
-                "targets": 4,
-                "data": "email" 
-            },
-            { 
-                "targets": 5,
-                "data": "role" 
-            },
-            {
-                "targets": -1,
-                "data": null,
-                "defaultContent": '<a class="btn btn-primary" id="btnEdit">Edit</a>'
-            }
-            
-        ],
-    }); 
-    
-    $('#users tbody').on( 'click', 'btnEdit', function () {
-        var data = table.row( $(this).parents('tr') ).data();
-        var id = data[0];
-        alert(id);
+            columns: [
+              //  { data: 'user_id', 'visible' : false },
+                { data: 'user_id' },
+                { data: 'fname'},
+                { data: 'mname' },
+                { data: 'lname' },
+                { data: 'email' },
+                { data: 'role' },
+                {
+                    defaultContent: '<button class="btn btn-warning btn-sm" id="edit">Edit</button><button class="btn btn-danger btn-sm" id="delete">Delete</button>'
+                }
+            ]
+        });
         
-    });
+    
+    $('#users tbody').on( 'click', '#edit', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        var id = data['user_id'];
+        window.location = '/admin-dashboard/' + id + '/edit';
+
+    });//criteria click edit
+
+    $('#users tbody').on( 'click', '#delete', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        var id = data['user_id'];
+        
+
+    });//criteria click delete
 
     
   } ); //close document ready

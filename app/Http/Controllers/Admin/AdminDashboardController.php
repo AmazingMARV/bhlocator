@@ -17,11 +17,16 @@ class AdminDashboardController extends Controller
 
     public function getUsers(Request $req){
       
-        $key  = $req->search['value'];
-        $data = User::where('lname','like',$key."%")
-        ->where('role','CLIENT')
-        ->get();
-        return ["data"=>json_decode($data)];
+        //$key  = $req->search['value'];
+
+        // $data = User::where('lname','like',$key."%")
+        // ->where('role','CLIENT')
+        // ->get();
+
+        $data = User::all();
+
+       // return ["data"=>json_decode($data)];
+       return $data;
          
     }
 
