@@ -79,8 +79,13 @@ Route::post('/owner-change-password', [App\Http\Controllers\Owner\OwnerChangePas
 
 //admin
 Route::resource('/admin-dashboard', App\Http\Controllers\Admin\AdminDashboardController::class);
+Route::resource('/admin-approve', App\Http\Controllers\Admin\AdminApproveController::class);
+Route::put('/approve-account-owner/{id}', [App\Http\Controllers\Admin\AdminApproveController::class, 'approveAccountOwner']);
+Route::put('/disapprove-account-owner/{id}', [App\Http\Controllers\Admin\AdminApproveController::class, 'disapproveAccountOwner']);
 
+Route::get('/ajax-admin-approve', [App\Http\Controllers\Admin\AdminApproveController::class, 'getUsers']);
 Route::get('/sample-user', [App\Http\Controllers\Admin\AdminDashboardController::class, 'getUsers']);
+Route::get('/get-business-img/{id}', [App\Http\Controllers\Admin\AdminApproveController::class, 'getImg']);
 
 
 
@@ -89,3 +94,7 @@ Route::get('/sample-user', [App\Http\Controllers\Admin\AdminDashboardController:
 //visitor
 Route::get('/visitor-dashboard', [App\Http\Controllers\Visitor\VisitorDashboardController::class, 'index']);
 Route::get('/visitor-browse-bh', [App\Http\Controllers\Visitor\VisitorDashboardController::class, 'index1']);
+
+
+//pending accounts
+Route::get('/owner-pending', [App\Http\Controllers\Owner\OwnerPendingAccountController::class, 'index']);

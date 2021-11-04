@@ -59,13 +59,13 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="/" class="nav-link active" aria-current="page">
+                <a href="/admin-dashboard" class="nav-link text-white" aria-current="page">
                     <span class="mdi mdi-home"></span>
                     CLIENT ACCOUNTS
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/" class="nav-link text-white" aria-current="page">
+                <a href="/admin-approve" class="nav-link active" aria-current="page">
                     <span class="mdi mdi-home"></span>
                     OWNER ACCOUNTS
                 </a>
@@ -86,8 +86,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
 
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+               
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" onclick="document.getElementById('logout-form').submit();">Sign out</a></li>
             </ul>

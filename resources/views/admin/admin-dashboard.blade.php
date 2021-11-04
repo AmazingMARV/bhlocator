@@ -74,10 +74,17 @@
     $('#users tbody').on( 'click', '#delete', function () {
         var data = table.row( $(this).parents('tr') ).data();
         var id = data['user_id'];
-        
+
+        axios.delete('/admin-dashboard/'+ id ).then(res=>{
+                if(res.status === 200){
+                    alert('Data successfully Deleted.');
+                    window.location = '/admin-dashboard';
+                }
+            });
 
     });//criteria click delete
 
+   
     
   } ); //close document ready
 </script>

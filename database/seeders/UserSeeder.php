@@ -33,7 +33,8 @@ class UserSeeder extends Seeder
                 'barangay' => '104215025',
                 'street' => 'P-BOUGAINVILLA',
                 'role' => 'OWNER',
-                'is_approve' => '1'
+                'is_approve' => '1',
+                'is_pending' => '0'
 
             ],
             [
@@ -52,7 +53,9 @@ class UserSeeder extends Seeder
                 'barangay' => '104215025',
                 'street' => 'P-BOUGAINVILLA',
                 'role' => 'CLIENT',
-                'is_approve' => ''
+                'is_approve' => '',
+                'is_pending' => ''
+
 
             ],
             [
@@ -71,7 +74,9 @@ class UserSeeder extends Seeder
                 'barangay' => '12165489',
                 'street' => 'P-BOUGAINVILLA',
                 'role' => 'ADMINISTRATOR',
-                'is_approve' => ''
+                'is_approve' => '',
+                'is_pending' => ''
+
                 
             ]
         ];

@@ -34,6 +34,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('is_approve')->nullable();
+            $table->string('is_pending')->nullable();
+
         });
     }
 
