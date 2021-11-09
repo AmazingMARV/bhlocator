@@ -86,12 +86,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col mb-3">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" name="business_permit" id="business_permit" value="{{ $user->business_permit }}" placeholder="email here...">
-                        <label for="floatingInput">Business Permit #</label>
-                    </div>
-                        <span id="error-email" class="error-msg"></span>
+                      <div class="mb-3">
+                            <label for="business_permit_img" class="form-label">Upload photo of your Business Permit</label>
+                            <input class="form-control" type="file" id="business_permit_img" name="business_permit_img">
+                            <span class="error-msg" id="error-business_permit_img"></span>
+
+                        </div>
                 </div>
                 
             </div>

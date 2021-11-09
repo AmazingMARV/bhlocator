@@ -19,9 +19,13 @@ class DashboardController extends Controller
 
     public function __construct(){
         $this->middleware('auth');
+        $this->middleware('approve');
+
     }
 
     public function index(){
+      
+
         $bhouses = Bhouse::all();
         return view('owner.dashboard')
             ->with('bhouses', $bhouses);

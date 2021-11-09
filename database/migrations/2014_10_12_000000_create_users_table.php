@@ -33,8 +33,8 @@ class CreateUsersTable extends Migration
             $table->string('role', 15)->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->string('is_approve')->nullable();
-            $table->string('is_pending')->nullable();
+            $table->boolean('is_approve')->nullable()->default(0);
+            $table->boolean('is_pending')->nullable()->default(1);
 
         });
     }

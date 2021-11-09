@@ -32,6 +32,7 @@ class AdminApproveController extends Controller
     public function approveAccountOwner($id){
         $data = User::find($id);
         $data->is_approve = '1';
+        $data->is_pending = '0';
         $data->save();
         return response()->json([
             'status'=> 'updated'
@@ -41,6 +42,7 @@ class AdminApproveController extends Controller
     public function disapproveAccountOwner($id){
         $data = User::find($id);
         $data->is_pending = '1';
+        $data->is_approve = '0';
         $data->save();
         return response()->json([
             'status'=> 'updated'
