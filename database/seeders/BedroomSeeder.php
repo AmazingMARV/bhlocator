@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Bedroom;
 use Illuminate\Database\Seeder;
 
 class BedroomSeeder extends Seeder
@@ -16,7 +17,7 @@ class BedroomSeeder extends Seeder
         //
         $bedroom = [
             [
-                'bedroom_id' => 1,
+               
                 'bhouse_id' => 1,
                 'bedroom_name' => 'ET BHOUSE1',
                 'bed_amenities' => 'BED SIZE IS 32inch and 45in blah blah blah. Good for 1 person only',
@@ -27,7 +28,7 @@ class BedroomSeeder extends Seeder
             ],
 
             [
-                'bedroom_id' => 1,
+                
                 'bhouse_id' => 1,
                 'bedroom_name' => 'ET BHOUSE2',
                 'bed_amenities' => 'BED SIZE IS 32inch and 45in blah blah blah. Good for 2 person only',
@@ -38,6 +39,6 @@ class BedroomSeeder extends Seeder
             ]
         ];
 
-        Bedroom::insertOrIgnore($bhouse);
+        Bedroom::insertOrIgnore($bedroom);
     }
 }

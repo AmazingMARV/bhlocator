@@ -19,7 +19,7 @@ class CreateBedroomsTable extends Migration
             $table->foreign('bhouse_id')->references('bhouse_id')->on('bhouses');
             $table->string('bedroom_name');
             $table->string('bed_img');
-            $table->string('bed_amenitiess');
+            $table->string('bed_amenities');
             $table->double('price');
             $table->boolean('is_available');
             $table->timestamps();
