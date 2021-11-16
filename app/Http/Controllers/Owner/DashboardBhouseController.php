@@ -16,12 +16,12 @@ class DashboardBhouseController extends Controller
 
     }
 
-    public function index1(){
-        return view('owner.bhouse-create');
-    }
+    // public function index1(){
+    //     return view('owner.bhouse-create');
+    // }
 
-    public function index2(){
-        return view('owner.bhouse-create-bed');
-    }
+    // public function index2(){
+    //     return view('owner.bhouse-create-bed');
+    // }
 
 }

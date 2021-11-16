@@ -32,7 +32,7 @@
             </tfoot>
         </table>
     </div>
-    <a class="btn btn-success mt-3 btn-create-dashboard" href="/dashboard/create" role="button">ADD / NEW</a>
+    <a class="btn btn-success mt-3 btn-create-dashboard" href="/bhouse-view-bed/{{$id}}/create" role="button">ADD / NEW</a>
 </div>
     
 
@@ -45,11 +45,11 @@
         var table = $('#bedrooms').DataTable({
             processing: true,
             ajax: {
-                url: '/sample-bed',
+                url: '/fetch-bed?id={{$id}}',
                 dataSrc: ''
             },
             columns: [
-              //  { data: 'user_id', 'visible' : false },
+              //  { data: 'bedroom_id', 'visible' : false },
                 { data: 'bedroom_id' },
                 { data: 'bedroom_name'},
                 { data: 'bed_amenities' },

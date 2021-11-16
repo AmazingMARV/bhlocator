@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $bhouse->bhouse_name }}</h5>
                     <p class="card-text">{{ $bhouse->bhouse_desc }}</p>
-                    <a href="/bhouse-view-bed" class="btn btn-primary">VIEW BED</a>
+                    <a href="/bhouse-view-bed/{{ $bhouse->bhouse_id}}" class="btn btn-primary">VIEW BED</a>
                     
                 </div>
                 <div class="card-footer">
