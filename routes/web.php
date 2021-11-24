@@ -76,7 +76,12 @@ Route::get('/owner-change-password', [App\Http\Controllers\Owner\OwnerChangePass
 Route::post('/owner-change-password', [App\Http\Controllers\Owner\OwnerChangePassword::class, 'changePasword']);
 
 Route::get('/bhouse-view-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'index']);
+
 Route::get('/bhouse-view-bed/{id}/create', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'create']);
+Route::post('/bhouse-view-bed/{id}/store', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'store']);
+
+Route::get('/bhouse-edit-bed/{id}/edit', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'edit']);
+
 Route::get('/fetch-bed', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'getBeds']);
 
 

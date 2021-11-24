@@ -65,21 +65,21 @@
     
     $('#bedrooms tbody').on( 'click', '#edit', function () {
         var data = table.row( $(this).parents('tr') ).data();
-        var id = data['user_id'];
-        window.location = '/admin-dashboard/' + id + '/edit';
+        var id = data['bedroom_id'];
+        window.location = '/bhouse-edit-bed/' + id + '/edit';
 
     });//criteria click edit
 
     $('#users tbody').on( 'click', '#delete', function () {
         var data = table.row( $(this).parents('tr') ).data();
-        var id = data['user_id'];
+        var id = data['bedroom_id'];
 
-        axios.delete('/admin-dashboard/'+ id ).then(res=>{
-                if(res.status === 200){
-                    alert('Data successfully Deleted.');
-                    window.location = '/admin-dashboard';
-                }
-            });
+        // axios.delete('/admin-dashboard/'+ id ).then(res=>{
+        //         if(res.status === 200){
+        //             alert('Data successfully Deleted.');
+        //             window.location = '/admin-dashboard';
+        //         }
+        //     });
 
     });//criteria click delete
 

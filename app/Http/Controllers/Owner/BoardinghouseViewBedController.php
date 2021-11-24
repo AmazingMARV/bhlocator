@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Bedroom;
 use App\Models\Bhouse;
+use Auth;
 class BoardinghouseViewBedController extends Controller
 {
     //
@@ -28,5 +29,68 @@ class BoardinghouseViewBedController extends Controller
             ->with('id', $id);
     }
 
-   
+    public function store(Request $req ,$id){
+        //create([])
+        //return $req;
+
+        $req->validate([
+            'bedroom_name' => ['required'],
+            'price' => ['numeric'],
+            'is_available' => ['required'],
+            'bed_img' => ['mimes:jpg,png', 'max: 300'],
+            'bed_amenities' => ['required'],
+
+        ], $message=[
+            'bedroom_name.required' => 'This field is required',
+            'price.required' => 'This field is required',
+            'is_available.required' => 'This field is required',
+            'bed_img.mimes' => 'Image is not a valid format',
+            'bed_img.max' => 'Image not greater than 300kb.',
+            'bed_amenities' => 'This field is required',
+            
+        ]);
+
+
+        $bedImg = $req->file('bed_img');
+        $pathFile = $bedImg->store('public/beds'); //get path of the file
+        $n = explode('/', $pathFile); //split into array using /
+            
+        $user = Auth::user();
+        Bedroom::create([
+            'bedroom_name' => $req->bedroom_name,
+            'bhouse_id' => $id,
+            'price' => $req->price,
+            'is_available' => $req->is_available,
+            'bed_img' => $n[2], //get the 3rd array which is the filename
+            'bed_amenities' =>$req->bed_amenities,
+          
+        ]);
+
+        return response()->json([
+            'status' => 'success'
+        ],200);
+    }
+
+    
+
+    public function edit($id){
+        $bed = Bedroom::find($id);
+        return view ('owner.bhouse-edit-bed')
+        ->with('bedrooms',$bed);
+          
+    }
+
+    // public function update(Request $req, $bedroom){
+    //     $bedrooms = Bedroom::find($bedroom);
+
+
+    //     $bedrooms->bedroom_name = strtoupper($req->bedroom_name);
+    //     $bedrooms->save();
+
+    //     return response()->json([
+    //         'status' => 'updated'
+    //     ], 201);
+    // }
+
+    
 }
