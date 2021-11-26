@@ -80,17 +80,21 @@ class BoardinghouseViewBedController extends Controller
           
     }
 
-    // public function update(Request $req, $bedroom){
-    //     $bedrooms = Bedroom::find($bedroom);
+    public function update(Request $req, $bedroom){
+        $bedrooms = Bedroom::find($bedroom);
 
 
-    //     $bedrooms->bedroom_name = strtoupper($req->bedroom_name);
-    //     $bedrooms->save();
+        $bedrooms->bedroom_name =$req->bedroom_name;
+        $bedrooms->price = $req->price;
+        $bedroom->is_available = $req->is_available;
+        $bedroom->bed_amenities = $req->bed_amenities;
 
-    //     return response()->json([
-    //         'status' => 'updated'
-    //     ], 201);
-    // }
+        $bedrooms->save();
+
+        return response()->json([
+            'status' => 'updated'
+        ], 200);
+    }
 
     
 }

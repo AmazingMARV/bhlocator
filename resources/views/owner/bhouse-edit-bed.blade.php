@@ -33,6 +33,12 @@
                     <span class="text-danger" id="error-bed_amenities" ></span>
 
                     </div>
+                    
+                    <h2>Boarding House Image</h2>
+
+                    <div class="text-center">
+                        <img src="{{ asset('storage/beds/' . $bedrooms->bed_img)  }}" class="rounded" alt="..." width="250px" height="250px">
+                    </div>
 
                     <div class="mb-5">
                         <label for="bed_img" class="form-label" >Upload photo of your boaring house/apartment</label>
@@ -44,7 +50,7 @@
                     
                       <div class="d-flex justify-content-start">
               
-                          <button type ="button" class="btn btn-primary" style="padding:5px 30px;" id="bedInfo">Save</button>
+                          <button type ="button" class="btn btn-primary"  onclick="submitUpdate()" style="padding:5px 30px;" id="bedInfo">Save</button>
                           
                       </div>
 
@@ -52,7 +58,29 @@
                     
         </div>
 </div>     
-       <script>
-           
-       </script>
+    <script>
+            function submitUpdate(){
+            let bedroom_name = document.getElementById('bedroom_name');
+            let price = document.getElementById('price');
+            let bed_img = document.getElementById('bed_img');
+            let is_available = document.getElementById('is_available');
+            let bed_amenities = document.getElementById('bed_amenities');
+         
+            var fields = {
+                bedroom_name: bedroom_name.value,
+                price: price.value,
+                bed_img: bed_img.value,
+                is_available: is_available.value,
+                bed_amenities: bed_amenities.value,
+              
+            };
+
+            axios.put('/bhouse-edit-bed/{{$bedrooms->bhouse_id}}/edit', fields).then(res=>{
+                if(res.status === 200){
+                    alert('Bed information successfully updated.');
+                    window.location = '/bhouse-edit-bed/{{$bedrooms->bhouse_id}}';
+                }
+            });
+        }
+    </script>
 @endsection
