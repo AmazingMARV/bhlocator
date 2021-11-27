@@ -75,7 +75,7 @@
               
             };
 
-            axios.put('/bhouse-edit-bed/{{$bedrooms->bhouse_id}}/edit', fields).then(res=>{
+            axios.put('/bhouse-edit-bed/{{$bedrooms->bedroom_id}}', fields).then(res=>{
                 if(res.status === 200){
                     alert('Bed information successfully updated.');
                     window.location = '/bhouse-edit-bed/{{$bedrooms->bhouse_id}}';

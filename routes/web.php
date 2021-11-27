@@ -81,6 +81,8 @@ Route::get('/bhouse-view-bed/{id}/create', [App\Http\Controllers\Owner\Boardingh
 Route::post('/bhouse-view-bed/{id}/store', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'store']);
 
 Route::get('/bhouse-edit-bed/{id}/edit', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'edit']);
+Route::put('/bhouse-edit-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'update']);
+Route::get('/bhouse-edit-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'index']);
 
 Route::get('/fetch-bed', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'getBeds']);
 
