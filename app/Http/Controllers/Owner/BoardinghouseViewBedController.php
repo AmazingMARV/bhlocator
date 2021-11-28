@@ -81,11 +81,13 @@ class BoardinghouseViewBedController extends Controller
     }
 
     public function update(Request $req, $bedroom){
+        return $req;
 
         $bedImg = $req->file('bed_img');
-        $pathFile = $bedImg->update('public/beds'); //get path of the file
+        $pathFile = $bedImg->store('public/beds'); //get path of the file
         $n = explode('/', $pathFile); //split into array using /
 
+        
 
         $bedrooms = Bedroom::find($bedroom);
 
@@ -94,11 +96,11 @@ class BoardinghouseViewBedController extends Controller
         $bedrooms->price = $req->price;
         $bedrooms->is_available = $req->is_available;
         $bedrooms->bed_amenities = $req->bed_amenities;
-        $bedrooms->bed_img = $req->n;
+        $bedrooms->bed_img = $req->n[2];
       
-
+       
         $bedrooms->save();
-
+        
         return response()->json([
             'status' => 'updated'
         ], 200 );

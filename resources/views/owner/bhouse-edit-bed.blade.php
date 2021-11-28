@@ -59,28 +59,36 @@
         </div>
 </div>     
     <script>
+            
             function submitUpdate(){
-            let bedroom_name = document.getElementById('bedroom_name');
-            let price = document.getElementById('price');
-            let bed_img = document.getElementById('bed_img');
-            let is_available = document.getElementById('is_available');
-            let bed_amenities = document.getElementById('bed_amenities');
-         
-            var fields = {
-                bedroom_name: bedroom_name.value,
-                price: price.value,
-                bed_img: bed_img.value,
-                is_available: is_available.value,
-                bed_amenities: bed_amenities.value,
-              
-            };
+                
+                var bedroom_name = document.getElementById('bedroom_name');
+                var price = document.getElementById('price');
+                // let bed_img = document.getElementById('bed_img');
+                // let is_available = document.getElementById('is_available');
+                // let bed_amenities = document.getElementById('bed_amenities');
+                
+                
 
-            axios.put('/bhouse-edit-bed/{{$bedrooms->bedroom_id}}', fields).then(res=>{
-                if(res.status === 200){
-                    alert('Bed information successfully updated.');
-                    window.location = '/bhouse-edit-bed/{{$bedrooms->bhouse_id}}';
-                }
-            });
+                var formData = new FormData();
+                formData.append('bedroom_name', bedroom_name.value);
+                formData.append('price', price.value);
+                // formData.append('bed_img', bed_img.files[0]);
+                // formData.append('is_available', is_available.value);
+                // formData.append('bed_amenities', bed_amenities.value);
+                console.log(formData.get('bedroom_name'));
+                
+                axios({
+                    method: "put",
+                    url: "/bhouse-edit-bed/{{$bedrooms->bedroom_id}}",
+                    data: formData,
+                    headers: { "Content-Type": "multipart/form-data" },
+                    }).then(res=>{
+                    if(res.status === 200){
+                        alert('Bed information successfully updated.');
+                        //window.location = '/bhouse-edit-bed/{{$bedrooms->bhouse_id}}';
+                    }
+                });
         }
     </script>
 @endsection
