@@ -59,9 +59,9 @@
 
         var bedroom_name = document.getElementById('bedroom_name');
         var price = document.getElementById('price');
-        // let bed_img = document.getElementById('bed_img');
-        // let is_available = document.getElementById('is_available');
-        // let bed_amenities = document.getElementById('bed_amenities');
+        var bed_img = document.getElementById('bed_img');
+        var is_available = document.getElementById('is_available');
+        var bed_amenities = document.getElementById('bed_amenities');
 
 
         function clearDataForms(){
@@ -85,9 +85,9 @@
 
             frmData.append('bedroom_name', bedroom_name.value);
             frmData.append('price', price.value);
-            // formData.append('bed_img', bed_img.files[0]);
-            // formData.append('is_available', is_available.value);
-            // formData.append('bed_amenities', bed_amenities.value);
+            frmData.append('bed_img', bed_img.files[0]);
+            frmData.append('is_available', is_available.value);
+            frmData.append('bed_amenities', bed_amenities.value);
 
 
             axios.post('/bhouse-edit-bed/{{$bedroom->bedroom_id}}', frmData).then(res=>{
@@ -96,7 +96,29 @@
                     //alert('Successfully saved.');
                     //window.location = "/bhouse-view-bed/{{$bedroom->bedroom_id}}"
                     console.log(res.data);
-                }
+                }//).catch(err=>{
+                //error and input handler
+
+
+                    // if(err.response.data.errors.bed_img){
+                    //     document.getElementById('error-upload').innerText = err.response.data.errors.bed_img[0];
+                    // }
+
+                    // if(err.response.data.errors.bedroom_name){
+                    //     document.getElementById('error-bedroom_name').innerText = err.response.data.errors.bedroom_name[0];
+                    // }
+
+                    // if(err.response.data.errors.price){
+                    //     document.getElementById('error-price').innerText = err.response.data.errors.price[0];
+                    // }
+
+                    // if(err.response.data.errors.is_available){
+                    //     document.getElementById('error-is_available').innerText = err.response.data.errors.is_available[0];
+                    // }
+
+                    // if(err.response.data.errors.bed_amenities){
+                    //     document.getElementById('error-bed_amenities').innerText = err.response.data.errors.bed_amenities[0];
+                    // }
             });
         }
     </script>

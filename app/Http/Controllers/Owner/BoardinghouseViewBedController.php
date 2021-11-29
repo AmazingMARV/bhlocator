@@ -80,9 +80,9 @@ class BoardinghouseViewBedController extends Controller
     }
 
     public function updates(Request $req, $bedroom){
-        return $req->input('bedroom_name');
-
-       /* $bedImg = $req->file('bed_img');
+       
+        return $req;
+        $bedImg = $req->file('bed_img');
         $pathFile = $bedImg->store('public/beds'); //get path of the file
         $n = explode('/', $pathFile); //split into array using /
 
@@ -102,7 +102,7 @@ class BoardinghouseViewBedController extends Controller
 
         return response()->json([
             'status' => 'updated'
-        ], 200 );*/
+        ], 200 );
     }
 
 
