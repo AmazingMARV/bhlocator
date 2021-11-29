@@ -85,7 +85,7 @@ class BoardinghouseViewBedController extends Controller
         
         $bedImg = $req->file('bed_img');
         $n = null;
-        if(bedImg){
+        if($bedImg){
             $pathFile = $bedImg->store('public/beds'); //get path of the file
             $n = explode('/', $pathFile); //split into array using /
         }

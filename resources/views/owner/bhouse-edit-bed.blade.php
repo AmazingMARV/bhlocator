@@ -94,7 +94,7 @@
 
                 if(res.data.status === 'success'){
                     alert('Successfully saved.');
-                    window.location = "/bhouse-view-bed/{{$bedroom->bedroom_id}}"
+                    window.location = "/bhouse-view-bed/{{$bedroom->bhouse_id}}"
                     console.log(res.data);
                 }
             });
