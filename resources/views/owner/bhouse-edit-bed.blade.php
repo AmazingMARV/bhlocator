@@ -90,7 +90,7 @@
             // formData.append('bed_amenities', bed_amenities.value);
 
 
-            axios.put('/bhouse-edit-bed/{{$bedroom->bedroom_id}}', frmData).then(res=>{
+            axios.post('/bhouse-edit-bed/{{$bedroom->bedroom_id}}', frmData).then(res=>{
 
                 if(res.data.status === 'success'){
                     //alert('Successfully saved.');
