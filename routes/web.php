@@ -41,9 +41,9 @@ Route::post('/register-owner', [App\Http\Controllers\RegisterOwnerController::cl
 //client
 Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'index']);
 
-Route::get('/session', function(){
-    return Session::all();
-});
+//Route::get('/session', function(){
+//    return Session::all();
+//});
 
 Route::get('/logout', function(){
     // return Session::all();
@@ -82,7 +82,8 @@ Route::post('/bhouse-view-bed/{id}/store', [App\Http\Controllers\Owner\Boardingh
 
 Route::get('/bhouse-edit-bed/{id}/edit', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'edit']);
 
-Route::put('/bhouse-edit-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'update']);
+Route::post('/bhouse-edit-beds/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'update']);
+Route::put('/bhouse-edit-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'updates']);
 
 Route::get('/bhouse-edit-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'index']);
 
