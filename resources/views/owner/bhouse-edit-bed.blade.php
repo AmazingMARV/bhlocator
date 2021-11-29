@@ -72,7 +72,7 @@
             document.getElementById('error-upload').innerText = "";
         }
 
-
+      
         function submitUpdate(){
 
             clearDataForms();
@@ -88,36 +88,15 @@
             frmData.append('is_available', is_available.value);
             frmData.append('bed_amenities', bed_amenities.value);
 
+          
 
             axios.post('/bhouse-edit-bed/{{$bedroom->bedroom_id}}', frmData).then(res=>{
 
                 if(res.data.status === 'success'){
-                    //alert('Successfully saved.');
-                    //window.location = "/bhouse-view-bed/{{$bedroom->bedroom_id}}"
+                    alert('Successfully saved.');
+                    window.location = "/bhouse-view-bed/{{$bedroom->bedroom_id}}"
                     console.log(res.data);
-                }//).catch(err=>{
-                //error and input handler
-
-
-                    // if(err.response.data.errors.bed_img){
-                    //     document.getElementById('error-upload').innerText = err.response.data.errors.bed_img[0];
-                    // }
-
-                    // if(err.response.data.errors.bedroom_name){
-                    //     document.getElementById('error-bedroom_name').innerText = err.response.data.errors.bedroom_name[0];
-                    // }
-
-                    // if(err.response.data.errors.price){
-                    //     document.getElementById('error-price').innerText = err.response.data.errors.price[0];
-                    // }
-
-                    // if(err.response.data.errors.is_available){
-                    //     document.getElementById('error-is_available').innerText = err.response.data.errors.is_available[0];
-                    // }
-
-                    // if(err.response.data.errors.bed_amenities){
-                    //     document.getElementById('error-bed_amenities').innerText = err.response.data.errors.bed_amenities[0];
-                    // }
+                }
             });
         }
     </script>

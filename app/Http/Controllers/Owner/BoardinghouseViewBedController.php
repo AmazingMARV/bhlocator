@@ -82,7 +82,7 @@ class BoardinghouseViewBedController extends Controller
     public function update(Request $req, $bedroom){
 
         //return $req;
-
+        
         $bedImg = $req->file('bed_img');
         $pathFile = $bedImg->store('public/beds'); //get path of the file
         $n = explode('/', $pathFile); //split into array using /
