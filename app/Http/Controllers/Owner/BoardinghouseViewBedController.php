@@ -79,9 +79,10 @@ class BoardinghouseViewBedController extends Controller
             ->with('bedroom',$bedroom);
     }
 
-    public function updates(Request $req, $bedroom){
-       
-        return $req;
+    public function update(Request $req, $bedroom){
+
+        //return $req;
+
         $bedImg = $req->file('bed_img');
         $pathFile = $bedImg->store('public/beds'); //get path of the file
         $n = explode('/', $pathFile); //split into array using /
@@ -95,8 +96,7 @@ class BoardinghouseViewBedController extends Controller
         $bedrooms->price = $req->price;
         $bedrooms->is_available = $req->is_available;
         $bedrooms->bed_amenities = $req->bed_amenities;
-        $bedrooms->bed_img = $req->n[2];
-
+        $bedrooms->bed_img = $n[2];
 
         $bedrooms->save();
 

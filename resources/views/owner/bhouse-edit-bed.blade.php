@@ -78,8 +78,7 @@
             clearDataForms();
 
 
-
-
+            console.log(bed_img.files[0]);
 
             var frmData = new FormData();
 
