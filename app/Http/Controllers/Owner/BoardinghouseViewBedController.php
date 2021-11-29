@@ -84,8 +84,12 @@ class BoardinghouseViewBedController extends Controller
         //return $req;
         
         $bedImg = $req->file('bed_img');
-        $pathFile = $bedImg->store('public/beds'); //get path of the file
-        $n = explode('/', $pathFile); //split into array using /
+        $n = null;
+        if(bedImg){
+            $pathFile = $bedImg->store('public/beds'); //get path of the file
+            $n = explode('/', $pathFile); //split into array using /
+        }
+       
 
 
 
@@ -96,7 +100,8 @@ class BoardinghouseViewBedController extends Controller
         $bedrooms->price = $req->price;
         $bedrooms->is_available = $req->is_available;
         $bedrooms->bed_amenities = $req->bed_amenities;
-        $bedrooms->bed_img = $n[2];
+
+        $bedrooms->bed_img = $n[2] != null ? $n[2]: '';
 
         $bedrooms->save();
 
