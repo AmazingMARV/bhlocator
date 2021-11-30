@@ -71,7 +71,15 @@ class BoardinghouseViewBedController extends Controller
         ],200);
     }
 
+    public function destroy($bedroom_id){
+        Bedroom
+         ::destroy($bedroom_id);
 
+        return response()->json([
+            'status' => 'deleted'
+        ], 200);
+
+    }
 
     public function edit($id){
         $bedroom = Bedroom::find($id);
@@ -112,3 +120,4 @@ class BoardinghouseViewBedController extends Controller
 
 
 }
+

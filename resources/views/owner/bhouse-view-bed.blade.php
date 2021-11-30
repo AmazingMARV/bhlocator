@@ -34,7 +34,29 @@
     </div>
     <a class="btn btn-success mt-3 btn-create-dashboard" href="/bhouse-view-bed/{{$id}}/create" role="button">ADD / NEW</a>
 </div>
-    
+    <!--Modal--!-->
+<div class="modal fade" id="btnDialog" tabindex="-1" role="dialog" aria-labelledby="btnDialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="btnDialog">Message Prompt</h5>
+                <button type="button" class="close" id="closeModal1" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h2>Message Prompt</h2>
+                <p>Do you want to delete this data?</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="closeModal">Close</button>
+                <button type="button" class="btn btn-danger" id="btnYes">Yes</button>
+                <button type="button" class="btn btn-primary" id="btnNo">No</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script src=" {{ asset('/js/datatables.min.js') }}"></script>
@@ -57,7 +79,7 @@
                 { data: 'is_available' },
                 
                 {
-                    defaultContent: '<button class="btn btn-warning btn-sm" id="edit">Edit</button><button class="btn btn-danger btn-sm" id="delete">Delete</button>'
+                    defaultContent: '<button class="btn btn-warning btn-sm" id="edit">Edit</button><button class="btn btn-danger btn-sm" id="btnDialog" data-toggle="modal">Delete</button>'
                 }
             ]
         });
@@ -70,7 +92,7 @@
 
     });//criteria click edit
 
-    $('#users tbody').on( 'click', '#delete', function () {
+    $('#bedrooms tbody').on( 'click', '#btnDialog', function () {
         var data = table.row( $(this).parents('tr') ).data();
         var id = data['bedroom_id'];
 
@@ -83,6 +105,13 @@
 
     });//criteria click delete
 
+    $('#closeModal').click(function (){
+        $('#btnDialog').modal('toggle');
+    });
+
+    $('#closeModal1').click(function (){
+        $('#btnDialog').modal('toggle');
+    });
    
     
   } ); //close document ready

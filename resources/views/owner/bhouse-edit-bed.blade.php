@@ -92,7 +92,7 @@
 
             axios.post('/bhouse-edit-bed/{{$bedroom->bedroom_id}}', frmData).then(res=>{
 
-                if(res.data.status === 'success'){
+                if(res.data.status === 'updated'){
                     alert('Successfully saved.');
                     window.location = "/bhouse-view-bed/{{$bedroom->bhouse_id}}"
                     console.log(res.data);
