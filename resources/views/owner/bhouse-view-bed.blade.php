@@ -39,7 +39,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="btnDialog">Message Prompt</h5>
+                <h5 class="modal-title" id="">Message Prompt</h5>
                 <button type="button" class="close" id="closeModal1" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -79,7 +79,7 @@
                 { data: 'is_available' },
                 
                 {
-                    defaultContent: '<button class="btn btn-warning btn-sm" id="edit">Edit</button><button class="btn btn-danger btn-sm" id="btnDialog" data-toggle="modal">Delete</button>'
+                    defaultContent: '<button class="btn btn-warning btn-sm" id="edit">Edit</button><button class="btn btn-danger btn-sm" id="btnDelete" data-toggle="modal">Delete</button>'
                 }
             ]
         });
@@ -92,9 +92,12 @@
 
     });//criteria click edit
 
-    $('#bedrooms tbody').on( 'click', '#btnDialog', function () {
+    $('#bedrooms tbody').on( 'click', '#btnDelete', function () {
         var data = table.row( $(this).parents('tr') ).data();
         var id = data['bedroom_id'];
+        
+        $('#btnDialog').modal('toggle');
+        
 
         // axios.delete('/admin-dashboard/'+ id ).then(res=>{
         //         if(res.status === 200){
@@ -105,13 +108,11 @@
 
     });//criteria click delete
 
-    $('#closeModal').click(function (){
-        $('#btnDialog').modal('toggle');
-    });
-
     $('#closeModal1').click(function (){
         $('#btnDialog').modal('toggle');
     });
+
+   
    
     
   } ); //close document ready
