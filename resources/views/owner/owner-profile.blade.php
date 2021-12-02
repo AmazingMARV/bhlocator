@@ -85,6 +85,10 @@
                     </div>
                 </div>
             </div>
+            <h2>Business Permit Image</h2>
+            <div class="text-center">
+                 <img src="{{ asset('storage/bpermit/' . $user->business_permit_img)  }}" class="rounded" alt="..." width="250px" height="250px">
+             </div>
             <div class="row">
                       <div class="mb-3">
                             <label for="business_permit_img" class="form-label">Upload photo of your Business Permit</label>

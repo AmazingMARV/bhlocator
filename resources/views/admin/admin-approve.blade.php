@@ -51,7 +51,7 @@
                         <h2>Business Permit</h2>
 
 
-                        <img src="" id="imgpath" class="rounded mx-auto d-block" alt="...">
+                        <img src="" id="imgpath" class="rounded mx-auto d-block" alt="..." height="350px"  width="350px">
                         <input type="text" id="dataID">
 
                     </div>

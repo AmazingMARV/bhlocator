@@ -61,10 +61,12 @@
 <script src=" {{ asset('/js/datatables.min.js') }}"></script>
 
 <script>
+        
+        
 
         document.getElementById('btnYes').addEventListener('click',function(){
             
-            let bedroom_id = $('#dataID').val();
+            let id = $('#dataID').val();
     
             // axios.put('/approve-account-owner/' + id).then(res=>{
             //         if(res.data.status === 'updated'){
