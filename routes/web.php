@@ -63,6 +63,7 @@ Route::get('/client-boarding-house-info', [App\Http\Controllers\Client\ClientBoa
 
 //owner
 Route::resource('/dashboard', App\Http\Controllers\Owner\DashboardController::class);
+Route::post('/dashboard-bhouse-update/{id}', [App\Http\Controllers\Owner\DashboardController::class, 'update']);
 
 
 Route::get('/dashboard-bhouse', [App\Http\Controllers\Owner\DashboardBhouseController::class, 'index']);
@@ -83,6 +84,8 @@ Route::post('/bhouse-view-bed/{id}/store', [App\Http\Controllers\Owner\Boardingh
 Route::get('/bhouse-edit-bed/{id}/edit', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'edit']);
 
 Route::post('/bhouse-edit-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'update']);
+
+Route::delete('/bhouse-view-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'destroy']);
 
 Route::get('/bhouse-edit-bed/{id}', [App\Http\Controllers\Owner\BoardinghouseViewBedController::class, 'index']);
 

@@ -52,7 +52,7 @@
 
 
                         <img src="" id="imgpath" class="rounded mx-auto d-block" alt="..." height="350px"  width="350px">
-                        <input type="text" id="dataID">
+                        <input type="hidden" id="dataID">
 
                     </div>
                     <div class="modal-footer">

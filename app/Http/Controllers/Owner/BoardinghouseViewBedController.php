@@ -116,6 +116,7 @@ class BoardinghouseViewBedController extends Controller
             'status' => 'updated'
         ], 200 );
     }
+    
 
 
 }

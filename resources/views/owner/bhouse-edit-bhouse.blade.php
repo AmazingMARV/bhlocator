@@ -176,37 +176,11 @@
             formData.append('loc_y', loc_y.value);
 
         
-            axios.post('/dashboard', formData).then(res=>{
-                console.log(res);
-                if(res.data.status === 'success'){
+            axios.post('/dashboard-bhouse-update/{{$bhouse->bhouse_id}}', formData).then(res=>{
+                
+                if(res.data.status === 'updated'){
                     alert('Successfully saved.');
                     window.location = "/dashboard"
-                }
-            }).catch(err=>{
-                //error and input handler
-                
-                if(err.response.data.errors.bhouse_img){
-                    document.getElementById('error-upload').innerText = err.response.data.errors.bhouse_img[0];
-                }
-
-                if(err.response.data.errors.bhouse_name){
-                    document.getElementById('error-bhouse_name').innerText = err.response.data.errors.bhouse_name[0];
-                }
-                
-                if(err.response.data.errors.bhouse_desc){
-                    document.getElementById('error-bhouse_desc').innerText = err.response.data.errors.bhouse_desc[0];
-                }
-
-                if(err.response.data.errors.bhouse_rule){
-                    document.getElementById('error-bhouse_rule').innerText = err.response.data.errors.bhouse_rule[0];
-                }
-
-                if(err.response.data.errors.loc_x){
-                    document.getElementById('error-loc_x').innerText = err.response.data.errors.loc_x[0];
-                }
-
-                if(err.response.data.errors.loc_x){
-                    document.getElementById('error-loc_y').innerText = err.response.data.errors.loc_y[0];
                 }
             });
         });

@@ -23,12 +23,13 @@ class DashboardController extends Controller
 
     }
 
-    public function index(){
+    public function index(Request $req){
       
 
-        $bhouses = Bhouse::all();
+        $bhouses = Bhouse::where('user_id', $req->id)->get();
         return view('owner.dashboard')
             ->with('bhouses', $bhouses);
+            
     }
 
 
@@ -83,6 +84,48 @@ class DashboardController extends Controller
         return view ('owner.bhouse-edit-bhouse')
         ->with('bhouse',$bhouses);
       
+    }
+
+    public function update(Request $req, $bhouse_id){
+
+        //return $req;
+        
+        $bhouseImg = $req->file('bhouse_img');
+        $n = null;
+        if($bhouseImg){
+            $pathFile = $bhouseImg->store('public/bhouses'); //get path of the file
+            $n = explode('/', $pathFile); //split into array using /
+        }
+       
+
+
+
+        $bhouse = Bhouse::find($bhouse_id);
+
+
+        $bhouse->bhouse_name =$req->bhouse_name;
+        $bhouse->bhouse_desc = $req->bhouse_desc;
+        $bhouse->bhouse_rule = $req->bhouse_rule;
+        $bhouse->loc_description = $req->loc_description;
+        $bhouse->loc_x = $req->loc_x;
+        $bhouse->loc_y = $req->loc_y;
+
+        $bhouse->bhouse_img = $n[2] != null ? $n[2]: '';
+
+        $bhouse->save();
+
+        return response()->json([
+            'status' => 'updated'
+        ], 200 );
+    }
+
+    public function destroy($bhouse_id){
+        Bhouse::destroy($bhouse_id);
+
+        return response()->json([
+            'status' => 'deleted'
+        ], 200);
+
     }
     
 }

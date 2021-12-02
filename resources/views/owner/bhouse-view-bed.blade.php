@@ -11,6 +11,7 @@
             <thead>
                 <tr>
                     <th>Bedroom ID</th>
+                    <th>bhouse ID</th>
                     <th>Bedroom Name</th>
                     <th>Bed Amenities</th>
                     <th>Price</th>
@@ -22,6 +23,7 @@
             <tfoot>
                 <tr>
                     <th>Bedroom ID</th>
+                    <th>bhouse ID</th>
                     <th>Bedroom Name</th>
                     <th>Bed Amenities</th>
                     <th>Price</th>
@@ -46,7 +48,9 @@
             </div>
             <div class="modal-body">
                 <p>Do you want to delete this data?</p>
-                <input type="text" id="dataID">
+                <input type="hidden" id="dataID">
+                <input type="hidden" id="bhouseID">
+
                 
             </div>
             <div class="modal-footer">
@@ -67,13 +71,14 @@
         document.getElementById('btnYes').addEventListener('click',function(){
             
             let id = $('#dataID').val();
+            let bhouse_id = $('#bhouseID').val();
     
-            // axios.put('/approve-account-owner/' + id).then(res=>{
-            //         if(res.data.status === 'updated'){
-            //             alert('Account has been approved.');
-            //             window.location = '/admin-approve';
-            //         }
-            //     });
+           axios.delete('/bhouse-view-bed/'+ id ).then(res=>{
+                if(res.status === 200){
+                    alert('Data successfully Deleted.');
+                    window.location = '/bhouse-view-bed/'+ bhouse_id;
+                }
+            });
              
                     
                     
@@ -90,10 +95,12 @@
             columns: [
               //  { data: 'bedroom_id', 'visible' : false },
                 { data: 'bedroom_id' },
+                { data: 'bhouse_id' , 'visible': false},
                 { data: 'bedroom_name'},
                 { data: 'bed_amenities' },
                 { data: 'price' },
                 { data: 'is_available' },
+                
                 
                 {
                     defaultContent: '<button class="btn btn-warning btn-sm" id="edit">Edit</button><button class="btn btn-danger btn-sm" id="btnDelete" data-toggle="modal">Delete</button>'
@@ -112,7 +119,9 @@
     $('#bedrooms tbody').on( 'click', '#btnDelete', function () {
         var data = table.row( $(this).parents('tr') ).data();
         var id = data['bedroom_id'];
-        
+        var bhouse_id = data['bhouse_id'];
+        $('#dataID').val(id);
+        $('#bhouseID').val(bhouse_id);
         $('#btnDialog').modal('toggle');
         
 

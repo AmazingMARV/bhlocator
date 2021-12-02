@@ -18,13 +18,13 @@
                 </div>
                 <div class="card-footer">
                     <a class="btn btn-warning" href="/dashboard/{{ $bhouse->bhouse_id }}/edit">EDIT</a>
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#btnDialog">DELETE</button>
+                    <button class="btn btn-danger" onclick="confirmDelete({{ $bhouse->bhouse_id }})" id="btnDelete">DELETE</button>
                 </div>
             </div>
         @endforeach
     </div>
     <!--Modal--!-->
-    <div class="modal fade" id="btnDialog" tabindex="-1" role="dialog" aria-labelledby="btnDialog" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDelete" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Do you want to delete this data?</p>
-                    <input type="text" id="dataID">
+                    
                     
                 </div>
                 <div class="modal-footer">
@@ -50,13 +50,37 @@
 </div>
 
 <script>
+    var globalID = 0;
 
+        document.getElementById('btnYes').addEventListener('click',function(){
+            
+            
+            
+    
+           axios.delete('/dashboard/'+ globalID ).then(res=>{
+                if(res.status === 200){
+                    alert('Data successfully Deleted.');
+                   window.location = '/dashboard'
+                }
+            });
+             
+                    
+                    
+         });
+
+         function confirmDelete(id){
+            globalID = id;
+            $('#modalDelete').modal('toggle');
+            
+         }
+
+        
 
     $('#closeModal1').click(function (){
-        $('#btnDialog').modal('toggle');
+        $('#modalDelete').modal('toggle');
     });
     $('#closeModal').click(function (){
-        $('#btnDialog').modal('toggle');
+        $('#modalDelete').modal('toggle');
     });
 </script>
 @endsection
