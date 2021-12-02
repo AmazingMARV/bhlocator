@@ -45,14 +45,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h2>Message Prompt</h2>
                 <p>Do you want to delete this data?</p>
-
+                <input type="text" id="dataID">
+                
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="closeModal">Close</button>
                 <button type="button" class="btn btn-danger" id="btnYes">Yes</button>
-                <button type="button" class="btn btn-primary" id="btnNo">No</button>
+                <button type="button" class="btn btn-secondary" id="closeModal">No</button>
             </div>
         </div>
     </div>
@@ -62,6 +61,22 @@
 <script src=" {{ asset('/js/datatables.min.js') }}"></script>
 
 <script>
+
+        document.getElementById('btnYes').addEventListener('click',function(){
+            
+            let bedroom_id = $('#dataID').val();
+    
+            // axios.put('/approve-account-owner/' + id).then(res=>{
+            //         if(res.data.status === 'updated'){
+            //             alert('Account has been approved.');
+            //             window.location = '/admin-approve';
+            //         }
+            //     });
+             
+                    
+                    
+         });
+
    $(document).ready(function() {
 
         var table = $('#bedrooms').DataTable({
@@ -109,6 +124,9 @@
     });//criteria click delete
 
     $('#closeModal1').click(function (){
+        $('#btnDialog').modal('toggle');
+    });
+    $('#closeModal').click(function (){
         $('#btnDialog').modal('toggle');
     });
 

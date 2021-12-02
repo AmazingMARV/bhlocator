@@ -77,4 +77,12 @@ class DashboardController extends Controller
             'status' => 'success'
         ],201);
     }
+
+    public function edit($id){
+        $bhouses = Bhouse::find($id);
+        return view ('owner.bhouse-edit-bhouse')
+        ->with('bhouse',$bhouses);
+      
+    }
+    
 }

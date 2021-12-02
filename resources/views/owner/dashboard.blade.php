@@ -17,14 +17,46 @@
                     
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-warning">EDIT</button>
-                    <button class="btn btn-danger">DELETE</button>
+                    <a class="btn btn-warning" href="/dashboard/{{ $bhouse->bhouse_id }}/edit">EDIT</a>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#btnDialog">DELETE</button>
                 </div>
             </div>
         @endforeach
+    </div>
+    <!--Modal--!-->
+    <div class="modal fade" id="btnDialog" tabindex="-1" role="dialog" aria-labelledby="btnDialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">Message Prompt</h5>
+                    <button type="button" class="close" id="closeModal1" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to delete this data?</p>
+                    <input type="text" id="dataID">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="btnYes">Yes</button>
+                    <button type="button" class="btn btn-secondary" id="closeModal">No</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <a class="btn btn-success mt-3 btn-create-dashboard" href="/dashboard/create" role="button">ADD / NEW</a>
 </div>
 
+<script>
+
+
+    $('#closeModal1').click(function (){
+        $('#btnDialog').modal('toggle');
+    });
+    $('#closeModal').click(function (){
+        $('#btnDialog').modal('toggle');
+    });
+</script>
 @endsection
