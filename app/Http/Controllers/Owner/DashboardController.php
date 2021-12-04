@@ -23,10 +23,9 @@ class DashboardController extends Controller
 
     }
 
-    public function index(Request $req){
-      
-
-        $bhouses = Bhouse::where('user_id', $req->id)->get();
+    public function index(){
+        $user = auth()->user();
+        $bhouses = Bhouse::where('user_id', $user->user_id)->get();
         return view('owner.dashboard')
             ->with('bhouses', $bhouses);
             
