@@ -18,13 +18,21 @@
       <div class="tab-pane active" id="bed">
         <div class="row">
           <div class="col">
-            <h3 class="mb-3">Bed</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-          </div>
+            <div class="card mb-3" style="max-width: 850px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="..." class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Bed Name</h5>
+                    <p class="card-text">Amenities</p>
+                    <p class="card-text"><small class="text-muted">Price</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- end div-->
         </div>
       </div> <!-- tab pane end div-->
 

@@ -69,7 +69,7 @@
                     <p>{{ $bhouse->bhouse_desc }}</p>
                 </div>
                 <div class="button-container">
-                    <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
+                    <a href="/client-boarding-house-info/{{ $bhouse->bhouse_id }}" class="btn btn-secondary">Click To Visit</a>
                 </div>
             </div>
             @endforeach
