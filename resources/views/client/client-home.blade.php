@@ -50,51 +50,25 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-      <div class="container board-container">
-          <h2>Boarding Houses</h2>
-          <hr>
-          <div class="row myboarding">
-              <div class="col-md-3">
-                  <div class="product-top">
-                      <img src="img/apartment2.jpg">
-                      <div class="overlay text-center">
-                          <p>Amparado Boarding House</p>
-                      </div>
-                  </div>
-                  <div class="product-bottom text-center">
-                      <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
-                  </div>
-              </div>
-
-              <div class="col-md-3">
-                  <div class="product-top">
-                      <img src="img/apartment2.jpg">
-                      <div class="overlay text-center">
-                          <p>Amparado Boarding House and Apartment</p>
-                      </div>
-                  </div>
-                  <div class="product-bottom text-center">
-                      <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
-                  </div>
-              </div>
-
-              <div class="col-md-3">
-                <div class="product-top">
-                    <img src="img/apartment2.jpg">
+    <div class="bhouse wrapper">
+        <div class="container board-container">
+            <h2>Boarding Houses</h2>
+            <hr>
+            @foreach($bhouses as $bhouse)
+            <div class="row myboarding">
+                <div class="col-md-3">
+                    <div class="product-top">
+                    <img src="/storage/bhouses/{{$bhouse->bhouse_img}}">
                     <div class="overlay text-center">
-                        <p>Alab Boarding House</p>
-
-                    </div>
+                    <p>{{ $bhouse->bhouse_name }}</p>
                 </div>
+            </div>
                 <div class="product-bottom text-center">
-                  <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
-
+                <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
                 </div>
-              </div>
-
-          </div>
-
-      </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
 
 @endsection
