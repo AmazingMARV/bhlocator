@@ -60,6 +60,8 @@ Route::get('/client-change-password', [App\Http\Controllers\Client\ClientChangeP
 Route::post('/client-change-password', [App\Http\Controllers\Client\ClientChangePasswordController::class, 'changePasword']);
 
 Route::get('/client-boarding-house-info/{id}', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'index']);
+Route::get('/client-boarding-house-info/{id}', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'fetchBed']);
+
 
 //owner
 Route::resource('/dashboard', App\Http\Controllers\Owner\DashboardController::class);

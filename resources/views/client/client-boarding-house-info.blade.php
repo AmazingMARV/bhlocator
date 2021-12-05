@@ -15,27 +15,30 @@
     </ul> 
     <div class="tab-content">
       <!-- Bed -->
+      
       <div class="tab-pane active" id="bed">
         <div class="row">
           <div class="col">
-            <div class="card mb-3" style="max-width: 850px;">
+          @foreach($beds as $bed)
+            <div class="card mb-3" style="max-width: 850px;"> <!--card-->
               <div class="row no-gutters">
                 <div class="col-md-4">
-                  <img src="..." class="card-img" alt="...">
+                  <img src="/storage/beds/{{$bed->bed_img}}" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">Bed Name</h5>
-                    <p class="card-text">Amenities</p>
-                    <p class="card-text"><small class="text-muted">Price</small></p>
+                    <h5 class="card-title">Bed Name: <br>{{$bed->bedroom_name}}</h5>
+                    <p class="card-text">Amenities: <br>{{$bed->bed_amenities}}</p>
+                    <p class="card-text"><small>Price: <br> ₱ {{$bed->price}} / month</small></p>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> <!--card-->
+            @endforeach
           </div> <!-- end div-->
         </div>
       </div> <!-- tab pane end div-->
-
+     
       <!-- Location -->
       <div class="tab-pane" id="loc">
         <div class="row">
@@ -55,11 +58,7 @@
         <div class="row">
           <div class="col">
             <h3 class="mb-3">Description</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>{{ $bhouses->bhouse_desc }}</p>
           </div>
         </div>
       </div> <!-- tab pane end div-->
@@ -69,11 +68,7 @@
         <div class="row">
           <div class="col">
             <h3 class="mb-3">House Rule</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>{{ $bhouses->bhouse_rule }}</p>
           </div>
         </div>
       </div> <!-- tab pane end div-->

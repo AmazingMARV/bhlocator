@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Bedroom;
 use App\Models\Bhouse;
 use Auth;
+use Illuminate\Support\Facades\DB;
+
+use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
+
 
 class ClientBoardingHouseInfoController extends Controller
 {
@@ -15,5 +20,16 @@ class ClientBoardingHouseInfoController extends Controller
         return view('client.client-boarding-house-info')
         ->with('id', $id);
         
+        
+    }
+
+    public function fetchBed($id){
+        
+        $bhouses = Bhouse::where('bhouse_id', $id)->first();
+        $beds = Bedroom::where('bhouse_id', $id)->get();
+         return view('client.client-boarding-house-info')
+        ->with('bhouses', $bhouses)
+        ->with('beds', $beds); 
+
     }
 }
