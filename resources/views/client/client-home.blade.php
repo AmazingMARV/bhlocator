@@ -50,25 +50,32 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="bhouse wrapper">
-        <div class="container board-container">
-            <h2>Boarding Houses</h2>
-            <hr>
+
+   
+    <div class="container">
+        <h2>Boarding Houses</h2>
+        <hr>
+        
+        <div class="client-bhouse-wrapper">
             @foreach($bhouses as $bhouse)
-            <div class="row myboarding">
-                <div class="col-md-3">
-                    <div class="product-top">
-                    <img src="/storage/bhouses/{{$bhouse->bhouse_img}}">
-                    <div class="overlay text-center">
-                    <p>{{ $bhouse->bhouse_name }}</p>
+            <div class="bhouse-card">
+                <div class="img-container">
+                    <img src="/storage/bhouses/{{$bhouse->bhouse_img}}" alt="bhouse" height="250"/>
+                </div>
+                <div class="text-center p-font">
+                    <p>{{ $bhouse->bhouse_name }}</p> 
+                </div>
+                <div class="p-bhousedesc">
+                    <p>{{ $bhouse->bhouse_desc }}</p>
+                </div>
+                <div class="button-container">
+                    <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
                 </div>
             </div>
-                <div class="product-bottom text-center">
-                <a href="/client-boarding-house-info" class="btn btn-secondary">Click To Visit</a>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
+            @endforeach
+        </div> <!--close bhouse-warpper-->
+        
+    </div> <!-- close container-->
+    
 
 @endsection

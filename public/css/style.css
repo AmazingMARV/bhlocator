@@ -73,7 +73,9 @@ body{
   }
 
   .bh-container{
-    margin-top: 100px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
   }
 
   .newarrival{
@@ -182,9 +184,10 @@ body{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    
 }
 
-.bhouse-wrapper .card{
+.bhouse-wrapper  .card{
     margin: 20px;
 }
 
@@ -198,6 +201,62 @@ body{
     height: 600px; 
 }
 
+.client-bhouse-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+   
+}
+.bhouse-card{
+    position: relative;
+    padding: 0;
+    margin: 15px;
+    width: 252px;
+    border-radius: 5px;
+    border: 1px solid white;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+
+}
+
+.img-container > img{
+   object-fit: cover;
+   width: 250px;
+}
+.bhouse-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+   
+}
+
+.p-font{
+    font-weight: bold;
+    
+}
+
+.p-bhousedesc{
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+    text-align: justify;
+}
+
+.button-container{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.bhouse-header{
+    text-align: center;
+}
 
 @media only screen and (max-width: 600px) {
    
