@@ -76,6 +76,14 @@
         </div> <!--close bhouse-warpper-->
         
     </div> <!-- close container-->
+    <!-- Pagination-->
+    <div class="myPagination mt-4">
+        {{$bhouses->links()}}
+    </div>
+    
     
 
+<script>
+
+</script>
 @endsection

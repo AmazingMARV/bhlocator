@@ -1,7 +1,7 @@
 @extends('layouts.client')
 @section('content')
 <div class="bhouse-header mt-5">
-  <h2>Amparado and Alab Boarding House</h2>
+  <h2>{{$bhouses->bhouse_name}}</h2>
 </div>
 
 <div class="bh-container">
