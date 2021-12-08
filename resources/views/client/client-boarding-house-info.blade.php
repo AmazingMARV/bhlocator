@@ -80,7 +80,7 @@
             <h3 class="mb-3">Comment and Review</h3>
             
               <div class="comment-container">
-                <p>Total Reviews: <img src="img/rating.png"></p>
+                <p>Total Reviews:</p>
                 <!-- Button trigger modal -->
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Leave a Comment
@@ -95,27 +95,31 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Enter Your Name">
-                            <label for="floatingInput">Enter Your Name</label>
+                          <div>
+                            <p>Rate:</p>
                           </div>
-                          <div class="form-floating mb-3">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                              
-                              <option value="1">One</option>
-                              <option value="2">Two</option>
-                              <option value="3">Three</option>
-                            </select>
-                            <label for="floatingSelect">Your Rating</label>
+                          <div class="rating-css">
+                            <div class="star-icon">
+                                <input type="radio" value="1" name="rating" checked id="rating1">
+                                <label for="rating1" class="fa fa-star"></label>
+                                <input type="radio" value="2" name="rating" id="rating2">
+                                <label for="rating2" class="fa fa-star"></label>
+                                <input type="radio" value="3" name="rating" id="rating3">
+                                <label for="rating3" class="fa fa-star"></label>
+                                <input type="radio" value="4" name="rating" id="rating4">
+                                <label for="rating4" class="fa fa-star"></label>
+                                <input type="radio" value="5" name="rating" id="rating5">
+                                <label for="rating5" class="fa fa-star"></label>
+                            </div>
                           </div>
                           <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Comments</label>
+                            <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
+                            <label for="Comment">Comment</label>
                           </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save</button>
+                          <button type="button" class="btn btn-primary" onclick="submitComment()">Save</button>
                         </div>
                       </div>
           </div>
@@ -125,4 +129,24 @@
     </div> <!--end col div-->
   </div> <!-- col end div-->
 </div> <!-- container end div-->
+
+<script>
+  function submitComment(){
+    let username = document.getElementById('username');
+    let comment = document.getElementById('comment');
+    
+    var fields = {
+      comment: comment.value,
+              
+            };
+
+            axios.post('/add-comment', fields).then(res=>{
+                if(res.status === 200){
+                    alert('Comment Successfully!');
+                    window.location = '/client-boarding-house-info/';
+                }
+            });
+
+  }
+</script>
 @endsection

@@ -61,6 +61,8 @@ Route::post('/client-change-password', [App\Http\Controllers\Client\ClientChange
 
 Route::get('/client-boarding-house-info/{id}', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'index']);
 Route::get('/client-boarding-house-info/{id}', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'fetchBed']);
+Route::resource('/add-comment', App\Http\Controllers\Client\CommentController::class);
+
 
 
 //owner

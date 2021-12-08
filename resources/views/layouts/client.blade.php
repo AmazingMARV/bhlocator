@@ -14,6 +14,12 @@
 
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('/fonts/fontawesome-webfont.ttf') }}">
+    <link rel="stylesheet" href="{{ asset('/fonts/fontawesome-webfont.woff') }}">
+    <link rel="stylesheet" href="{{ asset('/fonts/fontawesome-webfont.woff2') }}">
+
+
 
     <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
 
