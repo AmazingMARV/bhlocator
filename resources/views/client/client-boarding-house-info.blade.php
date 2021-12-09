@@ -11,7 +11,7 @@
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#loc">Location</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#desc">Description</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#house_rule">House Rule</a></li>
-      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#comment">Comments and Review</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#comment-pane">Comments and Review</a></li>
     </ul> 
     <div class="tab-content">
       <!-- Bed -->
@@ -74,12 +74,20 @@
       </div> <!-- tab pane end div-->
 
       <!-- Comment and Review  -->
-      <div class="tab-pane" id="comment">
+      <div class="tab-pane" id="comment-pane">
         <div class="row">
           <div class="col">
             <h3 class="mb-3">Comment and Review</h3>
-            
-              <div class="comment-container">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">{{ $comments->comment }}</p>
+                        <p class="card-text"><small class="text-muted">{{ $comments->created_at }}</small></p>
+                      </div>
+                    </div>
+                  </div>
                 <p>Total Reviews:</p>
                 <!-- Button trigger modal -->
                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -139,31 +147,29 @@
     let rating = document.getElementsByName('rating');
     let bhouse_id = document.getElementById('bhouse_id');
     let comment = document.getElementById('comment');
+    var rate_value;
 
-        var rate_value;
-
-        for(var i = 0; i < rating.length; i++){
-            if(rating[i].checked){
-                rate_value = rating[i].value;
-            }
+      for(var i = 0; i < rating.length; i++){
+        if(rating[i].checked){
+        rate_value = rating[i].value;
         }
-       
+      }
 
-        var fields = {
-          comment: comment.value,
-          bhouse_id: bhouse_id.value,
-          rate_value: rate_value,
-              
-                };
-            
-          
 
-            axios.post('/add-comment', fields).then(res=>{ 
-                if(res.status === 200){
-                    alert('Comment Successfully!');
-                    // window.location = '/client-boarding-house-info/' + id + ;
-                }
-            });
+    var fields = {
+      comment: comment.value,
+      bhouse_id: bhouse_id.value,
+      rate_value: rate_value,
+
+    };
+
+
+    axios.post('/add-comment', fields).then(res=>{ 
+      if(res.status === 200){
+      alert('Comment Successfully!');
+      window.location = '/client-boarding-house-info/{{$bhouses->bhouse_id}}' ;
+      }
+    });
 
   }
 </script>

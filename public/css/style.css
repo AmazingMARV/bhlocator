@@ -94,16 +94,7 @@ body{
       height: 50px;
   }
 
-  .comment-container{
-    display: flex;
-    align-items: center;
-    display: inline-block;
-  }
-
-  .comment-container img{
-      width: 100px;
-      margin-left: 10px;
-  }
+ 
 
   .car-container{
       padding: 50px;
