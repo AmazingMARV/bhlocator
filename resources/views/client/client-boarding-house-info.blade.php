@@ -97,6 +97,10 @@
                         <div class="modal-body">
                           <div>
                             <p>Rate:</p>
+                            <input type="hidden" id="bhouse_id" value="{{ $bhouses->bhouse_id }}">
+                            
+                            
+
                           </div>
                           <div class="rating-css">
                             <div class="star-icon">
@@ -132,18 +136,32 @@
 
 <script>
   function submitComment(){
-    let username = document.getElementById('username');
+    let rating = document.getElementsByName('rating');
+    let bhouse_id = document.getElementById('bhouse_id');
     let comment = document.getElementById('comment');
-    
-    var fields = {
-      comment: comment.value,
-              
-            };
 
-            axios.post('/add-comment', fields).then(res=>{
+        var rate_value;
+
+        for(var i = 0; i < rating.length; i++){
+            if(rating[i].checked){
+                rate_value = rating[i].value;
+            }
+        }
+       
+
+        var fields = {
+          comment: comment.value,
+          bhouse_id: bhouse_id.value,
+          rate_value: rate_value,
+              
+                };
+            
+          
+
+            axios.post('/add-comment', fields).then(res=>{ 
                 if(res.status === 200){
                     alert('Comment Successfully!');
-                    window.location = '/client-boarding-house-info/';
+                    // window.location = '/client-boarding-house-info/' + id + ;
                 }
             });
 

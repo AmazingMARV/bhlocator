@@ -14,13 +14,14 @@ use Auth;
 class CommentController extends Controller
 {
     
-   public function store(Request $id){
+   public function store(Request $req){
+    
     $user = Auth::user();
     Comment::create([
-        'comment_id' => $id,
+        
         'bhouse_id' => $req->bhouse_id,
-        'user_id' => $req->user_id,
-        'rating' => $req->rating,
+        'user_id' => $user->user_id,
+        'rating' => $req->rate_value,
         'comment' =>$req->comment,
 
     ]);
