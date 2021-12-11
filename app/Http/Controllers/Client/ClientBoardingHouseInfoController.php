@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 
 class ClientBoardingHouseInfoController extends Controller
@@ -28,7 +30,7 @@ class ClientBoardingHouseInfoController extends Controller
 
     public function fetchBed($id){
         $bhouses = Bhouse::where('bhouse_id', $id)->first();
-        $beds = Bedroom::where('bhouse_id', $id)->get();
+        $beds = Bedroom::where('bhouse_id', $id)->paginate(2);
         $comments = Comment::where('bhouse_id', $id)->first();
          return view('client.client-boarding-house-info')
         ->with('bhouses', $bhouses)

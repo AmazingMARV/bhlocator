@@ -40,6 +40,7 @@ Route::post('/register-owner', [App\Http\Controllers\RegisterOwnerController::cl
 
 //client
 Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'index']);
+// Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'search']);
 
 //Route::get('/session', function(){
 //    return Session::all();

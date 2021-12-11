@@ -36,6 +36,9 @@
             </div> <!--card-->
             @endforeach
           </div> <!-- end div-->
+          <div class="myPagination mt-4">
+              {{$beds->links()}}
+          </div>
         </div>
       </div> <!-- tab pane end div-->
      
@@ -78,6 +81,11 @@
         <div class="row">
           <div class="col">
             <h3 class="mb-3">Comment and Review</h3>
+            <p>Total Reviews:</p>
+            <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Leave a Comment
+              </button>
                 <div class="card mb-3" style="max-width: 540px;">
                   <div class="row no-gutters">
                     <div class="col-md-8">
@@ -88,11 +96,7 @@
                       </div>
                     </div>
                   </div>
-                <p>Total Reviews:</p>
-                <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Leave a Comment
-                  </button>
+                </div>
 
                   <!-- Modal -->
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

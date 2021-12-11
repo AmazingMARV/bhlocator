@@ -26,6 +26,14 @@ class ClientHomeController extends Controller
         
     }
     
+    public function search(Request $req){
+       
+        //$search = $request->input('search');
+        $key  = $req->search['value'];
+        
+        $bhouse = Bhouse::where('bhouse_name', 'LIKE', $key."%")
+            ->get();
+    }
     
     
 }
