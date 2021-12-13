@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Bedroom;
 use App\Models\Bhouse;
 use App\Models\Comment;
+use Illuminate\Support\Facades\DB;
 
 use Auth;
 
@@ -31,4 +32,6 @@ class CommentController extends Controller
     ],200);
 
    }
+
+
 }

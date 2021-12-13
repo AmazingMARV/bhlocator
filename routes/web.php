@@ -40,7 +40,7 @@ Route::post('/register-owner', [App\Http\Controllers\RegisterOwnerController::cl
 
 //client
 Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'index']);
-// Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'search']);
+Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'nameReview']);
 
 //Route::get('/session', function(){
 //    return Session::all();
@@ -121,3 +121,7 @@ Route::get('/visitor-browse-bh', [App\Http\Controllers\Visitor\VisitorDashboardC
 
 //pending accounts
 Route::get('/owner-pending', [App\Http\Controllers\Owner\OwnerPendingAccountController::class, 'index']);
+
+Route::get('/test', function(){
+   echo date_default_timezone_get(); 
+});

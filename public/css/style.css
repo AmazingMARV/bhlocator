@@ -281,7 +281,13 @@ body{
   }
 
 /* End of Star Rating */
+.color-gray{
+    color:#e6e6e6
+}
 
+.color-yellow{
+    color:#f4f807
+}
 @media only screen and (max-width: 600px) {
    
 }

@@ -30,12 +30,26 @@ class ClientBoardingHouseInfoController extends Controller
 
     public function fetchBed($id){
         $bhouses = Bhouse::where('bhouse_id', $id)->first();
+        
+        
+
         $beds = Bedroom::where('bhouse_id', $id)->paginate(2);
-        $comments = Comment::where('bhouse_id', $id)->first();
+        $comments = DB::table('users')
+        ->join('comments', 'users.user_id', '=', 'comments.user_id')
+        ->join('bhouses', 'bhouses.bhouse_id', 'comments.bhouse_id')
+        ->where('comments.bhouse_id', $id)
+        ->orderBy('comments.comment_id', 'desc')
+        ->get();
+        
          return view('client.client-boarding-house-info')
         ->with('bhouses', $bhouses)
         ->with('comments', $comments)
+        
         ->with('beds', $beds); 
+        
+
 
     }
+
+   
 }

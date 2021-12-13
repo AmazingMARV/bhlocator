@@ -86,18 +86,26 @@
               <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Leave a Comment
               </button>
-                <div class="card mb-3" style="max-width: 540px;">
+              @foreach($comments as $comment)
+                <div class="card mb-3" style="max-width: 540px;"> <!--card-->
                   <div class="row no-gutters">
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">{{ $comments->comment }}</p>
-                        <p class="card-text"><small class="text-muted">{{ $comments->created_at }}</small></p>
+                        <h5 class="card-title">{{ $comment->fname }}, {{ $comment->lname }}</h5>
+                        @for($i=1;$i<=5;$i++)
+                          @if($i<=$comment->rating)
+                          <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+                          @else
+                          <i class="fa fa-star color-gray" aria-hidden="true"></i>
+                          @endif
+                         @endfor
+                        <p class="card-text mt-3">{{ $comment->comment }}</p>
+                        <p class="card-text"><small class="text-muted">{{ $comment->created_at->tz('Asia/Manila') }}</small></p>
                       </div>
                     </div>
                   </div>
-                </div>
-
+                </div> <!--end card-->
+              @endforeach
                   <!-- Modal -->
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -129,7 +137,7 @@
                             </div>
                           </div>
                           <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
+                            <textarea class="form-control" placeholder="Leave a comment here" id="comment_here" style="height: 100px"></textarea>
                             <label for="Comment">Comment</label>
                           </div>
                         </div>
@@ -150,7 +158,7 @@
   function submitComment(){
     let rating = document.getElementsByName('rating');
     let bhouse_id = document.getElementById('bhouse_id');
-    let comment = document.getElementById('comment');
+    let comment = document.getElementById('comment_here');
     var rate_value;
 
       for(var i = 0; i < rating.length; i++){
@@ -161,13 +169,12 @@
 
 
     var fields = {
-      comment: comment.value,
+      comment: comment_here.value,
       bhouse_id: bhouse_id.value,
       rate_value: rate_value,
 
     };
-
-
+   
     axios.post('/add-comment', fields).then(res=>{ 
       if(res.status === 200){
       alert('Comment Successfully!');
@@ -176,5 +183,7 @@
     });
 
   }
+
+ 
 </script>
 @endsection
