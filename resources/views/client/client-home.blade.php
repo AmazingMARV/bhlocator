@@ -54,7 +54,7 @@
         <div class="ms-auto p-2">
           <form action="" class="input group">
             <div class="input-group rounded">
-              <input type="text" class="form-control rounded" name="query" placeholder="Search" aria-label="Search"
+              <input type="text" class="form-control rounded" name="search" placeholder="Search" aria-label="Search"
               aria-describedby="search-addon" />
               <span class="input-group-text border-0" id="search-addon">
                 <i class="fa fa-search"></i>
@@ -65,6 +65,9 @@
       </div>
       <hr>
         <div class="client-bhouse-wrapper">
+            @if (count($bhouses) < 1)
+            No result found
+            @endif
             @foreach($bhouses as $bhouse)
             <div class="bhouse-card">
                 <div class="img-container">

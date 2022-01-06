@@ -42,6 +42,8 @@ Route::post('/register-owner', [App\Http\Controllers\RegisterOwnerController::cl
 Route::get('/client-home', [App\Http\Controllers\Client\ClientHomeController::class, 'index']);
 
 
+
+
 //Route::get('/session', function(){
 //    return Session::all();
 //});
@@ -63,6 +65,7 @@ Route::post('/client-change-password', [App\Http\Controllers\Client\ClientChange
 
 Route::get('/client-boarding-house-info/{id}', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'fetchBed']);
 Route::resource('/add-comment', App\Http\Controllers\Client\CommentController::class);
+Route::get('/client-boarding-house-info-comments', [App\Http\Controllers\Client\ClientBoardingHouseInfoController::class, 'fetchComment']);
 
 
 

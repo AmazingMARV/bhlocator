@@ -234,6 +234,17 @@
 
   }
 
+  // comment = document.getElementById('comment');
+
+  // axios.get('/client-boarding-house-info-comments?bid={{$id}}').then(res=>{ 
+  //    console.log(res.data.data.length);
+  //    for (var i = 0; i < res.data.data.length; i++){
+  //      comment.innerHTML += '<div>' + res.data.data[i].comment + '</div>';
+  //    }
+    
+  //   });
+
+ 
  
 </script>
 @endsection

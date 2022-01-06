@@ -29,12 +29,12 @@ class ClientBoardingHouseInfoController extends Controller
     public function fetchBed($id){
         
        
-        $total_review = DB::table('comments')->count();
-        $star_1 = DB::table('comments')->where('rating',1)->count();
-        $star_2 = DB::table('comments')->where('rating',2)->count();
-        $star_3 = DB::table('comments')->where('rating',3)->count();
-        $star_4 = DB::table('comments')->where('rating',4)->count();
-        $star_5 = DB::table('comments')->where('rating',5)->count();
+        $total_review = DB::table('comments')->where('bhouse_id',$id)->count();
+        $star_1 = DB::table('comments')->where('bhouse_id',$id)->where('rating',1)->count();
+        $star_2 = DB::table('comments')->where('bhouse_id',$id)->where('rating',2)->count();
+        $star_3 = DB::table('comments')->where('bhouse_id',$id)->where('rating',3)->count();
+        $star_4 = DB::table('comments')->where('bhouse_id',$id)->where('rating',4)->count();
+        $star_5 = DB::table('comments')->where('bhouse_id',$id)->where('rating',5)->count();
 
         // return $total_review;
       
@@ -73,5 +73,8 @@ class ClientBoardingHouseInfoController extends Controller
     }
     
 
-   
+   public function fetchComment(Request $req){
+        $comments = Comment::where('bhouse_id',$req->bid)->paginate(5);
+        return $comments;
+   }
 }
