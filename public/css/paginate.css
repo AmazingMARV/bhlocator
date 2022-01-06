@@ -1,0 +1,17 @@
+.paginate {
+    display: flex;
+  }
+  .paginate a {
+    background: #e2e2e2;
+    padding: 8px 15px;
+    margin: 2px;
+    text-decoration: none;
+  }
+  .paginate a.current {
+    background: #d5e6ff;
+  }
+  .paginate a:hover {
+    cursor: pointer;
+    background: #6194e0;
+    color: #fff;
+  }

@@ -22,7 +22,7 @@
           @foreach($beds as $bed)
             <div class="card mb-3" style="max-width: 850px;"> <!--card-->
               <div class="row no-gutters">
-                <div class="col-md-4">
+                <div class="col-md-4 debug">
                   <img src="/storage/beds/{{$bed->bed_img}}" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
@@ -81,7 +81,56 @@
         <div class="row">
           <div class="col">
             <h3 class="mb-3">Comment and Review</h3>
-            <p>Total Reviews:</p>
+            <p>Total Reviews: {{$total_review}}</p>
+            <h4>Star Rating:</h4>
+            <!--one star-->
+            <P>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              - {{$star_1}}
+            </P>
+            <!--two star-->
+            <P>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              - {{$star_2}}
+            </P>
+            <!--three star-->
+            <P>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              - {{$star_3}}
+            </P>
+            <!--four star-->
+            <P>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-gray" aria-hidden="true"></i>
+              - {{$star_4}}
+            </P>
+
+            <!--five star-->
+            <P>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              <i class="fa fa-star color-yellow" aria-hidden="true"></i>
+              - {{$star_5}}
+            </P>
+
+            
             <!-- Button trigger modal -->
               <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Leave a Comment
@@ -100,7 +149,7 @@
                           @endif
                          @endfor
                         <p class="card-text mt-3">{{ $comment->comment }}</p>
-                        <p class="card-text"><small class="text-muted">{{ $comment->created_at->tz('Asia/Manila') }}</small></p>
+                        <p class="card-text"><small class="text-muted">{{date('m-d-y h:i A' , strtotime($comment->created_at))}}</small></p>
                       </div>
                     </div>
                   </div>
@@ -155,6 +204,7 @@
 </div> <!-- container end div-->
 
 <script>
+  
   function submitComment(){
     let rating = document.getElementsByName('rating');
     let bhouse_id = document.getElementById('bhouse_id');

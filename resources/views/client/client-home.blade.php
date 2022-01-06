@@ -45,18 +45,25 @@
     </button>
   </div>
 
-   
+
     <div class="container">
-        <h2>Boarding Houses</h2>
-        <div class="input-group rounded">
-            <input type="search" class="form-control rounded" name="search" placeholder="Search" aria-label="Search"
-            aria-describedby="search-addon" />
-            <span class="input-group-text border-0" id="search-addon">
-                <i class="fas fa-search"></i>
-            </span>
+      <div class="d-flex debug">
+        <div class="p-2">
+          <h2>Boarding Houses</h2>
         </div>
-        <hr>
-        
+        <div class="ms-auto p-2">
+          <form action="" class="input group">
+            <div class="input-group rounded">
+              <input type="text" class="form-control rounded" name="query" placeholder="Search" aria-label="Search"
+              aria-describedby="search-addon" />
+              <span class="input-group-text border-0" id="search-addon">
+                <i class="fa fa-search"></i>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr>
         <div class="client-bhouse-wrapper">
             @foreach($bhouses as $bhouse)
             <div class="bhouse-card">

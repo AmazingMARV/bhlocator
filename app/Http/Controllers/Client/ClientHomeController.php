@@ -26,14 +26,18 @@ class ClientHomeController extends Controller
         
     }
     
-    public function search(Request $req){
-       
-        //$search = $request->input('search');
-        $key  = $req->search['value'];
-        
-        $bhouse = Bhouse::where('bhouse_name', 'LIKE', $key."%")
-            ->get();
-    }
+    public function search(Request $request){
+        // Get the search value from the request
+        $search = $request->input('search');
     
+        // Search in the title and body columns from the posts table
+        $bhouse = Bhouse::query()
+            ->where('bhouse_name', 'LIKE', "%{$search}%")
+            
+            ->get();
+    
+        // Return the search view with the resluts compacted
+        return view('search', compact('posts'));
+    }
     
 }
