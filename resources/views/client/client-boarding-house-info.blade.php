@@ -1,5 +1,6 @@
 @extends('layouts.client')
 @section('content')
+<link rel="stylesheet" href="{{ asset('/css/leaflet.css ') }}">
 <div class="bhouse-header mt-5">
   <h2>{{$bhouses->bhouse_name}}</h2>
 </div>
@@ -47,11 +48,7 @@
         <div class="row">
           <div class="col">
             <h3 class="mb-3">Location</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-            unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <div id="mapid"></div>
           </div>
         </div>
       </div> <!-- tab pane end div-->
@@ -203,8 +200,26 @@
   </div> <!-- col end div-->
 </div> <!-- container end div-->
 
+<script src="{{ asset('/js/leaflet.js') }}"></script>
+
+
 <script>
-  
+
+  //initiate map
+  var mymap = L.map('mapid').setView([{{ $bhouses->loc_x }},{{ $bhouses->loc_y }}], 17);
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZXRpZW5uZXdheW5lIiwiYSI6ImNrcno0N29seTE2bG0yd2szOXl5OXZ0ZWsifQ.xlNi77GcJmddd9UZTz1Hpw', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: ''
+  }).addTo(mymap);
+
+  var theMarker = {};
+  //this will show the Location
+  theMarker = L.marker([{{ $bhouses->loc_x }},{{ $bhouses->loc_y }}]).addTo(mymap);
+      
   function submitComment(){
     let rating = document.getElementsByName('rating');
     let bhouse_id = document.getElementById('bhouse_id');
