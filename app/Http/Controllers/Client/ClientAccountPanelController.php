@@ -35,7 +35,7 @@ class ClientAccountPanelController extends Controller
         $userid = Auth::user()->user_id;
         $user = User::find($userid);
 
-        $user->username = $req->username;
+        //$user->username = $req->username;
         $user->lname = strtoupper($req->lname);
         $user->fname = strtoupper($req->fname);
         $user->mname = strtoupper($req->mname);

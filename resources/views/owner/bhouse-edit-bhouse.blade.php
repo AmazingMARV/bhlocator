@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('/css/leaflet.css ') }}">
-{{-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" --}}
+
     <div class="container">
         <div class="row">
             <div class="col">
@@ -101,13 +101,26 @@
 
     </div> <!--container-->
 
-   
-    <script src="{{ asset('/js/leaflet.js') }}"></script>
+
+<script src="{{ asset('/js/leaflet.js') }}"></script>
     {{-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" /> --}}
     <script>
 
+
+        //init variable
+        var bhouse_name = document.getElementById('bhouse_name');
+        var bhouse_desc = document.getElementById('bhouse_desc');
+        var bhouse_img = document.getElementById('bhouse_img');
+        var bhouse_rule = document.getElementById('bhouse_rule');
+        var loc_description = document.getElementById('loc_description');
+        var loc_x = document.getElementById('loc_x');
+        var loc_y = document.getElementById('loc_y');
+        var button = document.getElementById('bhInfo');
+
+
         //initiate map
-        var mymap = L.map('mapid').setView([8.058167338353346,123.72084975242615], 17);
+        var mymap = L.map('mapid').setView([loc_x.value,loc_y.value], 17);
+
 
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZXRpZW5uZXdheW5lIiwiYSI6ImNrcno0N29seTE2bG0yd2szOXl5OXZ0ZWsifQ.xlNi77GcJmddd9UZTz1Hpw', {
@@ -119,19 +132,26 @@
             accessToken: ''
         }).addTo(mymap);
 
+
         var theMarker = {};
+
+        //this will show the Location
+        theMarker = L.marker([loc_x.value,loc_y.value]).addTo(mymap);
+
         mymap.on('click', function(e) {
             lat = e.latlng.lat;
             lon = e.latlng.lng;
-           
-        
+
+
             if(theMarker != undefined){
                 mymap.removeLayer(theMarker);
             }
 
             document.getElementById('loc_x').value = e.latlng.lat;
             document.getElementById('loc_y').value = e.latlng.lng;
-            theMarker = L.marker([lat,lon]).addTo(mymap);  
+
+
+            theMarker = L.marker([lat,lon]).addTo(mymap);
 
         });
 
@@ -150,21 +170,12 @@
             document.getElementById('error-loc_y').innerText = "";
         }
 
-        var bhouse_name = document.getElementById('bhouse_name');
-        var bhouse_desc = document.getElementById('bhouse_desc');
-        var bhouse_img = document.getElementById('bhouse_img');
-        var bhouse_rule = document.getElementById('bhouse_rule');
-        var loc_description = document.getElementById('loc_description');
-        var loc_x = document.getElementById('loc_x');
-        var loc_y = document.getElementById('loc_y');
-        var button = document.getElementById('bhInfo');
 
-        
-        
+
         button.addEventListener('click', function(){
 
             clearDataForms();
-            
+
             var formData = new FormData();
 
             formData.append('bhouse_name', bhouse_name.value);
@@ -175,9 +186,9 @@
             formData.append('loc_x', loc_x.value);
             formData.append('loc_y', loc_y.value);
 
-        
+
             axios.post('/dashboard-bhouse-update/{{$bhouse->bhouse_id}}', formData).then(res=>{
-                
+
                 if(res.data.status === 'updated'){
                     alert('Successfully saved.');
                     window.location = "/dashboard"

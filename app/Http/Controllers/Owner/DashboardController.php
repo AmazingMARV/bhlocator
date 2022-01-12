@@ -28,7 +28,7 @@ class DashboardController extends Controller
         $bhouses = Bhouse::where('user_id', $user->user_id)->get();
         return view('owner.dashboard')
             ->with('bhouses', $bhouses);
-            
+
     }
 
 
@@ -82,25 +82,21 @@ class DashboardController extends Controller
         $bhouses = Bhouse::find($id);
         return view ('owner.bhouse-edit-bhouse')
         ->with('bhouse',$bhouses);
-      
+
     }
 
     public function update(Request $req, $bhouse_id){
 
         //return $req;
-        
+
         $bhouseImg = $req->file('bhouse_img');
         $n = null;
-        if($bhouseImg){
-            $pathFile = $bhouseImg->store('public/bhouses'); //get path of the file
-            $n = explode('/', $pathFile); //split into array using /
-        }
-       
-
-
+//        if($bhouseImg){
+//            $pathFile = $bhouseImg->store('public/bhouses'); //get path of the file
+//            $n = explode('/', $pathFile); //split into array using /
+//        }
 
         $bhouse = Bhouse::find($bhouse_id);
-
 
         $bhouse->bhouse_name =$req->bhouse_name;
         $bhouse->bhouse_desc = $req->bhouse_desc;
@@ -109,7 +105,7 @@ class DashboardController extends Controller
         $bhouse->loc_x = $req->loc_x;
         $bhouse->loc_y = $req->loc_y;
 
-        $bhouse->bhouse_img = $n[2] != null ? $n[2]: '';
+        //$bhouse->bhouse_img = $n[2] != null ? $n[2]: '';
 
         $bhouse->save();
 
@@ -126,5 +122,5 @@ class DashboardController extends Controller
         ], 200);
 
     }
-    
+
 }

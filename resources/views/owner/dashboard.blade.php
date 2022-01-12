@@ -14,7 +14,6 @@
                     <h5 class="card-title">{{ $bhouse->bhouse_name }}</h5>
                     <p class="card-text">{{ $bhouse->bhouse_desc }}</p>
                     <a href="/bhouse-view-bed/{{ $bhouse->bhouse_id}}" class="btn btn-primary">VIEW BED</a>
-                    
                 </div>
                 <div class="card-footer">
                     <a class="btn btn-warning" href="/dashboard/{{ $bhouse->bhouse_id }}/edit">EDIT</a>
@@ -35,8 +34,8 @@
                 </div>
                 <div class="modal-body">
                     <p>Do you want to delete this data?</p>
-                    
-                    
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" id="btnYes">Yes</button>
@@ -53,28 +52,28 @@
     var globalID = 0;
 
         document.getElementById('btnYes').addEventListener('click',function(){
-            
-            
-            
-    
+
+
+
+
            axios.delete('/dashboard/'+ globalID ).then(res=>{
                 if(res.status === 200){
                     alert('Data successfully Deleted.');
                    window.location = '/dashboard'
                 }
             });
-             
-                    
-                    
+
+
+
          });
 
          function confirmDelete(id){
             globalID = id;
             $('#modalDelete').modal('toggle');
-            
+
          }
 
-        
+
 
     $('#closeModal1').click(function (){
         $('#modalDelete').modal('toggle');

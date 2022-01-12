@@ -94,7 +94,7 @@ body{
       height: 50px;
   }
 
- 
+
 
   .car-container{
       padding: 50px;
@@ -127,7 +127,7 @@ body{
     top: 0;
     bottom: 0;
     /* overflow-y: scroll; */
-   
+
 }
 
 .row-margin{
@@ -174,8 +174,6 @@ body{
 .bhouse-wrapper{
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
-    
 }
 
 .bhouse-wrapper  .card{
@@ -187,17 +185,17 @@ body{
     margin-left: 20px;
 }
 
-#mapid { 
+#mapid {
     /* map css */
-    height: 600px; 
+    height: 600px;
 }
 
 .client-bhouse-wrapper{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-   
-   
+
+
 }
 .bhouse-card{
     position: relative;
@@ -221,12 +219,12 @@ body{
     flex-direction: column;
     align-items: center;
     padding: 10px;
-   
+
 }
 
 .p-font{
     font-weight: bold;
-    
+
 }
 
 .p-bhousedesc{
@@ -242,7 +240,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
-   
+
 }
 
 .bhouse-header{
@@ -289,5 +287,5 @@ body{
     color:#f4f807
 }
 @media only screen and (max-width: 600px) {
-   
+
 }
