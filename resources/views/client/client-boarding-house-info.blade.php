@@ -9,7 +9,6 @@
   <div class="col-md-7">
     <ul class="nav nav-tabs mb-3">
       <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#bed">Bed</a></li>
-      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#loc">Location</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#desc">Description</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#house_rule">House Rule</a></li>
       <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#comment-pane">Comments and Review</a></li>
@@ -40,6 +39,10 @@
           <div class="myPagination mt-4">
               {{$beds->links()}}
           </div>
+
+          
+          <p>Location</p>
+          <div id="mapid"></div>
         </div>
       </div> <!-- tab pane end div-->
      

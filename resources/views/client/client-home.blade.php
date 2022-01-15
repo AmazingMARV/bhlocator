@@ -47,7 +47,7 @@
 
 
     <div class="container">
-      <div class="d-flex debug">
+      <div class="d-flex">
         <div class="p-2">
           <h2>Boarding Houses</h2>
         </div>

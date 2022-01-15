@@ -1,7 +1,6 @@
 @extends('layouts.client')
 @section('content')
 
-
 <div class="container mt-5">
     <div class="row">
         <div class="col mb-3">
@@ -12,8 +11,8 @@
 
         <form onsubmit="event.preventDefault(); submitForm();">
             <h6 class="text-center">Personal Information</h6>
-            <hr style="width:50%; margin-left:25%; margin-right:25%;" />
-
+            <hr/>
+        
             <div class="row">
                 <div class="col-lg-4 mb-3">
                     <div class="form-floating">
@@ -86,6 +85,7 @@
                 <div class="col-lg mb-3">
                     <div class="form-floating">
                         <select class="form-select" onchange="loadCity(this.value)" id="province">
+
                         </select>
                         <label for="province">Province</label>
                     </div>
@@ -94,6 +94,7 @@
                 <div class="col-lg  mb-3">
                     <div class="form-floating">
                         <select class="form-select" onchange="loadBarangay(this.value)" id="city">
+
                         </select>
                         <label for="city">City</label>
                     </div>
@@ -106,7 +107,7 @@
                 <div class="col-lg mb-3">
                     <div class="form-floating">
                         <select class="form-select" id="barangay">
-
+                        
                         </select>
                         <label for="barangay">Barangay</label>
                     </div>
@@ -192,7 +193,7 @@
 
         function submitForm(){
 
-            //let username = document.getElementById('username');
+           
             let email = document.getElementById('email');
             let lname = document.getElementById('lname');
             let fname = document.getElementById('fname');
@@ -206,7 +207,7 @@
 
 
             var fields = {
-                //username: username.value,
+               
                 email: email.value,
                 lname: lname.value,
                 fname: fname.value,

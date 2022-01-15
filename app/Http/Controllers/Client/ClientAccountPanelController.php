@@ -20,11 +20,12 @@ class ClientAccountPanelController extends Controller
     public function index(){
         $id = Auth::user()->user_id;
         $user = DB::table('users as a')
-            ->join('provinces as b', 'a.province', 'b.provCode')
-            ->join('cities as c', 'a.city', 'c.citymunCode')
-            ->join('barangays as d', 'a.barangay', 'd.brgyCode')
+            ->leftJoin('provinces as b', 'a.province', 'b.provCode')
+            ->leftJoin('cities as c', 'a.city', 'c.citymunCode')
+            ->leftJoin('barangays as d', 'a.barangay', 'd.brgyCode')
             ->where('user_id', $id)
             ->first();
+        
 
         return view('client.client-account-panel')
             ->with('user', $user);
@@ -35,7 +36,7 @@ class ClientAccountPanelController extends Controller
         $userid = Auth::user()->user_id;
         $user = User::find($userid);
 
-        //$user->username = $req->username;
+        
         $user->lname = strtoupper($req->lname);
         $user->fname = strtoupper($req->fname);
         $user->mname = strtoupper($req->mname);
