@@ -7,32 +7,34 @@
 
 <div class="container">
     <div class="row">
-        <table id="users" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th>User ID</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Action</th>
-                  
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th>User ID</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Action</th>
-                   
-                </tr>
-            </tfoot>
-        </table>
+            <table id="users" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                      
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>User ID</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                       
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
     </div>
 </div>
     

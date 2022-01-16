@@ -11,18 +11,6 @@
                     <h2 class="text-center">My Personal Information</h2>
                     <hr>
                     <div class="row">
-                        <div class="col mb-3">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}" placeholder="Username">
-                                <label for="floatingInput">Username</label>
-                            </div>
-                            <span id="error-username" class="error-msg"></span>
-                        </div>
-        
-                        
-                    </div>
-        
-                    <div class="row">
                         <div class="col-lg-6 mb-3">
                             <div class="form-floating">
                                 <input type="text" class="form-control" name="fname" id="fname" value="{{ $user->fname }}"  placeholder="First Name" />
@@ -100,7 +88,7 @@
                     <div class="row">
                               <div class="mb-3">
                                     <label for="business_permit_img" class="form-label">Upload photo of your Business Permit</label>
-                                    <input class="form-control" type="file" id="business_permit_img" name="business_permit_img">
+                                    <input class="form-control" type="file" id="business_permit_img" name="business_permit_img"  value="{{ $user->business_permit_img }}">
                                     <span class="error-msg" id="error-business_permit_img"></span>
         
                                 </div>
@@ -151,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" onclick="submitForm()" class="btn btn-primary">Save</button>
+                    <button type="button" onclick="submitForm()" class="btn btn-primary"> Save </button>
                 </form>
             </div>
 
@@ -161,6 +149,8 @@
 <script>
 
 let defaultProvCode = '{{ $user->province }}';
+let defaultCityCode = '{{ $user->city }}';
+let defaultBarangayCode = '{{ $user->barangay }}';
 
 
 loadProvince();
@@ -188,7 +178,13 @@ function loadCity(provcode){
         let city = document.getElementById("city");
         let str = '';
         for (let item of cities) {
-            str += "<option value="+item.citymunCode+">" + item.citymunDesc + "</option>"
+            if(defaultCityCode == item.citymunCode ){
+                        str += "<option selected value="+item.citymunCode+">" + item.citymunDesc + "</option>"
+
+                    }else{
+                        str += "<option value="+item.citymunCode+">" + item.citymunDesc + "</option>"
+
+                    }
         }
         city.innerHTML = str;
         city.value = {{ $user->city }};
@@ -205,47 +201,57 @@ function loadBarangay(citycode){
             let barangay = document.getElementById("barangay");
             let str = '';
             for (let item of barangays) {
-                str += "<option value="+item.brgyCode+">" + item.brgyDesc + "</option>"
+                if( defaultBarangayCode == item.brgyCode){
+                            str += "<option selected value="+item.brgyCode+">" + item.brgyDesc + "</option>"
+
+                        }else{
+                            str += "<option value="+item.brgyCode+">" + item.brgyDesc + "</option>"
+
+                        }
             }
             barangay.innerHTML = str;
         })
     }
 }
 
+    var email = document.getElementById('email');
+    var lname = document.getElementById('lname');
+    var fname = document.getElementById('fname');
+    var mname = document.getElementById('mname');
+    var sex = document.getElementById('sex');
+    var business_permit_img = document.getElementById('business_permit_img');
+    var contact_no = document.getElementById('contact_no');
+    var province = document.getElementById('province');
+    var city = document.getElementById('city');
+    var barangay = document.getElementById('barangay');
+    var street = document.getElementById('street');
+
+
 function submitForm(){
-    let username = document.getElementById('username');
-    let email = document.getElementById('email');
-    let lname = document.getElementById('lname');
-    let fname = document.getElementById('fname');
-    let mname = document.getElementById('mname');
-    let sex = document.getElementById('sex');
-    let business_permit = document.getElementById('business_permit');
-    let contact_no = document.getElementById('contact_no');
-    let province = document.getElementById('province');
-    let city = document.getElementById('city');
-    let barangay = document.getElementById('barangay');
-    let street = document.getElementById('street');
+    
+    console.log(business_permit_img.files[0]);
+   
+    
+    var frmData = new FormData();   
 
+            frmData.append('email', email.value);
+            frmData.append('lname', lname.value);
+            frmData.append('fname', fname.value);
+            frmData.append('mname', mname.value);
+            frmData.append('sex', sex.value);
+            frmData.append('contact_no', contact_no.value);
+            frmData.append('province', province.value);
+            frmData.append('city', city.value);
+            frmData.append('barangay', barangay.value);
+            frmData.append('street', street.value);
+            frmData.append('business_permit_img', business_permit_img.files[0]);
+            
+    
 
-    var fields = {
-        username: username.value,
-        email: email.value,
-        lname: lname.value,
-        fname: fname.value,
-        mname: mname.value,
-        business_permit: business_permit.value,
-        sex: sex.value,
-        contact_no: contact_no.value,
-        province: province.value,
-        city: city.value,
-        barangay: barangay.value,
-        street: street.value,
-    };
-
-    axios.post('/owner-profile', fields).then(res=>{
+    axios.post('/owner-profile', frmData).then(res=>{
         if(res.status === 201){
             alert('Data successfully updated.');
-            window.location = '/owner-profile';
+          //  window.location = '/owner-profile';
         }
     });
 }

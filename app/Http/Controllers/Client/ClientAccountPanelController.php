@@ -33,6 +33,8 @@ class ClientAccountPanelController extends Controller
 
 
     public function update(Request $req){
+       // return $req->city;
+
         $userid = Auth::user()->user_id;
         $user = User::find($userid);
 
@@ -41,13 +43,14 @@ class ClientAccountPanelController extends Controller
         $user->fname = strtoupper($req->fname);
         $user->mname = strtoupper($req->mname);
         $user->sex = strtoupper($req->sex);
-        $user->contact_no = strtoupper($req->contact_no);
-        $user->province = strtoupper($req->province);
-        $user->city = strtoupper($req->city);
-        $user->barangay = strtoupper($req->barangay);
+        $user->contact_no = $req->contact_no;
+        $user->province = $req->province;
+        $user->city = $req->city;
+        $user->barangay = $req->barangay;
         $user->street = strtoupper($req->street);
         $user->save();
 
+        
         return response()->json([
             'status' => 'updated'
         ], 201);

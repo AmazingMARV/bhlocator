@@ -8,7 +8,6 @@
             <hr>
         </div>
 
-
         <form onsubmit="event.preventDefault(); submitForm();">
             <h6 class="text-center">Personal Information</h6>
             <hr/>
@@ -141,6 +140,10 @@
     <script>
 
         let defaultProvCode = '{{ $user->province }}';
+        let defaultCityCode = '{{ $user->city }}';
+        let defaultBarangayCode = '{{ $user->barangay }}';
+
+
         loadProvince();
 
 
@@ -166,11 +169,16 @@
                 let city = document.getElementById("city");
                 let str = '';
                 for (let item of cities) {
-                    str += "<option value="+item.citymunCode+">" + item.citymunDesc + "</option>"
-                }
-                city.innerHTML = str;
-                city.value = {{ $user->city }};
+                    if(defaultCityCode == item.citymunCode ){
+                        str += "<option selected value="+item.citymunCode+">" + item.citymunDesc + "</option>"
 
+                    }else{
+                        str += "<option value="+item.citymunCode+">" + item.citymunDesc + "</option>"
+
+                    }
+                }
+               
+                city.innerHTML = str;
                 loadBarangay(city.value);
             })
         }
@@ -184,7 +192,13 @@
                     let barangay = document.getElementById("barangay");
                     let str = '';
                     for (let item of barangays) {
-                        str += "<option value="+item.brgyCode+">" + item.brgyDesc + "</option>"
+                        if( defaultBarangayCode == item.brgyCode){
+                            str += "<option selected value="+item.brgyCode+">" + item.brgyDesc + "</option>"
+
+                        }else{
+                            str += "<option value="+item.brgyCode+">" + item.brgyDesc + "</option>"
+
+                        }
                     }
                     barangay.innerHTML = str;
                 })
@@ -219,8 +233,7 @@
                 barangay: barangay.value,
                 street: street.value,
             };
-            //
-            // console.log(fields);
+           
 
             axios.post('/client-account-panel', fields).then(res=>{
                 if(res.status === 201){

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Boading House Locator') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <script src="{{ asset('/js/jquery-3.5.1.js') }}"></script>
     <script src="{{ asset('/js/axios.min.js') }}"></script>
@@ -39,7 +39,8 @@
         }
 
         .w-sidebar{
-            position: absolute;
+            position: fixed;
+            height: 100%;
         }
 
         .w-content{
@@ -70,18 +71,13 @@
                     OWNER ACCOUNTS
                 </a>
             </li>
-            <li>
-                <a href="/dashboard-bhouse" class="nav-link text-white">
-                    <span class="mdi mdi-monitor-dashboard"></span>
-                    BOARDING HOUSES
-                </a>
-            </li>
+            
 
         </ul>
         <hr>
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+              
                 <strong>{{strtoupper(Auth::user()->fname)}}</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">

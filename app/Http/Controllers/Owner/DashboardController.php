@@ -91,10 +91,10 @@ class DashboardController extends Controller
 
         $bhouseImg = $req->file('bhouse_img');
         $n = null;
-//        if($bhouseImg){
-//            $pathFile = $bhouseImg->store('public/bhouses'); //get path of the file
-//            $n = explode('/', $pathFile); //split into array using /
-//        }
+       if($bhouseImg){
+           $pathFile = $bhouseImg->store('public/bhouses'); //get path of the file
+           $n = explode('/', $pathFile); //split into array using /
+       }
 
         $bhouse = Bhouse::find($bhouse_id);
 
@@ -105,7 +105,7 @@ class DashboardController extends Controller
         $bhouse->loc_x = $req->loc_x;
         $bhouse->loc_y = $req->loc_y;
 
-        //$bhouse->bhouse_img = $n[2] != null ? $n[2]: '';
+        $bhouse->bhouse_img = $n[2] != null ? $n[2]: '';
 
         $bhouse->save();
 
