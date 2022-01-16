@@ -60,13 +60,13 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="/admin-dashboard" class="nav-link text-white" aria-current="page">
+                <a href="/admin-dashboard" class="nav-link {{ (request()->is('admin-dashboard*')) ? 'active' : 'text-white' }}" aria-current="page">
                     <span class="mdi mdi-home"></span>
                     CLIENT ACCOUNTS
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/admin-approve" class="nav-link active" aria-current="page">
+                <a href="/admin-approve" class="nav-link {{ (request()->is('admin-approve*')) ? 'active' : 'text-white' }}" aria-current="page">
                     <span class="mdi mdi-home"></span>
                     OWNER ACCOUNTS
                 </a>
