@@ -64,10 +64,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link {{ (request()->is('')) ? 'active' : 'text-white' }}">
-                    <span class="mdi mdi-office-building-marker-outline"></span>
-                    Location
-                </a>
+              
             </li>
         </ul>
         <hr>

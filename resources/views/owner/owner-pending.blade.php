@@ -1,4 +1,4 @@
 @extends('layouts.owner')
 @section('content')
-    YOUR ACCOUNT IS UNDER REVIEW
+    <h2 class="text-center">YOUR ACCOUNT IS UNDER REVIEW</h2
 @endsection
