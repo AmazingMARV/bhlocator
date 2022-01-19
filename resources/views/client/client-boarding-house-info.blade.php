@@ -22,7 +22,7 @@
           @foreach($beds as $bed)
             <div class="card mb-3" style="max-width: 850px;"> <!--card-->
               <div class="row no-gutters">
-                <div class="col-md-4 debug">
+                <div class="col-md-4">
                   <img src="/storage/beds/{{$bed->bed_img}}" class="card-img" alt="...">
                 </div>
                 <div class="col-md-8">
