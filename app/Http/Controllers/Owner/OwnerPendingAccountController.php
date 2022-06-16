@@ -15,4 +15,8 @@ class OwnerPendingAccountController extends Controller
         return view('owner.owner-pending');
         
     }
+
+    public function disapprove(){
+        return view('owner.owner-disapprove');
+    }
 }

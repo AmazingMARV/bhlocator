@@ -124,6 +124,7 @@ Route::get('/visitor-browse-bh', [App\Http\Controllers\Visitor\VisitorDashboardC
 
 //pending accounts
 Route::get('/owner-pending', [App\Http\Controllers\Owner\OwnerPendingAccountController::class, 'index']);
+Route::get('/owner-disapprove', [App\Http\Controllers\Owner\OwnerPendingAccountController::class, 'disapprove']);
 
 Route::get('/test', function(){
    echo date_default_timezone_get(); 

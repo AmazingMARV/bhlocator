@@ -26,14 +26,14 @@ class ApproveAccount
         }
 
 
-        $isApprove = User::where("is_approve", 1)
-            ->where("is_pending", 0)
-            ->where("user_id", $user->user_id)
-            ->exists();
+        $nUser = User::where("user_id", $user->user_id)
+            ->first();
 
            
-            if ($isApprove){
+            if ($nUser->is_approve == 1){
                 return $next($request);
+            }else if($nUser->is_approve == 2){
+                return redirect('/owner-disapprove');
             }else{
                 return redirect('/owner-pending');
             }

@@ -1,15 +1,15 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #efefef;
 }
 
-.page-wrapper{
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('images/bg.jpg');
+.page-wrapper {
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('images/bg.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -18,132 +18,125 @@ body{
     height: 100vh;
 }
 
-.login-panel{
+.login-panel {
     width: 500px;
     border: 1px solid gray;
     padding: 25px;
     background-color: white;
     border-radius: 10px;
-
 }
 
-.login-container{
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.effect1{
+.effect1 {
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -6px #777;
 }
 
-
-.register-container{
+.register-container {
     margin: 50px;
 }
 
+.hr {
+    margin-bottom: 5px;
+}
 
+.text-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-  .hr{
-      margin-bottom: 5px;
-  }
+.text-container p {
+    margin-bottom: 20px;
+}
 
+.btn-margin {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
 
-
-  .text-container{
-
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-  }
-
-  .text-container p{
-      margin-bottom: 20px;
-  }
-
-  .btn-margin{
-      margin: 10px;
-      padding: 10px;
-      border-radius: 10px;
-  }
-
-  .bh-container{
+.bh-container {
     margin-top: 50px;
     display: flex;
     justify-content: center;
-  }
-
-  .newarrival{
-      background:green;
-      width: 50px;
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-  }
-
-  .col-md-7 h2{
-      color: #555;
-  }
-
-  .stars{
-      height: 50px;
-  }
-
-
-
-  .car-container{
-      padding: 50px;
-
-  }
-
-  .product-top img{
-    width: 100%
-  }
-
-  .board-container{
-       width: 100%;
-       margin-top: 10%;
-
-  }
-
-  .myboarding{
-      margin-top: 30px;
-  }
-
-.debug{
-    border: 1px solid red;
-
 }
 
-.w-sidebar{
+.newarrival {
+    background: green;
+    width: 50px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.col-md-7 h2 {
+    color: #555;
+}
+
+.stars {
+    height: 50px;
+}
+
+.car-container {
+    padding: 50px;
+}
+
+.product-top img {
+    width: 100%
+}
+
+.board-container {
+    width: 100%;
+    margin-top: 10%;
+}
+
+.myboarding {
+    margin-top: 30px;
+}
+
+.debug {
+    border: 1px solid red;
+}
+
+.w-sidebar {
     width: 280px;
     height: 100%;
     position: fixed;
     top: 0;
     bottom: 0;
     /* overflow-y: scroll; */
-
 }
 
-.row-margin{
+.w-center-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-margin {
     margin-top: 30px;
 }
 
-.top-boarding-houses{
+.top-boarding-houses {
     margin-top: 10px;
     text-align: center;
     padding: 40px;
-
 }
+
 
 /*error handler style*/
 
-.error-msg{
+.error-msg {
     font-size: 14px;
     color: red;
     font-style: italic;
@@ -152,17 +145,23 @@ body{
 .carousel {
     margin-bottom: 4rem;
 }
+
+
 /* Since positioning the image, we need to help out the caption */
+
 .carousel-caption {
     bottom: 3rem;
     z-index: 10;
 }
 
+
 /* Declare heights because of positioning of img element */
+
 .carousel-item {
     height: 32rem;
 }
-.carousel-item > img {
+
+.carousel-item>img {
     position: absolute;
     top: 0;
     left: 0;
@@ -170,18 +169,19 @@ body{
     height: 32rem;
 }
 
-
-.bhouse-wrapper{
+.bhouse-wrapper {
     display: flex;
     flex-flow: row wrap;
 }
 
-.bhouse-wrapper  .card{
+.bhouse-wrapper .card {
     margin: 20px;
 }
 
+
 /* dashboard button */
-.btn-create-dashboard{
+
+.btn-create-dashboard {
     margin-left: 20px;
 }
 
@@ -190,14 +190,13 @@ body{
     height: 600px;
 }
 
-.client-bhouse-wrapper{
+.client-bhouse-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-
 }
-.bhouse-card{
+
+.bhouse-card {
     position: relative;
     padding: 0;
     margin: 15px;
@@ -205,54 +204,54 @@ body{
     border-radius: 5px;
     border: 1px solid white;
     -webkit-box-shadow: 0 10px 6px -6px #777;
-       -moz-box-shadow: 0 10px 6px -6px #777;
-            box-shadow: 0 10px 6px -6px #777;
-
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
 }
 
-.img-container > img{
-   object-fit: cover;
-   width: 250px;
+.img-container>img {
+    object-fit: cover;
+    width: 250px;
 }
-.bhouse-footer{
+
+.bhouse-footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
-
 }
 
-.p-font{
+.p-font {
     font-weight: bold;
-
 }
 
-.p-bhousedesc{
+.p-bhousedesc {
     margin-bottom: 50px;
     width: 100%;
     text-align: center;
     text-align: justify;
 }
 
-.button-container{
+.button-container {
     position: absolute;
     bottom: 5px;
     width: 100%;
     display: flex;
     justify-content: center;
-
 }
 
-.bhouse-header{
+.bhouse-header {
     text-align: center;
 }
-.myPagination{
+
+.myPagination {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+
 /* rating */
+
 .rating-css div {
     color: #f4f807;
     font-size: 30px;
@@ -261,31 +260,36 @@ body{
     text-align: center;
     text-transform: uppercase;
     padding: 20px 0;
-  }
-  .rating-css input {
+}
+
+.rating-css input {
     display: none;
-  }
-  .rating-css input + label {
+}
+
+.rating-css input+label {
     font-size: 60px;
     text-shadow: 1px 1px 0 #f3f3f3;
     cursor: pointer;
-  }
-  .rating-css input:checked + label ~ label {
+}
+
+.rating-css input:checked+label~label {
     color: #e6e6e6;
-  }
-  .rating-css label:active {
+}
+
+.rating-css label:active {
     transform: scale(0.8);
     transition: 0.3s ease;
-  }
+}
+
 
 /* End of Star Rating */
-.color-gray{
-    color:#e6e6e6
+
+.color-gray {
+    color: #e6e6e6
 }
 
-.color-yellow{
-    color:#f4f807
+.color-yellow {
+    color: #f4f807
 }
-@media only screen and (max-width: 600px) {
 
-}
+@media only screen and (max-width: 600px) {}
