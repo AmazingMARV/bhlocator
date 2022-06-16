@@ -23,6 +23,15 @@ class AdminApproveController extends Controller
         return $data;
     }
 
+
+    //return all owners disapprove
+    public function getOwnersDisapprove(Request $req){
+        $data = User::where('is_approve', '2')
+        ->where('role', 'OWNER')
+        ->get();
+        return $data;
+    }
+
     public function getImg($id){
         $data =User::find($id);
         return $data;
@@ -31,8 +40,7 @@ class AdminApproveController extends Controller
 
     public function approveAccountOwner($id){
         $data = User::find($id);
-        $data->is_approve = '1';
-        $data->is_pending = '0';
+        $data->is_approve = 1;
         $data->save();
         return response()->json([
             'status'=> 'updated'
@@ -41,7 +49,6 @@ class AdminApproveController extends Controller
 
     public function disapproveAccountOwner($id){
         $data = User::find($id);
-        $data->is_pending = 1;
         $data->is_approve = 2;
         $data->save();
         return response()->json([

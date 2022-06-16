@@ -109,6 +109,11 @@ Route::resource('/admin-approve', App\Http\Controllers\Admin\AdminApproveControl
 Route::put('/approve-account-owner/{id}', [App\Http\Controllers\Admin\AdminApproveController::class, 'approveAccountOwner']);
 Route::put('/disapprove-account-owner/{id}', [App\Http\Controllers\Admin\AdminApproveController::class, 'disapproveAccountOwner']);
 
+//get all owner disapprove
+Route::get('/get-owners-disapprove', [App\Http\Controllers\Owner\AdminApproveController::class, 'getOwnersDisapprove']);
+
+
+
 Route::get('/ajax-admin-approve', [App\Http\Controllers\Admin\AdminApproveController::class, 'getUsers']);
 Route::get('/sample-user', [App\Http\Controllers\Admin\AdminDashboardController::class, 'getUsers']);
 Route::get('/get-business-img/{id}', [App\Http\Controllers\Admin\AdminApproveController::class, 'getImg']);
@@ -125,6 +130,8 @@ Route::get('/visitor-browse-bh', [App\Http\Controllers\Visitor\VisitorDashboardC
 //pending accounts
 Route::get('/owner-pending', [App\Http\Controllers\Owner\OwnerPendingAccountController::class, 'index']);
 Route::get('/owner-disapprove', [App\Http\Controllers\Owner\OwnerPendingAccountController::class, 'disapprove']);
+
+
 
 Route::get('/test', function(){
    echo date_default_timezone_get(); 
