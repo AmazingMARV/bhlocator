@@ -101,13 +101,10 @@ class BoardinghouseViewBedController extends Controller
 
 
         $bedrooms = Bedroom::find($bedroom);
-
-
         $bedrooms->bedroom_name =$req->bedroom_name;
         $bedrooms->price = $req->price;
         $bedrooms->is_available = $req->is_available;
         $bedrooms->bed_amenities = $req->bed_amenities;
-
         $bedrooms->bed_img = $n[2] != null ? $n[2]: '';
 
         $bedrooms->save();

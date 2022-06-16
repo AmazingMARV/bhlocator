@@ -71,6 +71,12 @@
                     OWNER ACCOUNTS
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="/dashboard" class="nav-link {{ (request()->is('dashboard*')) ? 'active' : 'text-white' }}" aria-current="page">
+                    <span class="mdi mdi-home"></span>
+                    BHOUSE MANAGEMENT
+                </a>
+            </li>
             
 
         </ul>

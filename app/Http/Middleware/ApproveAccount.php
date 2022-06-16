@@ -19,11 +19,16 @@ class ApproveAccount
     public function handle(Request $request, Closure $next)
     {
         
-        $id = Auth::user()->user_id;
+        $user = Auth::user();;
+        
+        if(strtolower($user->role) === 'administrator'){
+            return $next($request);
+        }
+
 
         $isApprove = User::where("is_approve", 1)
             ->where("is_pending", 0)
-            ->where("user_id", $id)
+            ->where("user_id", $user->user_id)
             ->exists();
 
            
